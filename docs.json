@@ -1,68 +1,82 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "maple",
+  "name": "Starry Codes",
+  "description": "Starry Codes is your go-to hub for Flutter development, featuring innovative Flutter Extend packages, practical coding tutorials, and productivity-boosting extensions. Explore comprehensive guides, clean code examples, and developer tools designed to accelerate your Flutter projects and master mobile app development.",
   "colors": {
-    "primary": "#00b4d8",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#1F9ABC",
+    "light": "#1F9ABC",
+    "dark": "#1F9ABC"
   },
   "favicon": "/favicon.svg",
+  "thumbnails": {
+    "appearance": "dark",
+    "background": "https://github.com/user-attachments/assets/b3a4d7ae-e1b6-4f3d-b485-857567a2cc2b"
+
+  },
+  "styling": {
+    "codeblocks": {
+      "theme": "one-dark-pro"
+    }
+  },
+  "icons": {
+    "library": "fontawesome"
+  },
+  "background": {
+    "decoration": "windows",
+    "color": {
+      "light": "#FCFCFC",
+      "dark": "#1C1F22"
+    }
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Home",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "About Me",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "flutter_extend_docs/introduction"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Projects",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "projects/introduction"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Articles & Blogs",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "projects/introduction"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Flutter_Extend",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Getting Started",
             "pages": [
-              "api-reference/introduction"
+              "flutter_extend_docs/introduction",
+              "flutter_extend_docs/installation"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "API Reference",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "flutter_extend_docs/api/context-extensions",
+              "flutter_extend_docs/api/widget-extensions",
+              "flutter_extend_docs/api/string-extensions"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "flutter_extend_docs/guides/using-animations",
+              "flutter_extend_docs/guides/mocking-data"
             ]
           }
         ]
@@ -71,14 +85,19 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "GitHub",
+          "href": "https://mintlify.com/blog",
+          "icon": "github"
         },
         {
-          "anchor": "Blog",
+          "anchor": "LinkedIn",
           "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "icon": "linkedin"
+        },
+        {
+          "anchor": "X",
+          "href": "https://mintlify.com/blog",
+          "icon": "x"
         }
       ]
     }
@@ -90,14 +109,14 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Contact",
+        "href": "https://linkedin.com/in/kenneth-michuki-133a04217"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Connect",
+      "href": "https://linkedin.com/in/kenneth-michuki-133a04217"
     }
   },
   "contextual": {
@@ -115,8 +134,8 @@
   "footer": {
     "socials": {
       "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/KenStarry",
+      "linkedin": "https://linkedin.com/in/kenneth-michuki-133a04217"
     }
   }
 }
