@@ -29,33 +29,36 @@
       "dark": "#1C1F22"
     }
   },
+
   "navigation": {
     "tabs": [
       {
         "tab": "Home",
+        "icon": "home",
         "groups": [
           {
-            "group": "About Me",
+            "group": "Home",
             "pages": [
-              "flutter_extend_docs/introduction"
+              "home/home"
             ]
           },
           {
             "group": "Projects",
             "pages": [
-              "projects/introduction"
+              "home/projects/introduction"
             ]
           },
           {
             "group": "Articles & Blogs",
             "pages": [
-              "projects/introduction"
+              "home/blogs/introduction"
             ]
           }
         ]
       },
       {
         "tab": "Flutter_Extend",
+        "icon": "code",
         "groups": [
           {
             "group": "Getting Started",
@@ -67,9 +70,7 @@
           {
             "group": "API Reference",
             "pages": [
-              "flutter_extend_docs/api/context-extensions",
-              "flutter_extend_docs/api/widget-extensions",
-              "flutter_extend_docs/api/string-extensions"
+              "flutter_extend_docs/api/build_context_extensions"
             ]
           },
           {
