@@ -16,7 +16,10 @@
   },
   "styling": {
     "codeblocks": {
-      "theme": "one-dark-pro"
+      "theme": {
+        "light": "github-light",
+        "dark": "github-dark-dimmed"
+      }
     }
   },
   "icons": {
@@ -58,6 +61,18 @@
         ]
       },
       {
+        "tab": "Blogs",
+        "icon": "newspaper",
+        "groups": [
+          {
+            "group": "Articles & Blogs",
+            "pages": [
+              "home/blogs/introduction"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Flutter_Extend",
         "icon": "code",
         "groups": [
@@ -71,7 +86,9 @@
           {
             "group": "Animations",
             "pages": [
-              "flutter_extend_docs/api/animations/fade-animation-extensions"
+              "flutter_extend_docs/api/animations/fade",
+              "flutter_extend_docs/api/animations/pulse",
+              "flutter_extend_docs/api/animations/shake"
             ]
           },
           {

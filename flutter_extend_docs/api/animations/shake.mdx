@@ -1,0 +1,62 @@
+---
+title: "Widget - Shake Animation"
+sidebarTitle: "Animations"
+icon: "water"
+description: "Add continuous scaling and click-response bounce effects to your widgets effortlessly to draw user attention."
+keywords: ['context', 'BuildContext', 'Theme', 'Animations', 'Flutter Animations', 'Flutter']
+---
+
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Animations icon="water" lines wrap
+// Shake to signal invalid input
+TextFormField(initialValue: 'Wrong!').shake(duration: 300, repeat: false);
+```
+</Card>
+
+### 💥 Shake Effect
+{/*  FadeIn */}
+<ResponseField name="shake" type="Widget">
+
+<Expandable title="Parameters">
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the entire shake sequence (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="curve" type="Curve?" default="null">
+        The `curve` to use for the animation speed (uses the built-in shake `curve`).
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
+
+Applies a horizontal shaking animation to the widget. The shake effect is built-in to the `flutter_animate` package used under the hood.
+
+```dart Animations icon="water" lines wrap
+// Shakes for 500ms
+Container(color: Colors.red).shake();
+```
+</ResponseField>
