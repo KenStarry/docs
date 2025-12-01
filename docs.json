@@ -69,10 +69,13 @@
             ]
           },
           {
-            "group": "Context",
+            "group": "Build Context",
             "pages": [
               "flutter_extend_docs/api/context/focus-context-extensions",
-              "flutter_extend_docs/api/context/media-query-context-extensions"
+              "flutter_extend_docs/api/context/media-query-context-extensions",
+              "flutter_extend_docs/api/context/navigator-context-extensions",
+              "flutter_extend_docs/api/context/platform-context-extensions",
+              "flutter_extend_docs/api/context/theme-context-extensions"
             ]
           },
           {

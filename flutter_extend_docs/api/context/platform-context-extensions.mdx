@@ -1,0 +1,115 @@
+---
+title: "BuildContext - Platform Extensions"
+sidebarTitle: "Build Context"
+icon: "mobile"
+description: "Instantly check which OS your app is running on (Mobile, Desktop, or specific OS) using simple, direct context getters."
+keywords: ['context', 'Build Context', 'BuildContext', 'Build', 'OS', 'Platform', 'Android', 'IOS', 'Web', 'Desktop']
+---
+
+<Warning>
+Since these getters rely on dart:io.Platform, they will throw an error when compiled for the web. Ensure you only use these methods in mobile and desktop applications.
+</Warning>
+
+<br/>
+
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart context icon="water" lines
+// Mobile vs. Desktop
+final iconSize = context.isMobile ? 24.0 : 32.0;
+
+// OS-specific UI
+if (context.isIOS) {
+  // Use Cupertino widgets
+}
+```
+</Card>
+
+### 📱 Platform Type
+
+{/*  isMobile */}
+<ResponseField name="isMobile" type="bool">
+
+Checks if the application is running on a mobile OS (Android or iOS).
+
+```dart context icon="water" lines wrap
+if (context.isMobile) { ... }
+```
+</ResponseField>
+
+{/*  Desktop */}
+<ResponseField name="isDesktop" type="bool">
+
+Checks if the application is running on a desktop OS (Windows, Linux, or macOS).
+
+```dart context icon="water" lines wrap
+if (context.isDesktop) {
+  // Use a wider, more complex sidebar layout
+}
+```
+</ResponseField>
+
+### 🍎 Specific Operating System
+
+{/* IOS */}
+<ResponseField name="isIOS" type="bool">
+
+Checks if the application is running on an iOS device.
+
+```dart context icon="water" lines wrap
+if (context.isIOS) { ... }
+```
+</ResponseField>
+
+{/* Android */}
+<ResponseField name="isAndroid" type="bool">
+
+Checks if the application is running on an Android device.
+
+```dart context icon="water" lines wrap
+if (context.isAndroid) { ... }
+```
+</ResponseField>
+
+{/* MacOS */}
+<ResponseField name="isMacOS" type="bool">
+
+Checks if the application is running on a macOS desktop environment.
+
+```dart context icon="water" lines wrap
+if (context.isMacOS) { ... }
+```
+</ResponseField>
+
+{/* Widnows */}
+<ResponseField name="isWindows" type="bool">
+
+Checks if the application is running on a Windows desktop environment.
+
+```dart context icon="water" lines wrap
+if (context.isWindows) { ... }
+```
+</ResponseField>
+
+{/* Linux */}
+<ResponseField name="isLinux" type="bool">
+
+Checks if the application is running on a Linux desktop environment.
+
+```dart context icon="water" lines wrap
+if (context.isLinux) { ... }
+```
+</ResponseField>
+
+{/* isFuchsia */}
+<ResponseField name="isFuchsia" type="bool">
+
+Checks if the application is running on the experimental Fuchsia OS.
+
+```dart context icon="water" lines wrap
+if (context.isFuchsia) { ... }
+```
+</ResponseField>
