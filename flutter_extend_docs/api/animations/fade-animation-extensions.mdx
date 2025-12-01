@@ -23,45 +23,80 @@ Icon(Icons.star).fadeIn().repeat(reverse: true);
 ```
 </Card>
 
-### ⚙️ Common Parameters
+{/* ### ⚙️ Common Parameters */}
 
-Most animation methods share these parameters. Unless specified otherwise, they control the animation timing and behavior.
+{/* Most animation methods share these parameters. Unless specified otherwise, they control the animation timing and behavior. */}
 
-<Expandable title="Parameters">
-<ParamField body="duration" type="int" default="500">
-  Length of the animation in milliseconds.
-</ParamField>
+{/* <Expandable title="Parameters"> */}
+{/* <ParamField body="duration" type="int" default="500"> */}
+{/*   Length of the animation in milliseconds. */}
+{/* </ParamField> */}
 
-<ParamField body="delay" type="int" default="0">
-  Wait time before the animation starts in milliseconds.
-</ParamField>
+{/* <ParamField body="delay" type="int" default="0"> */}
+{/*   Wait time before the animation starts in milliseconds. */}
+{/* </ParamField> */}
 
-<ParamField body="curve" type="Curve?" default="Curves.ease">
-  The acceleration profile of the animation.
-</ParamField>
+{/* <ParamField body="curve" type="Curve?" default="Curves.ease"> */}
+{/*   The acceleration profile of the animation. */}
+{/* </ParamField> */}
 
-<ParamField body="repeat" type="bool" default="false">
-  If `true`, the animation loops indefinitely.
-</ParamField>
+{/* <ParamField body="repeat" type="bool" default="false"> */}
+{/*   If `true`, the animation loops indefinitely. */}
+{/* </ParamField> */}
 
-<ParamField body="reverse" type="bool" default="false">
-  If `true`, the animation reverses direction when repeating.
-</ParamField>
-</Expandable>
+{/* <ParamField body="reverse" type="bool" default="false"> */}
+{/*   If `true`, the animation reverses direction when repeating. */}
+{/* </ParamField> */}
+{/* </Expandable> */}
 
 ### 👻 Basic Fade Effects
 {/*  FadeIn */}
-<ResponseField name="fadeIn({int duration, ...})" type="Widget">
+<ResponseField name="fadeIn" type="Widget">
 
 Applies a simple opacity fade-in animation from transparent to opaque.
 
 ```dart Animations icon="water" lines wrap
 Text("Hello").fadeIn(duration: 800);
 ```
+
+<Expandable title="Parameters">
+<ParamField body="delay" type="int" default="0">
+    The `duration` to wait before starting the animation (in milliseconds).
+</ParamField>
+
+<ParamField body="begin" type="double" default="0.0">
+    The initial opacity value (`0.0` = transparent)
+</ParamField>
+
+<ParamField body="duration" type="int" default="500">
+    The length of the animation (in `milliseconds`).
+</ParamField>
+
+<ParamField body="repeat" type="bool" default="false">
+    If `true`, the animation loops indefinitely.
+</ParamField>
+
+<ParamField body="reverse" type="bool" default="false">
+    If `true`, reverses direction when repeating (fade in, then fade out).
+</ParamField>
+
+<ParamField body="autoPlay" type="bool" default="true">
+    If `true`, the animation starts automatically.
+</ParamField>
+
+<ParamField body="curve" type="Curve?" default="Curves.easeIn">
+    The `curve` to use for the animation speed.
+</ParamField>
+
+<ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+    A callback fired when the `AnimationController` is initialized.
+</ParamField>
+
+</Expandable>
 </ResponseField>
 
 {/*  fade Out */}
-<ResponseField name="fadeOut({int duration, double begin, ...})" type="Widget">
+<ResponseField name="fadeOut" type="Widget">
 
 Applies a simple opacity fade-out animation from opaque to transparent.
 
@@ -69,21 +104,93 @@ Applies a simple opacity fade-out animation from opaque to transparent.
 // Fade out over 1 second
 Widget().fadeOut(duration: 1000);
 ```
+
+<Expandable title="Parameters">
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in milliseconds).
+    </ParamField>
+
+    <ParamField body="begin" type="double" default="1.0">
+        The initial opacity value (`1.0` = opaque).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating (fade out, then fade in).
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="curve" type="Curve?" default="Curves.easeIn">
+        The `curve` to use for the animation speed.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
+
 </ResponseField>
 
 ### ⬇️ Vertical Entrance (Move Y)
 
-{/*  fade Out */}
-<ResponseField name="fadeInMoveInBottom({double verticalOffset, ...})" type="Widget">
+{/*  -------------------- */}
+<ResponseField name="fadeInMoveInBottom" type="Widget">
 
 Combined fade-in and slide-up entrance. The widget moves up from the bottom edge by `verticalOffset` pixels.
 
 ```dart Animations icon="water" lines wrap
 const Card().fadeInMoveInBottom(verticalOffset: 100);
 ```
+
+<Expandable title="Parameters">
+    <ParamField body="verticalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves up from.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="curve" type="Curve?" default="Curves.ease">
+        The `curve` to use for the animation speed.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
+
 </ResponseField>
 
-{/*  fade Out */}
+{/*  ----------------- */}
 <ResponseField name="fadeInMoveInBottomBouncy" type="Widget">
 
 Slide-up entrance with a quick, light overshoot and settlement (a light bounce).
@@ -91,9 +198,39 @@ Slide-up entrance with a quick, light overshoot and settlement (a light bounce).
 ```dart Animations icon="water" lines wrap
 Text("Bouncy").fadeInMoveInBottomBouncy();
 ```
+
+<Expandable title="Parameters">
+    <ParamField body="verticalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves up from.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+</Expandable>
 </ResponseField>
 
-{/*  fade Out */}
+{/*  -------------- */}
 <ResponseField name="fadeInMoveInBottomStickyBouncy" type="Widget">
 
 Slide-up entrance with a strong, oscillating bounce using `Curves.elasticOut`.
@@ -101,6 +238,37 @@ Slide-up entrance with a strong, oscillating bounce using `Curves.elasticOut`.
 ```dart Animations icon="water" lines wrap
 Image.asset("path/to/logo").fadeInMoveInBottomStickyBouncy();
 ```
+
+<Expandable title="Parameters">
+    <ParamField body="verticalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves up from.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+</Expandable>
+
 </ResponseField>
 
 {/*  fade Out */}
@@ -111,9 +279,45 @@ Combined fade-in and slide-down entrance. The widget moves down from the top edg
 ```dart Animations icon="water" lines wrap
 const AppBar().fadeInMoveInTop();
 ```
+
+<Expandable title="Parameters">
+
+    <ParamField body="verticalOffset" type="double" default="50">
+            The starting distance (in pixels) the widget moves down from.
+        </ParamField>
+
+        <ParamField body="delay" type="int" default="0">
+            The `duration` to wait before starting the animation (in `milliseconds`).
+        </ParamField>
+
+        <ParamField body="duration" type="int" default="500">
+            The length of the animation (in `milliseconds`).
+        </ParamField>
+
+        <ParamField body="repeat" type="bool" default="false">
+            If `true`, the animation loops indefinitely.
+        </ParamField>
+
+        <ParamField body="reverse" type="bool" default="false">
+            If `true`, reverses direction when repeating.
+        </ParamField>
+
+        <ParamField body="autoPlay" type="bool" default="true">
+            If `true`, the animation starts automatically.
+        </ParamField>
+
+        <ParamField body="curve" type="Curve?" default="Curves.ease">
+            The `curve` to use for the animation speed.
+        </ParamField>
+
+        <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+            A callback fired when the `AnimationController` is initialized.
+        </ParamField>
+
+</Expandable>
 </ResponseField>
 
-{/*  fade Out */}
+{/*  -------------- */}
 <ResponseField name="fadeInMoveInTopBouncy" type="Widget">
 
 Slide-down entrance with a quick, light overshoot and settlement (a light bounce).
@@ -121,9 +325,42 @@ Slide-down entrance with a quick, light overshoot and settlement (a light bounce
 ```dart Animations icon="water" lines wrap
 Text("Title").fadeInMoveInTopBouncy();
 ```
+
+<Expandable title="Parameters">
+
+    <ParamField body="verticalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves down from.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
+
 </ResponseField>
 
-{/*  fade Out */}
+{/*  ------------------ */}
 <ResponseField name="fadeInMoveInTopStickyBouncy" type="Widget">
 
 Slide-down entrance with a strong, oscillating bounce using `Curves.elasticOut`.
@@ -131,18 +368,87 @@ Slide-down entrance with a strong, oscillating bounce using `Curves.elasticOut`.
 ```dart Animations icon="water" lines wrap
 Image.network(url).fadeInMoveInTopStickyBouncy();
 ```
+
+<Expandable title="Parameters">
+
+    <ParamField body="verticalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves down from.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
+
 </ResponseField>
 
 ### ➡️ Horizontal Entrance (Move X)
 
 {/*  ------------------------- */}
-<ResponseField name="fadeInMoveInLeft({double horizontalOffset, ...})" type="Widget">
+<ResponseField name="fadeInMoveInLeft" type="Widget">
 
 Combined fade-in and slide-in entrance from the left edge.
 
 ```dart Animations icon="water" lines wrap
 const Text("Menu").fadeInMoveInLeft();
 ```
+<Expandable title="Parameters">
+
+    <ParamField body="horizontalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves from the left.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="curve" type="Curve?" default="Curves.ease">
+        The `curve` to use for the animation speed.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
+
 </ResponseField>
 
 {/*  ------------------------- */}
@@ -153,6 +459,39 @@ Slide-in from the left with a quick, light overshoot and settlement.
 ```dart Animations icon="water" lines wrap
 const Text("Menu").fadeInMoveInLeftBouncy();
 ```
+
+<Expandable title="Parameters">
+
+    <ParamField body="horizontalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves from the left.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
+
 </ResponseField>
 
 {/*  ------------------------- */}
@@ -163,16 +502,84 @@ Slide-in from the left with a strong, oscillating bounce using `Curves.elasticOu
 ```dart Animations icon="water" lines wrap
 const Text("Menu").fadeInMoveInLeftStickyBouncy();
 ```
+
+<Expandable title="Parameters">
+
+    <ParamField body="horizontalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves from the left.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
 </ResponseField>
 
 {/*  ------------------------- */}
-<ResponseField name="fadeInMoveInRight({double horizontalOffset, ...})" type="Widget">
+<ResponseField name="fadeInMoveInRight" type="Widget">
 
 Combined fade-in and slide-in entrance from the right edge.
 
 ```dart Animations icon="water" lines wrap
 const Icon(Icons.close).fadeInMoveInRight();
 ```
+
+<Expandable title="Parameters">
+
+    <ParamField body="horizontalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves from the right.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="curve" type="Curve?" default="Curves.ease">
+        The `curve` to use for the animation speed.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
 </ResponseField>
 
 {/*  ------------------------- */}
@@ -183,6 +590,38 @@ Slide-in from the right with a quick, light overshoot and settlement.
 ```dart Animations icon="water" lines wrap
 const Icon(Icons.close).fadeInMoveInRightBouncy();
 ```
+
+<Expandable title="Parameters">
+
+    <ParamField body="horizontalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves from the right.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
 </ResponseField>
 
 {/*  ------------------------- */}
@@ -193,4 +632,36 @@ Slide-in from the right with a strong, oscillating bounce using `Curves.elasticO
 ```dart Animations icon="water" lines wrap
 const Image().fadeInMoveInRightStickyBouncy();
 ```
+
+<Expandable title="Parameters">
+
+    <ParamField body="horizontalOffset" type="double" default="50">
+        The starting distance (in pixels) the widget moves from the right.
+    </ParamField>
+
+    <ParamField body="delay" type="int" default="0">
+        The `duration` to wait before starting the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="duration" type="int" default="500">
+        The length of the animation (in `milliseconds`).
+    </ParamField>
+
+    <ParamField body="repeat" type="bool" default="false">
+        If `true`, the animation loops indefinitely.
+    </ParamField>
+
+    <ParamField body="reverse" type="bool" default="false">
+        If `true`, reverses direction when repeating.
+    </ParamField>
+
+    <ParamField body="autoPlay" type="bool" default="true">
+        If `true`, the animation starts automatically.
+    </ParamField>
+
+    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+        A callback fired when the `AnimationController` is initialized.
+    </ParamField>
+
+</Expandable>
 </ResponseField>
