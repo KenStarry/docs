@@ -69,6 +69,12 @@
             ]
           },
           {
+            "group": "Colors",
+            "pages": [
+              "flutter_extend_docs/api/colors/color-extensions"
+            ]
+          },
+          {
             "group": "Build Context",
             "pages": [
               "flutter_extend_docs/api/context/focus-context-extensions",

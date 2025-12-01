@@ -1,0 +1,91 @@
+---
+title: "Color - The Color Calculator"
+sidebarTitle: "Color"
+icon: "palette"
+description: "Extensions for quick color manipulation, contrast checking (luminance), Hex conversion, and instant MaterialColor swatch generation."
+keywords: ['context', 'BuildContext', 'Theme', 'ColorScheme', 'Colors', 'Color']
+---
+
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Colors icon="palette" lines
+// Accessibility
+if (Colors.black.isDark) { ... }
+
+// Theming
+final customSwatch = Color(0xFF1ABC9C).toMaterialColor;
+
+// Formatting
+final hexCode = Colors.blue.toHex(withAlpha: true);
+```
+</Card>
+
+### 💡 Accessibility & Contrast
+
+{/*  Luminance */}
+<ResponseField name="luminance" type="double">
+
+The relative luminance of the color (0.0=black, 1.0=white). Essential for contrast calculations.
+
+```dart context icon="palette" lines wrap
+final lum = myColor.luminance; // 0.0 - 1.0
+```
+</ResponseField>
+
+{/*  isDark */}
+<ResponseField name="isDark" type="bool">
+
+Checks if the color is perceived as dark (`luminance` < 0.5). Use this to decide if white text should be used.
+
+```dart context icon="palette" lines wrap
+final needsWhiteText = Colors.black.isDark; // true
+```
+</ResponseField>
+
+{/*  isLight */}
+<ResponseField name="isLight" type="bool">
+
+Checks if the color is perceived as light (`luminance` ≥ 0.5). Use this to decide if dark text should be used.
+
+```dart context icon="palette" lines wrap
+final needsDarkText = Colors.yellow.isLight; // true
+```
+</ResponseField>
+
+### ⚙️ Manipulation & Conversion
+
+{/*  Shades */}
+<ResponseField name="getLighterShade(double factor)" type="Color">
+
+Lightens the color by a specified `factor` (0.0 to 1.0). Alpha channel is preserved.
+
+```dart context icon="palette" lines wrap
+final lighterBlue = Colors.blue.getLighterShade(0.2);
+```
+</ResponseField>
+
+{/*  Shades */}
+<ResponseField name="toHex({bool hashSign, bool withAlpha})" type="String">
+
+Converts the color to its hexadecimal string representation.
+
+```dart context icon="palette" lines wrap
+// Returns #2196F3;
+Colors.blue.toHex();
+```
+</ResponseField>
+
+### 🎨 The Swatch Creator
+
+{/*  Shades */}
+<ResponseField name="toMaterialColor" type="MaterialColor">
+
+Generates a full 10-shade `MaterialColor` swatch (50-900) from a single base color. The ultimate shortcut for `ThemeData.primarySwatch`.
+
+```dart context icon="palette" lines wrap
+final customSwatch = Color(0xFF1ABC9C).toMaterialColor;
+```
+</ResponseField>
