@@ -1,0 +1,80 @@
+---
+title: "DateTime - Comparison Extensions"
+sidebarTitle: "DateTime"
+icon: "calendar"
+description: "Instantly check if a DateTime falls on today, yesterday, tomorrow, or in the past/future, ignoring time components for calendar accuracy."
+keywords: ['Flutter Date', 'Time', 'Date', 'DateTime', 'Flutter', "Format", "Calendar"]
+---
+
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart DateTime icon="calendar" lines wrap
+// Check relative to today
+final isYesterday = myDate.isYesterday();
+
+// Check relative to the current moment
+if (myDate.isFuture()) {
+  // Show a reminder
+}
+```
+</Card>
+
+### 📅 Relative to Today
+{/*  ------------------ */}
+<ResponseField name="isToday()" type="bool">
+
+Checks if the date falls on the exact same calendar day as today (time ignored).
+
+```dart DateTime icon="calendar" lines wrap
+final today = DateTime.now();
+print(today.isToday()); // true
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="isYesterday()" type="bool">
+
+Checks if the date was exactly one calendar day before today (time ignored).
+
+```dart DateTime icon="calendar" lines wrap
+final yesterday = myDate.subtract(const Duration(days: 1));
+print(yesterday.isYesterday()); // true
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="isTomorrow()" type="bool">
+
+Checks if the date is exactly one calendar day after today (time ignored).
+
+```dart DateTime icon="calendar" lines wrap
+final tomorrow = myDate.add(const Duration(days: 1));
+print(tomorrow.isTomorrow()); // true
+```
+</ResponseField>
+
+### ⏳ Relative to Now
+
+{/*  ------------------ */}
+<ResponseField name="isPast()" type="bool">
+
+Checks if the moment is in the past relative to the current system time (`DateTime.now()`).
+
+```dart DateTime icon="calendar" lines wrap
+print(DateTime(2000, 1, 1).isPast()); // true
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="isFuture()" type="bool">
+
+Checks if the moment is in the future relative to the current system time (`DateTime.now()`).
+
+```dart DateTime icon="calendar" lines wrap
+final reminder = DateTime.now().add(const Duration(hours: 1));
+print(reminder.isFuture()); // true
+```
+</ResponseField>

@@ -1,0 +1,114 @@
+---
+title: "DateTime - Formatting Extensions"
+sidebarTitle: "DateTime"
+icon: "calendar"
+description: "Convert DateTime objects to human-readable 'time ago' strings and localized formats, including short month names and ISO week numbers."
+keywords: ['Flutter Date', 'Time', 'Date', 'DateTime', 'Flutter', "Format", "Calendar"]
+---
+
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart DateTime icon="calendar" lines wrap
+final past = myDate.subtract(const Duration(hours: 3));
+
+// Time ago
+print(past.timeAgo()); // "3 hours ago"
+
+// Localization
+print(myDate.monthNameShort()); // "Dec"
+
+// Formatting
+print(myDate.slashedDate()); // "31/12/2025"
+```
+</Card>
+
+### 🕒 Relative Time
+{/*  ------------------ */}
+<ResponseField name="timeAgo()" type="String">
+
+Converts a past date into a human-readable "time ago" string (e.g., "2 months ago" or "Just now").
+
+```dart DateTime icon="calendar" lines wrap
+final past = DateTime.now().subtract(const Duration(hours: 3));
+print(past.timeAgo()); // "3 hours ago"
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="timeUntil()" type="String">
+
+Converts a future date into a human-readable "time until" string (e.g., "in 5 days" or "Just now").
+
+```dart DateTime icon="calendar" lines wrap
+final future = DateTime.now().add(const Duration(hours: 5));
+print(future.timeUntil()); // "in 5 hours"
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="slashedDate()" type="String">
+
+Formats the date into the slash-separated 'dd/MM/yyyy' style.
+
+```dart DateTime icon="calendar" lines wrap
+print(DateTime(2025, 12, 31).slashedDate()); // "31/12/2025"
+```
+</ResponseField>
+
+### 🌐 Localization (`intl` dependency required)
+
+{/*  ------------------ */}
+<ResponseField name="monthName()" type="String">
+
+Gets the full name of the month (e.g., "January", "December") based on the system locale.
+
+```dart DateTime icon="calendar" lines wrap
+print(DateTime(2025, 12, 1).monthName()); // "December"
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="monthNameShort()" type="String">
+
+Gets the abbreviated name of the month (e.g., "Jan", "Dec") based on the system locale.
+
+```dart DateTime icon="calendar" lines wrap
+print(DateTime(2025, 12, 1).monthNameShort()); // "Dec"
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="dayName()" type="String">
+
+Gets the full name of the day of the week (e.g., "Monday", "Sunday") based on the system locale.
+
+```dart DateTime icon="calendar" lines wrap
+print(DateTime(2025, 12, 1).dayName()); // "Monday"
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="dayNameShort()" type="String">
+
+Gets the abbreviated name of the day of the week (e.g., "Mon", "Sun") based on the system locale.
+
+```dart DateTime icon="calendar" lines wrap
+print(DateTime(2025, 12, 1).dayNameShort()); // "Mon"
+```
+</ResponseField>
+
+### 📊 Calendar Math
+
+{/*  ------------------ */}
+<ResponseField name="weekNumber()" type="int">
+
+Calculates the ISO 8601 week number (1-53) for the given date.
+
+```dart DateTime icon="calendar" lines wrap
+// January 1st is typically Week 1
+print(DateTime(2025, 1, 1).weekNumber()); // 1
+```
+</ResponseField>

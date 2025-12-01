@@ -1,0 +1,144 @@
+---
+title: "DateTime - Manipulation Extensions"
+sidebarTitle: "DateTime"
+icon: "calendar"
+description: "Simplified methods for adding/subtracting days, months, and years, plus a critical utility for calculating future business days."
+keywords: ['Flutter Date', 'Time', 'Date', 'DateTime', 'Flutter', "Format", "Calendar"]
+---
+
+<Warning>
+Be cautious with `addMonths` and `addYears`. Dart's `DateTime` constructor handles invalid days (like Feb 30th) by overflowing to the next month/year. Always test edge cases (e.g., Jan 31st + 1 month = Mar 3rd).
+</Warning>
+
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart DateTime icon="calendar" lines wrap
+// Simple
+final futureDate = DateTime.now().addDays(5);
+
+// Business Days (Skips Weekends!)
+final nextWorkDay = DateTime(2025, 11, 28).addBusinessDays(1);
+```
+</Card>
+
+### 🗓️ Simple Duration
+{/*  ------------------ */}
+<ResponseField name="addDays(int days)" type="DateTime">
+
+<Card>
+    <ParamField body="days" type="int" required>
+        The number of days to add to the current `date`.
+    </ParamField>
+</Card>
+
+Adds a number of days to the current `DateTime` object.
+
+```dart DateTime icon="calendar" lines wrap
+final futureDate = DateTime.now().addDays(5);
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="subtractDays(int days)" type="DateTime">
+
+<Card>
+    <ParamField body="days" type="int" required>
+        The number of days to subtract from the current `date`.
+    </ParamField>
+</Card>
+
+Subtracts a number of days from the current `DateTime` object.
+
+```dart DateTime icon="calendar" lines wrap
+final pastDate = DateTime.now().subtractDays(10);
+```
+</ResponseField>
+
+### 📅 Calendar Components (Use with Caution)
+{/*  ------------------ */}
+<ResponseField name="addMonths(int months)" type="DateTime">
+
+<Card>
+    <ParamField body="months" type="int" required>
+        The number of months to add to the current `date`.
+    </ParamField>
+</Card>
+
+Adds a number of months. (_Warning: Susceptible to date overflow errors._)
+
+```dart DateTime icon="calendar" lines wrap
+// Goes from March 15th to June 15th
+final newDate = DateTime(2025, 3, 15).addMonths(3);
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="subtractMonths(int months)" type="DateTime">
+
+<Card>
+    <ParamField body="months" type="int" required>
+        The number of months to subtract from the current `date`.
+    </ParamField>
+</Card>
+
+Subtracts a number of months. (_Warning: Susceptible to date overflow errors._)
+
+```dart DateTime icon="calendar" lines wrap
+// Goes from May 20th to February 20th
+final pastDate = DateTime(2025, 5, 20).subtractMonths(3);
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="addYears(int years)" type="DateTime">
+
+<Card>
+    <ParamField body="years" type="int" required>
+        The number of years to add to the current `date`.
+    </ParamField>
+</Card>
+
+Adds a number of years. (_Warning: Be mindful of leap years._)
+
+```dart DateTime icon="calendar" lines wrap
+final futureYear = DateTime.now().addYears(5);
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="subtractYears(int years)" type="DateTime">
+
+<Card>
+    <ParamField body="years" type="int" required>
+        The number of years to subtract from the current `date`.
+    </ParamField>
+</Card>
+
+Subtracts a number of years. (_Warning: Be mindful of leap years._)
+
+```dart DateTime icon="calendar" lines wrap
+final pastYear = DateTime.now().subtractYears(2);
+```
+</ResponseField>
+
+### 💼 Business Days
+
+{/*  ------------------ */}
+<ResponseField name="addBusinessDays(int days)" type="DateTime">
+
+<Card>
+    <ParamField body="days" type="int" required>
+       The number of business days to add.
+    </ParamField>
+</Card>
+
+Adds a number of business days (Monday to Friday) to the current `date`, automatically skipping weekends.
+
+```dart DateTime icon="calendar" lines wrap
+// If today is Friday, adding 1 business day results in Monday.
+final nextWorkDay = DateTime(2025, 11, 28).addBusinessDays(1);
+```
+</ResponseField>
