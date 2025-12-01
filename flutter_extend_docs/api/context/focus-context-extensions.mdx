@@ -1,0 +1,126 @@
+---
+title: "BuildContext - Focus & Keyboard Control"
+sidebarTitle: "Build Context"
+icon: "keyboard"
+description: "Tame the keyboard and control widget focus order directly from BuildContext, simplifying form navigation and dismissal."
+keywords: ['context', 'Build Context', 'BuildContext', 'Build']
+---
+
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    // Navigation
+    context.nextFocus();
+
+    // Dismissal
+    context.unFocus();
+
+    // Specific Focus
+    context.requestFocus(myFocusNode);
+</CodeBlock>
+
+</Card>
+
+### 🔍 Focus Scope Access
+
+{/*  Focus Scope Access */}
+<ResponseField name="focusScope" type="FocusScopeNode">
+
+The underlying node that manages the focus for the current widget tree. Use it for advanced focus inspection.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    final scope = context.focusScope;
+</CodeBlock>
+</ResponseField>
+
+### 🚀 Navigation & Control
+
+{/* Navigation */}
+<ResponseField name="nextFocus()" type="void">
+
+Moves the focus to the next focusable widget in the traversal order. Essential for smooth form submission flow.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    TextField(onSubmitted: (_) => context.nextFocus());
+</CodeBlock>
+</ResponseField>
+
+{/* Prev */}
+<ResponseField name="prevFocus()" type="void">
+
+Moves the focus to the *previous* focusable widget in the traversal order. Useful for implementing "back" logic in forms.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    ElevatedButton(onPressed: () => context.prevFocus(), child: Text('Previous'));
+</CodeBlock>
+</ResponseField>
+
+{/* Request */}
+<ResponseField name="requestFocus(FocusNode focusNode)" type="void">
+
+Instantly transfers focus to a specific, non-sequential `FocusNode`.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    final specificNode = FocusNode();
+    `{...}`
+    context.requestFocus(specificNode);
+</CodeBlock>
+</ResponseField>
+
+{/* Unfocus */}
+<ResponseField name="unFocus()" type="void">
+
+The Keyboard Slayer. Dismisses the software keyboard and removes focus from any active field.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    ElevatedButton(
+      onPressed: () => context.unFocus(),
+      child: Text('Done'),
+    );
+</CodeBlock>
+</ResponseField>

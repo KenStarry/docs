@@ -1,0 +1,183 @@
+---
+title: "BuildContext Superpowers - MediaQuery"
+sidebarTitle: "Build Context"
+icon: "water"
+description: "Eliminate boilerplate and access screen metrics, orientation, and system themes instantly via simple BuildContext getters."
+keywords: ['context', 'Build Context', 'BuildContext', 'Build']
+---
+
+### 📐 Screen Dimensions
+Utilities to get screen size without strict `MediaQuery` boilerplate.
+
+{/*  Screen Size */}
+<ResponseField name="screenSize" type="double">
+The total size of the screen. Equivalent to `MediaQuery.sizeOf(context).`
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    final width = context.screenSize;
+</CodeBlock>
+</ResponseField>
+
+{/*  Screen Width */}
+<ResponseField name="screenWidth" type="double">
+The width of the screen in logical pixels.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    final width = context.screenWidth;
+</CodeBlock>
+
+</ResponseField>
+
+{/*  Screen Height */}
+<ResponseField name="screenHeight" type="double">
+The height of the screen in logical pixels.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    // Dynamically size a container to half the screen height
+    Container(height: context.screenHeight * 0.5);
+</CodeBlock>
+</ResponseField>
+
+### 🧭 Orientation
+
+{/*  Screen Orientation */}
+<ResponseField name="orientation" type="Orientation">
+Current device orientation (`portrait` or `landscape`)
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    Orientation currentOrientation = context.orientation;
+</CodeBlock>
+</ResponseField>
+
+{/*  Screen Orientation */}
+<ResponseField name="isLandscape" type="bool">
+Returns `true` if the device is in landscape mode.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    bool wideMode = context.isLandscape;
+</CodeBlock>
+</ResponseField>
+
+{/*  Screen Orientation */}
+<ResponseField name="isPortrait" type="bool">
+Returns `true` if the device is in portrait mode.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    bool tallMode = context.isPortrait;
+</CodeBlock>
+</ResponseField>
+
+### 🎨 Theme & System
+
+{/*  Dark Mode */}
+<ResponseField name="isDarkMode" type="bool">
+
+Returns `true` if the system theme is dark.
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    final color = context.isDarkMode ? Colors.white : Colors.black;
+</CodeBlock>
+</ResponseField>
+
+{/*  Brightness */}
+<ResponseField name="brightness" type="Brightness">
+
+The current platform brightness (light or dark).
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    Brightness current = context.brightness;
+</CodeBlock>
+</ResponseField>
+
+{/*  Safe Padding */}
+<ResponseField name="safePadding" type="EdgeInsets">
+
+Safe area padding (e.g., for notches or Dynamic Island).
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    Padding(padding: context.safePadding, child: ...);
+</CodeBlock>
+
+</ResponseField>
+
+{/*  Keyboard Visibility */}
+<ResponseField name="isKeyboardVisible" type="bool">
+
+Returns `true` if the software keyboard is currently visible (bottom view insets > 0).
+
+<CodeBlock
+    filename="context"
+    language="dart"
+    icon="water"
+    wrap="true"
+    lines="true"
+    expandable="false"
+>
+    if (context.isKeyboardVisible) FocusScope.of(context).unfocus();
+</CodeBlock>
+
+</ResponseField>
+

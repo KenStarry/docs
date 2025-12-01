@@ -39,7 +39,8 @@
           {
             "group": "Home",
             "pages": [
-              "home/home"
+              "home/home",
+              "index"
             ]
           },
           {
@@ -68,9 +69,10 @@
             ]
           },
           {
-            "group": "API Reference",
+            "group": "Context",
             "pages": [
-              "flutter_extend_docs/api/build-context-extensions"
+              "flutter_extend_docs/api/context/focus-context-extensions",
+              "flutter_extend_docs/api/context/media-query-context-extensions"
             ]
           },
           {
