@@ -1,0 +1,82 @@
+---
+title: "Build Context Extensions"
+sidebarTitle: "Build Context"
+icon: "water"
+description: "Responsive utilities and system checks accessed directly via BuildContext."
+tag: "NEW"
+keywords: ['context', 'Build Context', 'BuildContext', 'Build']
+---
+
+### ⚡ Quick Usage
+
+```dart title="Quick Use" lines
+// Dimensions
+final width = context.screenWidth;
+final height = context.screenHeight;
+
+// System Checks
+if (context.isDarkMode) { ... }
+if (context.isLandscape) { ... }
+```
+
+### 📐 Screen Dimensions
+Utilities to get screen size without strict `MediaQuery` boilerplate.
+
+{/*  Screen Size */}
+<ResponseField name="screenSize" type="double">
+The total size of the screen. Equivalent to `MediaQuery.sizeOf(context).`
+
+```dart lines
+final width = context.screenSize;
+```
+</ResponseField>
+
+{/*  Screen Width */}
+<ResponseField name="screenWidth" type="double">
+The width of the screen in logical pixels.
+
+```dart lines
+final width = context.screenWidth;
+```
+
+</ResponseField>
+
+{/*  Screen Height */}
+<ResponseField name="screenHeight" type="double">
+The height of the screen in logical pixels.
+
+```dart lines
+// Dynamically size a container to half the screen height
+Container(height: context.screenHeight * 0.5);
+```
+</ResponseField>
+
+### 🧭 Orientation
+
+{/*  Screen Orientation */}
+<ResponseField name="orientation" type="Orientation">
+Current device orientation (`portrait` or `landscape`)
+
+```dart lines
+if (context.orientation == Orientation.landscape) { ... }
+```
+</ResponseField>
+
+{/*  Screen Orientation */}
+<ResponseField name="isLandscape" type="bool">
+Returns `true` if the device is in landscape mode.
+
+```dart lines
+bool wideMode = context.isLandscape;
+```
+</ResponseField>
+
+{/*  Screen Orientation */}
+<ResponseField name="isPortrait" type="bool">
+Returns `true` if the device is in portrait mode.
+
+```dart lines
+bool tallMode = context.isPortrait;
+```
+</ResponseField>
+

@@ -70,7 +70,7 @@
           {
             "group": "API Reference",
             "pages": [
-              "flutter_extend_docs/api/build_context_extensions"
+              "flutter_extend_docs/api/build-context-extensions"
             ]
           },
           {
@@ -132,6 +132,10 @@
      "vscode"
    ]
   },
+  "fonts": {
+    "family": "Inter"
+  },
+
   "footer": {
     "socials": {
       "x": "https://x.com/mintlify",
