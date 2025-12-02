@@ -160,6 +160,14 @@
             ]
           },
           {
+            "group": "Widgets",
+            "pages": [
+              "flutter_extend_docs/api/widget/scaffold",
+              "flutter_extend_docs/api/widget/text",
+              "flutter_extend_docs/api/widget/widgets"
+            ]
+          },
+          {
             "group": "Changelog",
             "pages": [
               "flutter_extend_docs/changelog/changelog"

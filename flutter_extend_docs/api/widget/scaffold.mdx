@@ -1,0 +1,61 @@
+---
+title: "Scaffold - System UI Control"
+sidebarTitle: "Widgets"
+icon: "grip"
+description: "Wraps a Scaffold in an AnnotatedRegion to customize the appearance and icon brightness of the system status bar and navigation bar overlays."
+keywords: ['Flutter Widgets', 'Widgets', "Scaffold", 'Flutter']
+---
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Widgets icon="grip" lines wrap
+final darkAppBar = Scaffold(
+  appBar: AppBar(backgroundColor: Colors.black),
+  body: const Center(),
+);
+
+// Ensures status bar icons (clock, battery) are white/light:
+return darkAppBar.addAnnotatedRegion(
+  statusBarBrightness: Brightness.light,
+  statusBarColor: Colors.black,
+);
+```
+</Card>
+
+### 🎨 System Overlay Styling
+{/*  ------------------ */}
+<ResponseField name="addAnnotatedRegion({Color? statusBarColor, Brightness? statusBarBrightness, Color? navigationBarColor, Brightness? navigationBarBrightness})" type="Widget">
+
+<Expandable title="Parameters">
+    <ParamField body="statusBarColor" type="Color?" default="null">
+        The `background color` of the status bar overlay.
+    </ParamField>
+
+    <ParamField body="statusBarBrightness" type="Brightness?" default="null">
+        Controls the `brightness` of status bar icons (e.g., `Brightness.light` for dark icons, `Brightness.dark` for light icons).
+    </ParamField>
+
+    <ParamField body="navigationBarColor" type="Color?" default="null">
+        The `background color` of the system navigation bar (bottom bar on Android).
+    </ParamField>
+
+    <ParamField body="navigationBarBrightness" type="Brightness?" default="null">
+        Controls the `brightness` of the navigation bar icons.
+    </ParamField>
+</Expandable>
+
+Wraps the `Scaffold` in an `AnnotatedRegion` to customize the system status bar and navigation bar overlays.
+
+<CodeGroup>
+    ```dart Widgets icon="grip" lines wrap
+    // Ensures status bar icons (clock, battery) are white/light:
+    return myScaffold.addAnnotatedRegion(
+      statusBarBrightness: Brightness.light, // Controls icon/text color
+      statusBarColor: Colors.black,          // Status bar background color
+    );
+    ```
+</CodeGroup>
+</ResponseField>
+
