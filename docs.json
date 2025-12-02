@@ -122,6 +122,14 @@
             ]
           },
           {
+            "group": "Futures",
+            "pages": [
+              "flutter_extend_docs/api/futures/general-futures",
+              "flutter_extend_docs/api/futures/iterable-futures",
+              "flutter_extend_docs/api/futures/string-futures"
+            ]
+          },
+          {
             "group": "Changelog",
             "pages": [
               "flutter_extend_docs/changelog/changelog"

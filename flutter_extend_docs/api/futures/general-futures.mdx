@@ -1,0 +1,128 @@
+---
+title: "Future - Async Control"
+sidebarTitle: "Futures"
+icon: "forward"
+description: "Essential utilities for mastering asynchronous code: implement automatic retries, set fallbacks for timeouts, and manage execution delays."
+keywords: ['Flutter Futures', 'Futures', 'Async', 'Await', 'Flutter']
+---
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Futures icon="forward" lines wrap
+// Resilient Network Calls
+final data = await fetchUserData().retry(3, delay: 1.seconds);
+
+// Safe Timeout
+final result = await complexCalculation().timeoutWithFallback(
+  Duration(seconds: 5), 0
+);
+```
+</Card>
+
+### 🔁 Retry & Time Control
+{/*  ------------------ */}
+<ResponseField name="retry()" type="Future<T>">
+
+<Card>
+    <ParamField body="retries" type="int" required>
+        The total number of attempts to make before giving up.
+    </ParamField>
+
+    <Expandable title="Parameters">
+
+        <ParamField body="retries" type="int" required>
+            The total number of attempts to make before giving up.
+        </ParamField>
+
+        <ParamField body="delay" type="Duration" default="Duration.zero">
+            The `duration` to wait between failed attempts.
+        </ParamField>
+
+    </Expandable>
+</Card>
+
+Retries the execution of this `Future` a specified number of times upon failure. Essential for handling transient network errors.
+
+<CodeGroup>
+    ```dart Futures icon="forward" lines wrap
+    // Retries the network call up to 3 times
+    final data = await fetchUserData().retry(3, delay: 1.seconds);
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="timeoutWithFallback()" type="Future<T>" post={['async']}>
+
+<Card>
+    <ParamField body="timeout" type="Duration" required>
+            The maximum duration to wait for the Future to complete.
+    </ParamField>
+
+    <ParamField body="fallbackValue" type="T" required>
+        The value to return if the `Future` times out.
+    </ParamField>
+</Card>
+
+Sets a timeout and provides a `fallbackValue` to return if the `Future` fails to complete in time.
+
+<CodeGroup>
+    ```dart Futures icon="forward" lines wrap
+    // Returns 0 if the computation takes longer than 5 seconds.
+    final result = await complexCalculation().timeoutWithFallback(
+      Duration(seconds: 5), 0
+    );
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="runAfterDelay()" type="Future<T>" post={['async']}>
+
+<Card>
+    <ParamField body="delay" type="Duration" required>
+            The duration to wait before execution begins.
+    </ParamField>
+</Card>
+
+Waits for a specified `delay` before starting the execution of this `Future`. Useful for simulating network latency in dev/testing.
+
+<CodeGroup>
+    ```dart Futures icon="forward" lines wrap
+    // Simulate a slow network with a 2-second minimum delay.
+    final data = await fetchSettings().runAfterDelay(Duration(seconds: 2));
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🔍 Internal Status
+
+{/*  ------------------ */}
+<ResponseField name="isComplete()" type="bool">
+
+Checks if the `Future` has completed (either successfully or with an error). Note: This method starts the Future execution if it hasn't begun.
+
+<CodeGroup>
+    ```dart Futures icon="forward" lines wrap
+    final myFuture = Future.delayed(Duration(seconds: 2), () => 42);
+    print(myFuture.isComplete());
+    ```
+    ```dart Checker Output icon="forward" lines wrap
+    // false (initially)
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="wrapInCompleter()" type="Completer<T>">
+
+Wraps this `Future` inside a `Completer`. An internal utility for managing Future state within other asynchronous flows.
+
+<CodeGroup>
+    ```dart Futures icon="forward" lines wrap
+    final completer = someFuture.wrapInCompleter();
+    ```
+</CodeGroup>
+</ResponseField>

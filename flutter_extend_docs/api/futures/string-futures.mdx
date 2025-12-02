@@ -1,0 +1,36 @@
+---
+title: "String - Future Extensions"
+sidebarTitle: "Futures"
+icon: "forward"
+description: "Asynchronous String manipulation"
+keywords: ['Flutter Futures', 'Futures', 'Async', 'Await', 'Flutter']
+---
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Futures icon="forward" lines wrap
+const secretCode = 'ABC-123-XYZ';
+await secretCode.copyToClipboard();
+```
+</Card>
+
+### 💾 Copy to Clipboard
+{/*  ------------------ */}
+<ResponseField name="copyToClipboard()" type="Future<void>" post={["async"]}>
+
+Copies the content of this string to the system clipboard. Must be awaited as it interacts with platform services.
+
+<CodeGroup>
+    ```dart Futures icon="forward" lines wrap
+    ElevatedButton(
+      onPressed: () async {
+        const secretCode = 'ABC-123-XYZ';
+        await secretCode.copyToClipboard();
+      },
+      child: const Text('Copy Code'),
+    );
+    ```
+</CodeGroup>
+</ResponseField>
