@@ -1,0 +1,93 @@
+---
+title: "String - Asset & Generator"
+sidebarTitle: "ExtendGenerator"
+icon: "database"
+description: "Primary utilities for generating dynamic user avatar URLs (DiceBear), plus deprecated methods for UUID and Lorem Ipsum now moved to ExtendGenerator."
+tag: "NEW"
+keywords: ['Flutter Widgets', 'Widgets', "Scaffold", 'Flutter']
+---
+<Card>
+
+### 🧑‍💻 String as a Seed
+
+This extension's primary purpose is to leverage the string itself as a seed for external asset generators (like DiceBear), ensuring that the same input string always produces the same unique output avatar.
+
+```dart ExtendGenerator icon="database" lines wrap
+// Generates a 'bottts' style avatar using the user's ID as the seed.
+Image.network('user_id_123'.avatar(
+  style: DiceBearStyle.bottts,
+  size: 150,
+));
+```
+</Card>
+
+### 🖼️ Avatar Generation (DiceBear)
+{/*  ------------------ */}
+<ResponseField name="avatar({DiceBearStyle style, DiceBearImageType type, int? size, bool flip, String? backgroundColor})" type="String">
+
+<Expandable title="Parameters">
+
+    <ParamField body="style" type="DiceBearStyle" default="DiceBearStyle.avataaars">
+        The visual style of the avatar (e.g., `avataaars`, `bottts`).
+    </ParamField>
+
+    <ParamField body="type" type="DiceBearImageType" default="DiceBearImageType.png">
+        The image format (`png` or `svg`).
+    </ParamField>
+
+    <ParamField body="size" type="int?" default="null">
+        The `size` of the image in pixels.
+    </ParamField>
+
+    <ParamField body="flip" type="bool" default="false">
+        Flips the image `horizontally`.
+    </ParamField>
+
+    <ParamField body="backgroundColor" type="String?" default="null">
+        Hex code without # (e.g., `b6e3f4`) or `transparent`.
+    </ParamField>
+
+</Expandable>
+
+Generates a `DiceBear` avatar URL using `[this]` string as the unique `seed`. The resulting URL can be used directly in an `Image.network` widget.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    // Generates a 'bottts' style avatar using the user's ID as the seed.
+    Image.network('user_id_123'.avatar(
+      style: DiceBearStyle.bottts,
+      size: 150,
+      backgroundColor: 'ffc0cb', // Pink background
+    ));
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🗑️ Deprecated Generators
+
+These methods are deprecated and will be removed in version `1.0.0`. Please update your code to use the corresponding methods on the `int` type or the static `ExtendGenerator` class for better readability and consistency.
+
+{/*  ------------------ */}
+<Card>
+    <ResponseField name="generateLoremIpsum({int wordCount})" type="String" deprecated>
+
+    [DEPRECATED] Use `int.loremWords` instead (e.g., `30.loremWords`).
+    </ResponseField>
+
+    <ResponseField name="generateRandomString(int length, {bool includeNumbers, bool includeSpecial})" type="String" deprecated>
+
+        [DEPRECATED] Use `int.randomString` instead (e.g., `30.randomString`).
+    </ResponseField>
+
+    <ResponseField name="generateUUID()" type="String" deprecated>
+
+        [DEPRECATED] Use `ExtendGenerator.uuid` instead.
+
+    </ResponseField>
+
+    <ResponseField name="generateClipboardContents()" type="Future<String?>"  deprecated>
+
+        [DEPRECATED] Use `await ExtendGenerator.clipboardData` instead.
+
+    </ResponseField>
+</Card>

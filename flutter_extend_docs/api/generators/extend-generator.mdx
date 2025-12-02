@@ -1,0 +1,173 @@
+---
+title: "ExtendGenerator - Instant Mock Data"
+sidebarTitle: "ExtendGenerator"
+icon: "database"
+description: "Static utilities for generating random colors, UUIDs, mock credit cards, and stream-based data for rapid prototyping and testing."
+tag: "NEW"
+keywords: ['Flutter Widgets', 'Widgets', "Scaffold", 'Flutter']
+---
+<Card>
+
+### 🧬 Mock Data & Utilities
+
+The static `ExtendGenerator` class is your go-to for quick prototyping and testing scenarios. It provides one-line access to essential mock data—from unique identifiers to simulated live data streams—saving you time spent copying placeholder assets or writing complex generators.
+
+```dart ExtendGenerator icon="database" lines wrap
+// Placeholder ID
+final id = ExtendGenerator.uuid;
+
+// Test Validation
+final visaCard = ExtendGenerator.randomCreditCard();
+
+// Simulated Live Data
+final priceStream = ExtendGenerator.streamOf<double>(
+  (i) => 100.0 + i * 0.5,
+);
+```
+</Card>
+
+### 🌊 Stream Utilities
+{/*  ------------------ */}
+<ResponseField name="streamOf<T>({T Function(int index) generator, int count, Duration interval})" type="Stream<T>">
+
+<Card>
+    <ParamField body="generator" type="T Function(int index)" required>
+        A function that creates a single item of type `T`. The index is passed for sequential generation.
+    </ParamField>
+</Card>
+
+<Expandable title="Parameters">
+
+    <ParamField body="count" type="int" default="10">
+        The total number of `items` to `emit`.
+    </ParamField>
+
+    <ParamField body="interval" type="Duration" default="Duration(seconds: 1)">
+        The `delay` between emitting each item.
+    </ParamField>
+
+</Expandable>
+
+Simulates a live `stream` of data that `emits` up to `count` items with a specified `interval` between each emission. Ideal for testing `StreamBuilder` widgets.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    // Generates 5 items, emitted every 500 milliseconds.
+    final priceStream = ExtendGenerator.streamOf<double>(
+      (i) => 100.0 + i * 0.5,
+      count: 5,
+      interval: 500.milliseconds,
+    );
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="weightedBool(double chance)" type="bool">
+
+<Card>
+    <ParamField body="chance" type="double" required>
+        A function that creates a single item of type `T`. The index is passed for sequential generation.
+    </ParamField>
+</Card>
+
+Returns `true` based on a specific probability `chance` (`0.0` to `1.0`). Used for simulating real-world scenarios like transient network errors.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    // Returns true approximately 15% of the time
+    final shouldFail = ExtendGenerator.weightedBool(0.15);
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🆔 Identifiers & Finance
+
+{/*  ------------------ */}
+<ResponseField name="uuid" type="String">
+Generates a Mock UUID (v4 format). Sufficient for UI testing and unique keys, but not cryptographically secure.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    final mockId = ExtendGenerator.uuid;
+    // e.g., "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+    ```
+</CodeGroup>
+
+<Warning>
+    The generated keys are **NOT** cryptographically secure.
+</Warning>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="randomCreditCard({CardType type})" type="String">
+
+<Expandable title="Parameters">
+    <ParamField body="type" type="CardType" default="CardType.visa">
+        The type of card to generate (`Visa`, `Mastercard`, `Amex`, `Discover`).
+    </ParamField>
+</Expandable>
+
+Generates a mock credit card number that is valid according to the Luhn checksum algorithm. Ideal for testing form validation logic.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    final visaCard = ExtendGenerator.randomCreditCard(type: CardType.visa);
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 📅 Time & Date
+
+{/*  ------------------ */}
+<ResponseField name="randomDate({int daysBack})" type="DateTime">
+
+<Expandable title="Parameters">
+    <ParamField body="daysBack" type="int" default="365">
+       The maximum number of days into the past the date can be.
+    </ParamField>
+</Expandable>
+
+Generates a random `DateTime` within the past `daysBack` (default 365 days). Useful for mock user data or post timestamps.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    final postDate = ExtendGenerator.randomDate(daysBack: 30);
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🎨 General Data
+
+{/*  ------------------ */}
+<ResponseField name="randomColor" type="Color">
+Generates a random, fully opaque (`alpha=255`) color. Ideal for visual debugging and distinguishing containers.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    Container(color: ExtendGenerator.randomColor);
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="randomEmail" type="String">
+Generates a mock email address using a random username and common domain names.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    final email = ExtendGenerator.randomEmail; // e.g., "a8jkld7d@gmail.com"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="clipboardData" type="Future<String?>" post={["async"]}>
+Retrieves the current text content from the system clipboard.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    final contents = await ExtendGenerator.clipboardData;
+    ```
+</CodeGroup>
+</ResponseField>

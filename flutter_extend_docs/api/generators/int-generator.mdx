@@ -1,0 +1,93 @@
+---
+title: "int - Mock Data & Assets"
+sidebarTitle: "ExtendGenerator"
+icon: "database"
+description: "Extensions on the int type to generate mock data (Lorem Ipsum, random strings) and highly customizable placeholder image URLs."
+tag: "NEW"
+keywords: ['Flutter Widgets', 'Widgets', "Scaffold", 'Flutter']
+---
+<Card>
+
+### 🔢 Int as a Generator
+
+The int type gains new powers! Use an integer directly to define the length, count, or dimension for generated content, making placeholder data generation incredibly concise.
+
+```dart ExtendGenerator icon="database" lines wrap
+// Text generation
+final longString = 20.randomString;
+final article = 3.loremParagraphs;
+
+// Placeholder asset
+Image.network(400.placeholderImage(height: 200, blur: 5));
+```
+</Card>
+
+### 📰 Text & Content
+{/*  ------------------ */}
+<ResponseField name="loremWords" type="String">
+
+Generates a string with `[this]` number of Lorem Ipsum words.
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    final text = 10.loremWords;
+    // text might be: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="loremParagraphs" type="String">
+
+Generates `[this]` number of Lorem Ipsum paragraphs. Each paragraph is approximately 40 words long and separated by two newline characters (`\n\n`).
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    final paragraphs = 3.loremParagraphs;
+    // Returns three paragraphs of text separated by blank lines.
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="randomString" type="String">
+
+Generates a random alphanumeric string of [this] length (mixed case letters and numbers).
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    final apiKey = 32.randomString;
+    // apiKey might be: "a8JfKz92B4mP1yQ0sR7tV3uW6xE5"
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🖼️ Assets & Utility
+
+{/*  ------------------ */}
+<ResponseField name="placeholderImage({int? height, bool grayscale, int? blur})" type="String">
+Generates a versatile placeholder `image URL` from Lorem Picsum, using the integer as the width.
+
+<Expandable title="Parameters">
+
+    <ParamField body="height" type="int?" default="width (this)">
+        The `height` of the image. If `null`, the image will be `square`.
+    </ParamField>
+
+    <ParamField body="grayscale" type="bool" default="false">
+        If `true`, the image will be rendered in `black` and `white`.
+    </ParamField>
+
+    <ParamField body="blur" type="int?" default="null">
+        `Blur` level between `1` and `10` (clamped automatically).
+    </ParamField>
+
+</Expandable>
+
+<CodeGroup>
+    ```dart ExtendGenerator icon="database" lines wrap
+    // Rectangle, 400x200, Grayscale:
+    Image.network(400.placeholderImage(height: 200, grayscale: true));
+    ```
+</CodeGroup>
+</ResponseField>

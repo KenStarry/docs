@@ -36,43 +36,6 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Home",
-        "icon": "home",
-        "groups": [
-          {
-            "group": "Home",
-            "pages": [
-              "home/home",
-              "index"
-            ]
-          },
-          {
-            "group": "Projects",
-            "pages": [
-              "home/projects/introduction"
-            ]
-          },
-          {
-            "group": "Articles & Blogs",
-            "pages": [
-              "home/blogs/introduction"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Blogs",
-        "icon": "newspaper",
-        "groups": [
-          {
-            "group": "Articles & Blogs",
-            "pages": [
-              "home/blogs/introduction"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "Flutter_Extend",
         "icon": "code",
         "groups": [
@@ -113,6 +76,14 @@
               "flutter_extend_docs/api/date_time/date-time-comparison",
               "flutter_extend_docs/api/date_time/date-time-formatting",
               "flutter_extend_docs/api/date_time/date-time-manipulation"
+            ]
+          },
+          {
+            "group": "Extend Generators",
+            "pages": [
+              "flutter_extend_docs/api/generators/extend-generator",
+              "flutter_extend_docs/api/generators/int-generator",
+              "flutter_extend_docs/api/generators/string-generator"
             ]
           },
           {
@@ -180,17 +151,17 @@
       "anchors": [
         {
           "anchor": "GitHub",
-          "href": "https://mintlify.com/blog",
+          "href": "https://github.com/KenStarry",
           "icon": "github"
         },
         {
           "anchor": "LinkedIn",
-          "href": "https://mintlify.com/blog",
+          "href": "https://linkedin.com/in/kenneth-michuki-133a04217",
           "icon": "linkedin"
         },
         {
           "anchor": "X",
-          "href": "https://mintlify.com/blog",
+          "href": "https://x.com/ken_starry",
           "icon": "x"
         }
       ]
@@ -231,7 +202,7 @@
 
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
+      "x": "https://x.com/ken_starry",
       "github": "https://github.com/KenStarry",
       "linkedin": "https://linkedin.com/in/kenneth-michuki-133a04217"
     }

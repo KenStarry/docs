@@ -1,97 +1,72 @@
 ---
-title: "Flutter Extend"
-description: "Your Magical Extension Toolkit"
+title: "Installation Guide"
+description: "Fetch the Power!"
 ---
 
-## Setting up
+## 1. The pubspec.yaml Dance 👯‍♀️
 
-Get your documentation site up and running in minutes.
+Pop open your project's `pubspec.yaml` file and introduce flutter_extend to the dependencies block.
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_extend: ^0.2.0 # Check pub.dev for the latest version
+```
 
-## Make it yours
+## 2. Get Packages
 
-Design a docs site that looks great and empowers your users.
+After saving `pubspec.yaml`, run the following command in your terminal:
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+```bash
+flutter pub get
+```
 
-## Create beautiful pages
+## 3. Import the Package
 
-Everything you need to create world-class documentation.
+To enable all extensions, import the core library in any file where you plan to use them (e.g., in your main `widget.dart` files, utility files, or specific pages):
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+```dart
+import 'package:flutter_extend/flutter_extend.dart';
+```
 
-## Need inspiration?
+## 4. Start Using the Extensions
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+You can now start chaining methods directly onto core Flutter classes!
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_extend/flutter_extend.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // 1. Context Extension for screen size
+    final screenWidth = context.screenWidth;
+
+    // 2. Widget Extension for chaining layout
+    final title = const Text('Welcome to Flutter Extend')
+        .padding(const EdgeInsets.all(16.0))
+        .center();
+
+    // 3. Animation Extension (Requires flutter_animate)
+    final animatedIcon = const Icon(Icons.star, size: 50)
+        .fadeInMoveInBottom(duration: 800);
+
+    return Scaffold(
+      appBar: AppBar(
+        // 4. Context Extension for theme color
+        backgroundColor: context.colorScheme.primary,
+        title: title,
+      ),
+      body: Center(
+        child: animatedIcon,
+      ),
+    );
+  }
+}
+```
+
+Congratulations! You are all set to eliminate boilerplate code and build beautiful, expressive Flutter apps.
