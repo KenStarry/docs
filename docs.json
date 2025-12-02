@@ -143,6 +143,23 @@
             ]
           },
           {
+            "group": "Number",
+            "pages": [
+              "flutter_extend_docs/api/number/currency",
+              "flutter_extend_docs/api/number/duration"
+            ]
+          },
+          {
+            "group": "String",
+            "pages": [
+              "flutter_extend_docs/api/string/currency",
+              "flutter_extend_docs/api/string/regex",
+              "flutter_extend_docs/api/string/string-formatter",
+              "flutter_extend_docs/api/string/string-transformer",
+              "flutter_extend_docs/api/string/string-validation"
+            ]
+          },
+          {
             "group": "Changelog",
             "pages": [
               "flutter_extend_docs/changelog/changelog"

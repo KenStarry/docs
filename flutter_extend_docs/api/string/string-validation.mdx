@@ -1,0 +1,100 @@
+---
+title: "String - Validation & Integrity"
+sidebarTitle: "String"
+icon: "text-height"
+description: "Essential integrity checks for common formats: email structure, URL validity, custom password complexity, and unexpired JWT structure."
+keywords: ['Flutter String', 'String', "String Format", 'Flutter']
+---
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Strings icon="text-height" lines wrap
+// Basic Checks
+print('test@example.com'.isEmailValid());
+print('[https://google.com](https://google.com)'.isValidURL());
+
+// Security Check
+print('P@sswOrd1'.isPasswordValid());
+
+```
+</Card>
+
+### 🔒 Security Checks
+{/*  ------------------ */}
+<ResponseField name="isPasswordValid({int minLength, int minUppercase, int minNumbers, int minSpecialChars})" type="bool">
+
+Checks if the string meets customizable password complexity requirements (length, uppercase, numbers, special characters).
+
+<Expandable title="Parameters">
+    <ParamField body="minLength" type="int" default="8">
+        The `minimum` required `length` of the password.
+    </ParamField>
+
+    <ParamField body="minUppercase" type="int" default="1">
+        The `minimum` required number of `uppercase` letters.
+    </ParamField>
+
+    <ParamField body="minNumbers" type="int" default="1">
+        The `minimum` required number of `numerical` `digits`.
+    </ParamField>
+
+    <ParamField body="minSpecialChars" type="int" default="1">
+        The `minimum` required number of special `characters` (!@#\$%^&amp;*, etc.).
+    </ParamField>
+</Expandable>
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    // Requires 8+ chars, 1+ uppercase, 1+ number, 1+ special char
+    print('P@sswOrd1'.isPasswordValid()); // true
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="isValidJWT()" type="bool">
+
+
+Checks if the string is a valid, unexpired JSON Web Token (JWT). Verifies structure, decodes payload, and checks the `exp` (expiry time) field.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final validToken = 'header.payload.signature';
+    print(validToken.isValidJWT()); // true (if not expired)
+    ```
+</CodeGroup>
+
+<Warning>
+    This does **NOT** verify the signature for authenticity.
+</Warning>
+
+</ResponseField>
+
+### 📧 General Format Checks
+{/*  ------------------ */}
+<ResponseField name="isEmailValid()" type="bool">
+
+Checks if the string conforms to a standard email address format (`user@domain.tld`).
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('test@example.com'.isEmailValid()); // true
+    print('test@example'.isEmailValid()); // false
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="isValidURL()" type="bool">
+
+Checks if the string is a valid URL format, covering common protocols (http, https) and TLDs.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('[https://www.google.com](https://www.google.com)'.isValidURL()); // true
+    print('www.example'.isValidURL());  // false
+    ```
+</CodeGroup>
+</ResponseField>
