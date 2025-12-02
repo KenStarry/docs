@@ -1,0 +1,268 @@
+---
+title: "String - Transformation & Utilities"
+sidebarTitle: "String"
+icon: "text-height"
+description: "Essential string manipulation for padding, prefix/suffix ensuring, URL encoding, and masking sensitive data. Includes a null-safe extension."
+keywords: ['Flutter String', 'String', "String Format", 'Flutter']
+---
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Strings icon="text-height" lines wrap
+// Null-Safety
+String? title = getTitle();
+print(title.withDefaultValue('Untitled'));
+
+// Masking
+final card = '1234567890123456';
+print(card.mask(visibleCount: 4)); // "1234********3456"
+
+// Formatting
+print('1'.withOrdinal()); // "1st"
+```
+</Card>
+
+### 🛡️ Null-Safety (String?)
+{/*  ------------------ */}
+<ResponseField name="withDefaultValue(String defaultValue)" type="String">
+
+<Card>
+
+    <ParamField body="defaultValue" type="String" required>
+        The string to return if the original string is `null` or `empty`.
+    </ParamField>
+
+</Card>
+
+Returns the original string if it is not `null` and `not empty`, otherwise returns the provided defaultValue. Guarantees a `non-null`, non-empty result.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    String? title = getTitleFromAPI();
+    print(title.withDefaultValue('Untitled Document'));
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🔒 Security & Encoding
+
+{/*  ------------------ */}
+<ResponseField name="mask({int visibleCount, String maskCharacter})" type="String">
+
+<Expandable title="Parameters">
+
+    <ParamField body="visibleCount" type="int" default="2">
+        The number of characters to keep visible at the `start` and `end`.
+    </ParamField>
+
+    <ParamField body="maskCharacter" type="String" default="*">
+        The `character` used to hide the central portion.
+    </ParamField>
+
+</Expandable>
+
+Masks the central portion of the string while keeping a fixed number of characters visible at the beginning and end. Essential for sensitive data.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final card = '1234567890123456';
+    print(card.mask(visibleCount: 4)); // "1234********3456"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="withUrlEncoded()" type="String">
+
+`URL-encodes` the string, replacing illegal or unsafe characters (e.g., spaces) with percent-encoded equivalents.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final urlParam = 'user name'.withUrlEncoded(); // "user%20name"
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🔗 Boundaries & Wrapping
+
+{/*  ------------------ */}
+<ResponseField name="ensureEndsWith(String suffix)" type="String">
+
+<Card>
+
+    <ParamField body="suffix" type="String" required>
+        The `suffix` to ensure the string ends with.
+    </ParamField>
+
+</Card>
+
+Ensures that the string ends with the specified `suffix`. The suffix is appended only if the string is not empty and does not already end with it.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('user'.ensureEndsWith('.json'));    // "user.json"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="ensureStartsWith(String prefix)" type="String">
+
+<Card>
+
+    <ParamField body="prefix" type="String" required>
+        The `prefix` to ensure the string starts with.
+    </ParamField>
+
+</Card>
+
+Ensures that the string starts with the specified `prefix`. The prefix is prepended only if the string is not empty and does not already start with it.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('data'.ensureStartsWith('/api/')); // "/api/data"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="withBrackets([String left, String right])" type="String">
+
+<Expandable title="Parameters">
+
+    <ParamField body="left" type="String" default="(">
+        The opening delimiter.
+    </ParamField>
+
+    <ParamField body="right" type="String" default=")">
+         The closing delimiter.
+    </ParamField>
+
+</Expandable>
+
+Wraps the string with the specified left and right delimiters.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('success'.withBrackets('[', ']')); // "[success]"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="withHashtag()" type="String">
+
+Prepends a `#` symbol and removes all spaces, formatting the string into a standardized hashtag.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('flutter extend'.withHashtag()); // "#flutterextend"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="withEmoji(Emoji emoji)" type="String">
+
+<Card>
+
+    <ParamField body="emoji" type="Emoji" required>
+        The `Emoji` object containing the string representation of the emoji.
+    </ParamField>
+
+</Card>
+
+Appends a graphical emoji representation to the end of the string, separated by a space.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    // Assuming Emoji.star is a defined constant
+    print('Great Job'.withEmoji(Emoji.star)); // "Great Job ⭐"
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 💯 Display & Utility
+{/*  ------------------ */}
+<ResponseField name="withOrdinal()" type="String">
+
+Converts a numeric string into its ordinal form (e.g., "1st", "2nd", "23rd"). Requires `isDigitsOnly()` to be available.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('11'.withOrdinal()); // "11th"
+    print('23'.withOrdinal()); // "23rd"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="withEllipsis(int maxLength)" type="String">
+
+<Card>
+
+    <ParamField body="maxLength" type="int" required>
+        The `maximum` number of characters allowed before truncation.
+    </ParamField>
+
+</Card>
+
+Truncates the string if its length exceeds `maxLength` and appends an ellipsis ("...").
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final long = 'This is a long message';
+    print(long.withEllipsis(10)); // "This is a ..."
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="truncateName()" type="String">
+
+Truncates a full name (first and last name) to show the first name and the initial of the last name (e.g., "John D.").
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final name1 = 'Alice Wonderland';
+    print(name1.truncateName()); // "Alice W."
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="reverse()" type="String">
+
+Reverses the order of the characters in the string.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final text = 'dart';
+    print(text.reverse()); // "trad"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="getLastNCharacters(int n)" type="String">
+
+<Card>
+
+    <ParamField body="n" type="int" required>
+        The `number` of characters to retrieve from the `end` of the string.
+    </ParamField>
+
+</Card>
+
+Retrieves the `last N` characters of the `string`.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final id = 'TX202512345';
+    print(id.getLastNCharacters(4)); // "2345"
+    ```
+</CodeGroup>
+</ResponseField>
+

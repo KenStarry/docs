@@ -1,0 +1,101 @@
+---
+title: "num - Formatting & Currency"
+sidebarTitle: "Number"
+icon: "hashtag"
+description: "Functional utilities for complex list mapping, efficient sorting by property (selector), chunking for pagination, and creating shuffled copies."
+keywords: ['Flutter num', 'num', "Currency", "Currency Format", 'Flutter']
+---
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart num icon="hashtag" lines wrap
+// Standard KES Format
+print(12345.678.toCurrency()); // KES 12,345.68
+
+// Euro Format
+print(9876.5.toCurrency(decimalSeparator: ',', thousandsSeparator: '.'));
+
+// Abbreviation
+print(12345678.toAbbreviated()); // 12.3M
+```
+</Card>
+
+### 💰 Currency Formatting
+{/*  ------------------ */}
+<ResponseField name="toCurrency()" type="String">
+
+<Expandable title="Parameters">
+
+    <ParamField body="decimalPlaces" type="int" default="2">
+        The number of digits to display after the decimal point.
+    </ParamField>
+
+    <ParamField body="currencySymbol" type="String?" default="'KES'">
+        The symbol to use (e.g., 'KES', '$'). Set to `null` to display no symbol.
+    </ParamField>
+
+    <ParamField body="currencyDirection" type="CurrencyDirection" default="CurrencyDirection.left">
+        Placement of the currency symbol (left or right).
+    </ParamField>
+
+    <ParamField body="thousandsSeparator" type="String" default="','">
+        The `character` used to separate thousands.
+    </ParamField>
+
+    <ParamField body="decimalSeparator" type="String" default="'.'">
+        The `character` used to separate the whole number from the decimals.
+    </ParamField>
+
+</Expandable>
+
+Converts the number to a given currency format, correctly handling thousand separators, decimal places, and symbol placement.
+
+<CodeGroup>
+    ```dart Lists icon="list" lines wrap
+    final euroAmount = 9876.5;
+    print(euroAmount.toCurrency(
+      currencySymbol: '€',
+      thousandsSeparator: '.',
+      decimalSeparator: ',',
+      currencyDirection: CurrencyDirection.right,
+    ));
+    // 9.876,50 €
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 📊 Abbreviation
+
+{/*  ------------------ */}
+<ResponseField name="toAbbreviated()" type="String">
+
+<Expandable title="Parameters">
+
+    <ParamField body="decimalCount" type="int" default="1">
+        The number of decimal places to include.
+    </ParamField>
+
+    <ParamField body="isLowercase" type="bool" default="false">
+        If `true`, uses lowercase suffixes (b, m, k).
+    </ParamField>
+
+    <ParamField body="currencySymbol" type="String?">
+        An optional symbol to prefix/suffix the result.
+    </ParamField>
+
+    <ParamField body="currencyDirection" type="CurrencyDirection" default="CurrencyDirection.left">
+        Placement of the currency symbol (left or right).
+    </ParamField>
+
+</Expandable>
+
+Abbreviates the number to a concise format (e.g., 1.1B, 2.0K). Used for displaying large counts cleanly in UIs.
+
+<CodeGroup>
+    ```dart Lists icon="list" lines wrap
+    print(1000000000.toAbbreviated(currencySymbol: 'USD')); // USD 1.0B
+    ```
+</CodeGroup>
+</ResponseField>

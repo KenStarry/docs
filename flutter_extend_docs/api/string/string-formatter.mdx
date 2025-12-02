@@ -1,0 +1,98 @@
+---
+title: "String - Formatting & Case"
+sidebarTitle: "String"
+icon: "text-height"
+description: "Essential utilities for managing string case (TitleCase, capitalizing), converting to URL slugs, and handling Base64 encoding/decoding."
+keywords: ['Flutter String', 'String', "String Format", 'Flutter']
+---
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Strings icon="text-height" lines wrap
+// Case
+print('hello world'.toTitleCase()); // "Hello World"
+
+// Conversion
+print('user_profile_data'.toCamelCase()); // "userProfileData"
+
+// URL/SEO
+print('My Awesome Post!'.toSlug()); // "my-awesome-post"
+```
+</Card>
+
+### 🔡 Case & Slugs
+{/*  ------------------ */}
+<ResponseField name="capitalizeFirstLetter()" type="String">
+
+Capitalizes only the first letter of the string. Returns the string as is if empty.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('hello world'.capitalizeFirstLetter()); // "Hello world"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="toTitleCase()" type="String">
+
+Capitalizes the first letter of every word in the string. Ideal for titles and proper nouns.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('the quick brown fox'.toTitleCase()); // "The Quick Brown Fox"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="toCamelCase()" type="String">
+
+Converts a `snake_case` string (e.g., `user_data`) into `camelCase` (e.g., `userData`).
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('user_profile_data'.toCamelCase()); // "userProfileData"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="toSlug()" type="String">
+
+Converts the string into a clean, URL-friendly `slug` format, replacing non-alphanumeric
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    print('Best Post Ever! (2025)'.toSlug()); // "best-post-ever-2025"
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🔐 Encoding
+{/*  ------------------ */}
+<ResponseField name="toBase64()" type="String">
+
+Encodes the string into a Base64 string representation using `UTF-8` encoding.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final encoded = 'secret'.toBase64(); // "c2VjcmV0"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="fromBase64()" type="String">
+
+Decodes a Base64 encoded string back to its original `UTF-8` string format.
+
+<CodeGroup>
+    ```dart Strings icon="text-height" lines wrap
+    final original = 'c2VjcmV0'.fromBase64(); // "secret"
+    ```
+</CodeGroup>
+</ResponseField>
+
