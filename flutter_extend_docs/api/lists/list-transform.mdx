@@ -1,0 +1,172 @@
+---
+title: "List/Iterable - Transformations & Sorting"
+sidebarTitle: "Lists"
+icon: "list"
+description: "Functional utilities for complex list mapping, efficient sorting by property (selector), chunking for pagination, and creating shuffled copies."
+keywords: ['Flutter Lists', 'List', 'Iterable', "Null", "Collection", "RangeError", "StateError", 'Flutter']
+---
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart Lists icon="list" lines wrap
+final items = [1, 2, 3];
+
+// Map with Index
+final indexed = items.mapIndexed((i, item) => 'No $i: $item');
+
+// Filtering Nulls
+final passing = grades.mapNotNull((g) => g >= 50 ? g : null);
+
+// Sorting
+users.sortBy((u) => u.score, ascending: false);
+```
+</Card>
+
+### 🗺️ Mapping & Filtering
+{/*  ------------------ */}
+<ResponseField name="mapIndexed<R>(R Function(int index, T item) mapper)" type="List<R>">
+
+<Card>
+
+    <ParamField body="mapper" type="R Function(int index, T item)" required>
+        A function that accepts the index and the item, returning a new value.
+    </ParamField>
+
+</Card>
+
+Maps the list, providing the element's index along with the item to the `mapper function`. Perfect for generating indexed widgets.
+
+<CodeGroup>
+    ```dart Lists icon="list" lines wrap
+    final names = ['Alice', 'Bob'];
+    final widgets = names.mapIndexed((i, name) => Text('No. $i: $name'));
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="mapNotNull<R>(R? Function(T item) mapper)" type="List<R>">
+
+<Card>
+
+    <ParamField body="mapper" type="R? Function(T item)" required>
+        A function that transforms the item into a potentially nullable value.
+    </ParamField>
+
+</Card>
+
+Maps the list and automatically filters out all resulting `null` values, guaranteeing a non-nullable output list.
+
+<CodeGroup>
+    ```dart Lists icon="list" lines wrap
+    final grades = [85, 40];
+    final passing = grades.mapNotNull((g) => g >= 50 ? g : null); // [85]
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🔄 Sorting & Order
+
+{/*  ------------------ */}
+<ResponseField name="reversedList" type="List<T>">
+
+Gets a **new list** containing the elements of the original list in reverse order.
+
+<CodeGroup>
+    ```dart Lists icon="list" lines wrap
+    final original = [1, 2, 3];
+    final reversed = original.reversedList; // [3, 2, 1]
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="sortBy(Comparable Function(T) selector, {bool ascending})" type="void">
+
+<Card>
+
+    <ParamField body="selector" type="Comparable Function(T)" required>
+        A function that returns a `Comparable` property (e.g., `int`, `String`) by which to sort.
+    </ParamField>
+
+    <Expandable title="Other Parameters">
+        <ParamField body="ascending" type="bool" default="true">
+            If `true`, sorts from smallest to largest; otherwise, largest to smallest.
+        </ParamField>
+    </Expandable>
+
+</Card>
+
+Sorts the list **in-place** (mutates the original list) based on a selected property.
+
+<CodeGroup>
+    ```dart Lists icon="list" lines wrap
+    // Sorts by score in ascending order (10, 20)
+    users.sortBy((user) => user.score);
+    ```
+</CodeGroup>
+
+<Note>
+    Mutates the original list
+</Note>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="sortByAndReturnSorted(Comparable Function(T) selector, {bool ascending})" type="List<T>">
+
+<Card>
+
+    <ParamField body="selector" type="Comparable Function(T)" required>
+        A function that returns a `Comparable` property (e.g., `int`, `String`) by which to sort.
+    </ParamField>
+
+    <Expandable title="Other Parameters">
+        <ParamField body="ascending" type="bool" default="true">
+            If `true`, sorts from smallest to largest; otherwise, largest to smallest.
+        </ParamField>
+    </Expandable>
+
+</Card>
+
+Sorts the list based on a selected property and **returns a new sorted list**. The original list remains unchanged.
+
+<CodeGroup>
+    ```dart Lists icon="list" lines wrap
+    final originalScores = [10, 50, 20];
+    final topScores = originalScores.sortByAndReturnSorted((s) => s, ascending: false);
+    ```
+</CodeGroup>
+
+<Note>
+    Returns a new sorted list. The original list remains unchanged.
+</Note>
+</ResponseField>
+
+### ✂️ Structural Changes
+
+{/*  ------------------ */}
+<ResponseField name="chunked(int chunkSize)" type="List<List<T>>">
+
+<Card>
+
+    <ParamField body="chunkSize" type="int" required>
+        The maximum size for each chunk. Must be greater than 0.
+    </ParamField>
+
+</Card>
+
+Splits the list into smaller sub-lists (chunks) of a maximum specified size. Highly useful for pagination or multi-column layouts.
+
+<CodeGroup>
+    ```dart Lists icon="list" lines wrap
+    final items = [1, 2, 3, 4, 5, 6, 7];
+    final chunks = items.chunked(3);
+    ```
+
+     ```dart Chunked Output icon="list" lines wrap
+     // "chunks is [[1, 2, 3], [4, 5, 6], [7]]"
+     ```
+</CodeGroup>
+</ResponseField>

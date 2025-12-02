@@ -130,6 +130,19 @@
             ]
           },
           {
+            "group": "Generators",
+            "pages": [
+
+            ]
+          },
+          {
+            "group": "Lists",
+            "pages": [
+              "flutter_extend_docs/api/lists/list-access",
+              "flutter_extend_docs/api/lists/list-transform"
+            ]
+          },
+          {
             "group": "Changelog",
             "pages": [
               "flutter_extend_docs/changelog/changelog"
