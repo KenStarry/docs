@@ -1,0 +1,133 @@
+---
+title: "File - IO Utility Extensions"
+sidebarTitle: "Files"
+icon: "folder"
+description: " Powerful extensions for dart:io.File to simplify size formatting, path manipulation, and type checking for local files."
+keywords: ['Flutter Files', 'Files', 'File Handling', 'Flutter']
+---
+
+<Warning>
+    Methods like `fileFormattedSize()` and `fileToBase64String()` use synchronous I/O (`lengthSync`, `readAsBytesSync`) and should be run off the main thread (e.g., in an `Isolate` or `compute`) for large files to prevent UI jank.
+</Warning>
+
+<br/>
+<Card
+    title="⚡ Quick Usage"
+    icon="bolt-lightning"
+>
+
+```dart DateTime icon="calendar" lines wrap
+final file = File('path/to/data.zip');
+
+// Size Formatting
+print(file.fileFormattedSize()); // "5.32 MB"
+
+// Path & Name
+print(file.fileNameWithoutExtension()); // "data"
+
+// Encoding
+final base64 = file.fileToBase64String();
+```
+</Card>
+
+### 📏 Size & Formatting
+{/*  ------------------ */}
+<ResponseField name="fileFormattedSize()" type="String">
+
+<Expandable title="Parameters">
+
+    <ParamField body="fullySizedName" type="bool" default="false">
+        If `true`, uses the full unit names (e.g., 'Kilobytes'); otherwise, uses abbreviations (e.g., 'KB').
+    </ParamField>
+
+</Expandable>
+
+Retrieves the file size and formats it into human-readable units (B, KB, MB, GB).
+
+<CodeGroup>
+    ```dart Files icon="folder" lines wrap
+    final size = file.fileFormattedSize(fullySizedName: true);
+    print(size);
+    ```
+
+    ```dart Format Output icon="bolt-lightning" lines wrap
+    "5.32 Megabytes"
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🔗 Path & Naming
+{/*  ------------------ */}
+<ResponseField name="filePath()" type="String">
+
+Retrieves the absolute path of the file.
+
+<CodeGroup>
+    ```dart Files icon="folder" lines wrap
+    final path = file.filePath();
+    ```
+
+    ```dart Path Output icon="bolt-lightning" lines wrap
+    "/data/user/0/app.name/cache/temp.txt"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="fileExtension()" type="String">
+
+Retrieves the file extension (the part after the last dot), e.g., "png", "pdf".
+
+<CodeGroup>
+    ```dart Files icon="folder" lines wrap
+    print(File('/img/photo.png').fileExtension());
+    ```
+
+    ```dart Extension Output icon="bolt-lightning" lines wrap
+    "png"
+    ```
+</CodeGroup>
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="fileNameWithoutExtension()" type="String">
+
+Retrieves the file name without the extension. "pdf".
+
+<CodeGroup>
+    ```dart Files icon="folder" lines wrap
+    print(File('/docs/report.pdf').fileNameWithoutExtension());
+    ```
+
+    ```dart Extension Output icon="bolt-lightning" lines wrap
+    "report"
+    ```
+</CodeGroup>
+</ResponseField>
+
+### 🖼️ Content & Type Checks
+{/*  ------------------ post={["async"]} */}
+<ResponseField name="fileToBase64String()" type="String">
+
+Reads the file contents synchronously and converts them to a `Base64` encoded string.
+
+```dart Files icon="folder" lines wrap
+final base64 = file.fileToBase64String();
+```
+</ResponseField>
+
+{/*  ------------------ */}
+<ResponseField name="isImage()" type="bool">
+
+Checks if the file is likely an image based on its extension (supports common formats).
+
+<CodeGroup>
+    ```dart Files icon="folder" lines wrap
+    print(File('profile.JPG').isImage());
+    ```
+
+    ```dart Image Output icon="bolt-lightning" lines wrap
+    "true"
+    ```
+</CodeGroup>
+</ResponseField>

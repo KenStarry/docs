@@ -94,17 +94,17 @@
           {
             "group": "Build Context",
             "pages": [
-              "flutter_extend_docs/api/context/focus-context-extensions",
-              "flutter_extend_docs/api/context/media-query-context-extensions",
-              "flutter_extend_docs/api/context/navigator-context-extensions",
-              "flutter_extend_docs/api/context/platform-context-extensions",
-              "flutter_extend_docs/api/context/theme-context-extensions"
+              "flutter_extend_docs/api/context/focus",
+              "flutter_extend_docs/api/context/media-query",
+              "flutter_extend_docs/api/context/navigator",
+              "flutter_extend_docs/api/context/platform",
+              "flutter_extend_docs/api/context/theme"
             ]
           },
           {
             "group": "Colors",
             "pages": [
-              "flutter_extend_docs/api/colors/color-extensions"
+              "flutter_extend_docs/api/colors/colors"
             ]
           },
           {
@@ -116,10 +116,9 @@
             ]
           },
           {
-            "group": "Guides",
+            "group": "Files",
             "pages": [
-              "flutter_extend_docs/guides/using-animations",
-              "flutter_extend_docs/guides/mocking-data"
+              "flutter_extend_docs/api/files/files"
             ]
           },
           {
