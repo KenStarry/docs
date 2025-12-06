@@ -12,7 +12,6 @@
   "thumbnails": {
     "appearance": "dark",
     "background": "https://github.com/user-attachments/assets/b3a4d7ae-e1b6-4f3d-b485-857567a2cc2b"
-
   },
   "styling": {
     "eyebrows": "section",
@@ -179,7 +178,17 @@
         "icon": "book",
         "menu": [
           {
-            "item": "Articles"
+            "item": "Articles",
+            "pages": [
+              "blogs/articles/articles",
+              {
+                "group": "Get Started",
+                "expanded": false,
+                "pages": [
+                  "blogs/home"
+                ]
+              }
+            ]
           },
           {
             "item": "Tutorials"
