@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "mint",
   "name": "Starry Codes",
   "description": "Starry Codes is your go-to hub for Flutter development, featuring innovative Flutter Extend packages, practical coding tutorials, and productivity-boosting extensions. Explore comprehensive guides, clean code examples, and developer tools designed to accelerate your Flutter projects and master mobile app development.",
   "colors": {
@@ -15,6 +15,7 @@
 
   },
   "styling": {
+    "eyebrows": "section",
     "codeblocks": {
       "theme": {
         "light": "github-light",
@@ -36,136 +37,156 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Flutter_Extend",
-        "icon": "code",
-        "groups": [
+        "tab": "Home",
+        "icon": "home",
+        "pages": [
+          "index"
+        ]
+      },
+      {
+        "tab": "Apps",
+        "icon": "mobile",
+        "menu": [
           {
-            "group": "Getting Started",
-            "pages": [
-              "flutter_extend_docs/introduction",
-              "flutter_extend_docs/installation"
-            ]
+            "item": "MyBritam"
           },
           {
-            "group": "Animations",
-            "pages": [
-              "flutter_extend_docs/api/animations/fade",
-              "flutter_extend_docs/api/animations/pulse",
-              "flutter_extend_docs/api/animations/shake"
-            ]
+            "item": "Flow Music Player"
           },
           {
-            "group": "Build Context",
-            "pages": [
-              "flutter_extend_docs/api/context/focus",
-              "flutter_extend_docs/api/context/media-query",
-              "flutter_extend_docs/api/context/navigator",
-              "flutter_extend_docs/api/context/platform",
-              "flutter_extend_docs/api/context/theme"
-            ]
-          },
+            "item": "CribLynk"
+          }
+        ]
+      },
+      {
+        "tab": "Packages",
+        "icon": "book",
+        "menu": [
           {
-            "group": "Colors",
-            "pages": [
-              "flutter_extend_docs/api/colors/colors"
-            ]
-          },
-          {
-            "group": "Date & Time",
-            "pages": [
-              "flutter_extend_docs/api/date_time/date-time-comparison",
-              "flutter_extend_docs/api/date_time/date-time-formatting",
-              "flutter_extend_docs/api/date_time/date-time-manipulation"
-            ]
-          },
-          {
-            "group": "Extend Generators",
-            "pages": [
-              "flutter_extend_docs/api/generators/extend-generator",
-              "flutter_extend_docs/api/generators/int-generator",
-              "flutter_extend_docs/api/generators/string-generator"
-            ]
-          },
-          {
-            "group": "Files",
-            "pages": [
-              "flutter_extend_docs/api/files/files"
-            ]
-          },
-          {
-            "group": "Futures",
-            "pages": [
-              "flutter_extend_docs/api/futures/general-futures",
-              "flutter_extend_docs/api/futures/iterable-futures",
-              "flutter_extend_docs/api/futures/string-futures"
-            ]
-          },
-          {
-            "group": "Generators",
-            "pages": [
+            "item": "Flutter_Extend",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "flutter_extend_docs/introduction",
+                  "flutter_extend_docs/installation"
+                ]
+              },
+              {
+                "group": "Animations",
+                "pages": [
+                  "flutter_extend_docs/api/animations/fade",
+                  "flutter_extend_docs/api/animations/pulse",
+                  "flutter_extend_docs/api/animations/shake"
+                ]
+              },
+              {
+                "group": "Build Context",
+                "pages": [
+                  "flutter_extend_docs/api/context/focus",
+                  "flutter_extend_docs/api/context/media-query",
+                  "flutter_extend_docs/api/context/navigator",
+                  "flutter_extend_docs/api/context/platform",
+                  "flutter_extend_docs/api/context/theme"
+                ]
+              },
+              {
+                "group": "Colors",
+                "pages": [
+                  "flutter_extend_docs/api/colors/colors"
+                ]
+              },
+              {
+                "group": "Date & Time",
+                "pages": [
+                  "flutter_extend_docs/api/date_time/date-time-comparison",
+                  "flutter_extend_docs/api/date_time/date-time-formatting",
+                  "flutter_extend_docs/api/date_time/date-time-manipulation"
+                ]
+              },
+              {
+                "group": "Extend Generators",
+                "pages": [
+                  "flutter_extend_docs/api/generators/extend-generator",
+                  "flutter_extend_docs/api/generators/int-generator",
+                  "flutter_extend_docs/api/generators/string-generator"
+                ]
+              },
+              {
+                "group": "Files",
+                "pages": [
+                  "flutter_extend_docs/api/files/files"
+                ]
+              },
+              {
+                "group": "Futures",
+                "pages": [
+                  "flutter_extend_docs/api/futures/general-futures",
+                  "flutter_extend_docs/api/futures/iterable-futures",
+                  "flutter_extend_docs/api/futures/string-futures"
+                ]
+              },
+              {
+                "group": "Generators",
+                "pages": [
 
-            ]
-          },
-          {
-            "group": "Lists",
-            "pages": [
-              "flutter_extend_docs/api/lists/list-access",
-              "flutter_extend_docs/api/lists/list-transform"
-            ]
-          },
-          {
-            "group": "Number",
-            "pages": [
-              "flutter_extend_docs/api/number/currency",
-              "flutter_extend_docs/api/number/duration"
-            ]
-          },
-          {
-            "group": "String",
-            "pages": [
-              "flutter_extend_docs/api/string/currency",
-              "flutter_extend_docs/api/string/regex",
-              "flutter_extend_docs/api/string/string-formatter",
-              "flutter_extend_docs/api/string/string-transformer",
-              "flutter_extend_docs/api/string/string-validation"
-            ]
-          },
-          {
-            "group": "Widgets",
-            "pages": [
-              "flutter_extend_docs/api/widget/scaffold",
-              "flutter_extend_docs/api/widget/text",
-              "flutter_extend_docs/api/widget/widgets"
-            ]
-          },
-          {
-            "group": "Changelog",
-            "pages": [
-              "flutter_extend_docs/changelog/changelog"
+                ]
+              },
+              {
+                "group": "Lists",
+                "pages": [
+                  "flutter_extend_docs/api/lists/list-access",
+                  "flutter_extend_docs/api/lists/list-transform"
+                ]
+              },
+              {
+                "group": "Number",
+                "pages": [
+                  "flutter_extend_docs/api/number/currency",
+                  "flutter_extend_docs/api/number/duration"
+                ]
+              },
+              {
+                "group": "String",
+                "pages": [
+                  "flutter_extend_docs/api/string/currency",
+                  "flutter_extend_docs/api/string/regex",
+                  "flutter_extend_docs/api/string/string-formatter",
+                  "flutter_extend_docs/api/string/string-transformer",
+                  "flutter_extend_docs/api/string/string-validation"
+                ]
+              },
+              {
+                "group": "Widgets",
+                "pages": [
+                  "flutter_extend_docs/api/widget/scaffold",
+                  "flutter_extend_docs/api/widget/text",
+                  "flutter_extend_docs/api/widget/widgets"
+                ]
+              },
+              {
+                "group": "Changelog",
+                "pages": [
+                  "flutter_extend_docs/changelog/changelog"
+                ]
+              }
             ]
           }
         ]
+      },
+      {
+        "tab": "Blogs",
+        "icon": "book",
+        "menu": [
+          {
+            "item": "Articles"
+          },
+          {
+            "item": "Tutorials"
+          }
+        ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "GitHub",
-          "href": "https://github.com/KenStarry",
-          "icon": "github"
-        },
-        {
-          "anchor": "LinkedIn",
-          "href": "https://linkedin.com/in/kenneth-michuki-133a04217",
-          "icon": "linkedin"
-        },
-        {
-          "anchor": "X",
-          "href": "https://x.com/ken_starry",
-          "icon": "x"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/logo.png",
@@ -174,14 +195,24 @@
   "navbar": {
     "links": [
       {
-        "label": "Contact",
+        "label": "GitHub",
+        "icon": {
+          "name": "github"
+        },
+        "href": "https://github.com/KenStarry"
+      },
+      {
+        "label": "LinkedIn",
+        "icon": {
+          "name": "linkedin"
+        },
         "href": "https://linkedin.com/in/kenneth-michuki-133a04217"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Connect",
-      "href": "https://linkedin.com/in/kenneth-michuki-133a04217"
+      "label": "Support My Work",
+      "href": "https://buymeacoffee.com/KenStarry"
     }
   },
   "contextual": {
@@ -197,9 +228,17 @@
    ]
   },
   "fonts": {
-    "family": "Inter"
+    "heading": {
+      "family": "Urbanist"
+    },
+    "body": {
+      "family": "Inter",
+      "weight": 500
+    }
   },
-
+  "appearance": {
+    "strict": false
+  },
   "footer": {
     "socials": {
       "x": "https://x.com/ken_starry",
