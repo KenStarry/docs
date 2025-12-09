@@ -1,0 +1,103 @@
+---
+title: "Contributors"
+sidebarTitle: "Contributors"
+description: "Meet the brilliant minds behind Flutter Extend."
+---
+
+<div className="not-prose flex flex-col md:flex-row items-center gap-8 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-white/5 shadow-sm my-8">
+
+  {/* Left Side: Text Content */}
+  <div className="flex-1 text-center md:text-left">
+    <div className="text-primary-500 dark:text-primary-400 text-xs font-bold tracking-widest uppercase mb-2">
+      Creator Spotlight
+    </div>
+    <div className="text-xl font-bold text-gray-900 dark:text-white m-0">
+      KenStarry
+    </div>
+    <p className="text-gray-600 dark:text-gray-400 mt-8 text-sm leading-relaxed m-0">
+      Maintainer of <code className="text-xs bg-gray-200 dark:bg-gray-800 rounded px-1 py-0.5">flutter_extend</code>. Obsessed with clean UI and making Flutter development faster for everyone.
+    </p>
+
+    {/* Optional Social Links */}
+    <div className="flex items-center justify-center md:justify-start gap-4 mt-8">
+
+    {/* GitHub */}
+      <a href="https://github.com/KenStarry"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors no-underline">
+        <Icon icon="github" size={20} />
+        <span>GitHub</span>
+      </a>
+      <span className="text-gray-300">|</span>
+{/* LinkedIn */}
+        <a href="https://www.linkedin.com/in/kenneth-michuki-133a04217/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors no-underline">
+           <Icon icon="linkedin" size={20} />
+           <span>LinkedIn</span>
+        </a>
+      <span className="text-gray-300">|</span>
+
+        {/* Twitter / X */}
+                <a href="https://twitter.com/KenStarry"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-blue-400 transition-colors no-underline">
+                  <Icon icon="x" size={20} />
+                  <span>Twitter</span>
+                </a>
+    </div>
+  </div>
+
+  {/* Right Side: Controlled Image */}
+  <div className="shrink-0 relative group">
+    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
+    <img
+      src="https://github.com/KenStarry.png"
+      alt="Creator"
+      style={{height: "150px", width: "150px"}}
+      className="relative w-24 h-24 rounded-full object-cover border-2 border-white dark:border-gray-700 shadow-md m-0"
+    />
+  </div>
+
+</div>
+
+## Community Contributors
+
+A huge shoutout to the developers who have helped improve this package.
+
+<CardGroup cols={3}>
+  <Card title="Enos Okello" href="https://github.com/okelloEnos">
+    <div className="flex flex-col items-center text-center">
+        <img
+            src="https://github.com/okelloEnos.png"
+            className="rounded-full w-16 h-16 mb-3 object-cover opacity-90 hover:opacity-100 transition-opacity"
+        />
+        <span className="text-sm text-gray-500">
+            Added Currency Extensions.
+        </span>
+    </div>
+  </Card>
+
+  <Card title="Mohammed Hisham" href="https://github.com/MohammedHishamFarouk">
+    <div className="flex flex-col items-center text-center">
+        <img
+            src="https://github.com/MohammedHishamFarouk.png"
+            className="rounded-full w-16 h-16 mb-3 object-cover opacity-90 hover:opacity-100 transition-opacity"
+        />
+        <span className="text-sm text-gray-500">
+            Added new String extensions and documentation.
+        </span>
+    </div>
+  </Card>
+
+  <Card title="Become a Contributor" icon="plus" href="https://github.com/KenStarry/flutter_extend">
+    <div className="h-full flex flex-col justify-center items-center text-center mt-2">
+        <p className="text-sm">
+            Found a bug? Have an idea? Open a PR and get featured here!
+        </p>
+    </div>
+  </Card>
+</CardGroup>

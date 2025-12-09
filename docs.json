@@ -48,11 +48,11 @@
         "menu": [
           {
             "item": "Flutter_Extend",
-            "groups": [
+            "pages": [
+              "flutter_extend_docs/introduction",
               {
-                "group": "Getting Started",
+                "group": "Get Started",
                 "pages": [
-                  "flutter_extend_docs/introduction",
                   "flutter_extend_docs/installation"
                 ]
               },
@@ -148,12 +148,9 @@
                   "flutter_extend_docs/api/widget/widgets"
                 ]
               },
-              {
-                "group": "Changelog",
-                "pages": [
-                  "flutter_extend_docs/changelog/changelog"
-                ]
-              }
+              "flutter_extend_docs/changelog/changelog",
+              "flutter_extend_docs/contributors/contributors",
+              "flutter_extend_docs/license"
             ]
           }
         ]
