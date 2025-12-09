@@ -43,21 +43,6 @@
         ]
       },
       {
-        "tab": "Apps",
-        "icon": "mobile",
-        "menu": [
-          {
-            "item": "MyBritam"
-          },
-          {
-            "item": "Flow Music Player"
-          },
-          {
-            "item": "CribLynk"
-          }
-        ]
-      },
-      {
         "tab": "Packages",
         "icon": "book",
         "menu": [
@@ -181,17 +166,15 @@
             "item": "Articles",
             "pages": [
               "blogs/articles/articles",
+
               {
-                "group": "Get Started",
+                "group": "Images",
                 "expanded": false,
                 "pages": [
-                  "blogs/home"
+                  "blogs/flutter/multi-wayed-svg-styling"
                 ]
               }
             ]
-          },
-          {
-            "item": "Tutorials"
           }
         ]
       }
