@@ -1,87 +1,90 @@
 ---
 title: "Flutter Extend"
-description: "The Ultimate Cheat Code for Flutter Developers"
+sidebarTitle: "Introduction"
+description: "The ultimate cheat code for cleaner, faster Flutter development."
+mode: "wide"
 ---
-
-{/*  {
-             "tab": "Home",
-             "icon": "home",
-             "groups": [
-               {
-                 "group": "Home",
-                 "pages": [
-                   "home/home",
-                   "index"
-                 ]
-               },
-               {
-                 "group": "Projects",
-                 "pages": [
-                   "home/projects/introduction"
-                 ]
-               },
-               {
-                 "group": "Articles & Blogs",
-                 "pages": [
-                   "home/blogs/introduction"
-                 ]
-               }
-             ]
-           },
-           {
-             "tab": "Blogs",
-             "icon": "newspaper",
-             "groups": [
-               {
-                 "group": "Articles & Blogs",
-                 "pages": [
-                   "home/blogs/introduction"
-                 ]
-               }
-             ]
-           },*/}
 
 <img
     src="/images/flutter_extend/banner.png"
     alt="Flutter Extend Banner"
     style={{height: "auto", width: "auto"}}
-    className="rounded-3xl"
+    className="rounded-xl shadow-2xl mb-8 w-full"
     noZoom
 />
 
-## Start Here
-Speed up your Flutter workflow with expressive, minimal extension methods.
+<div className="center flex gap-2 mb-6">
+  <a href="https://pub.dev/packages/flutter_extend"><img src="https://img.shields.io/pub/v/flutter_extend?style=flat-square&color=blue" alt="Pub Version" /></a>
+  <a href="https://github.com/KenStarry/flutter_extend"><img src="https://img.shields.io/github/stars/KenStarry/flutter_extend?style=flat-square&logo=github" alt="GitHub Stars" /></a>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" />
+</div>
+
+## Supercharge your Workflow
+
+Flutter Extend isn't just a library; it's a productivity suite. We've packaged the most common boilerplate patterns into elegant, single-line solutions.
+
+Explore the power suites below.
+
+<CardGroup cols={2}>
+  <Card
+    title="Smart Navigation"
+    icon="map-location-dot"
+    href="/flutter_extend_docs/api/context/navigator"
+  >
+    Navigate between screens without `context` clutter. Push, pop, and replace with intuitive verbs.
+  </Card>
+
+  <Card
+    title="UI & Layouts"
+    icon="wand-magic-sparkles"
+    href="/flutter_extend_docs/api/widget/scaffold"
+  >
+    Padding, margins, and responsiveness handled directly on the Widget itself.
+  </Card>
+
+  <Card
+    title="Power Extensions"
+    icon="bolt"
+    href="/flutter_extend_docs/api/string/currency"
+  >
+    String manipulations, Date formatting, and List handling simplified.
+  </Card>
+
+  <Card
+    title="Theme Access"
+    icon="palette"
+    href="/flutter_extend_docs/api/context/theme"
+  >
+    Access colors and text styles instantly without digging through `Theme.of(context)`.
+  </Card>
+</CardGroup>
+
+## The "Extend" Experience
+
+Why do developers choose this over standard Flutter syntax?
+
+<CardGroup cols={3}>
+  <Card title="Minimalist" icon="feather">
+    Designed to be invisible. No heavy wrapper classes, just pure Dart extensions.
+  </Card>
+  <Card title="Type Safe" icon="shield-check">
+    Fully typed and null-safe. If your code compiles, it works.
+  </Card>
+  <Card title="Production Ready" icon="server">
+    Used in real-world apps like **Flow Music Player**.
+  </Card>
+</CardGroup>
+
+## Start Building
 
 <Card
-  title="Setting Up"
+  title="Installation Guide"
   icon="rocket"
   href="/flutter_extend_docs/installation"
   horizontal
 >
-  Get Started Easily
+  <span className="text-gray-500 dark:text-gray-400">
+    Add to `pubspec.yaml` and save 20 minutes of coding today.
+  </span>
 </Card>
-
-## Why Flutter Extend?
-<Columns cols={2}>
-<Card
-    title="Tiny & Powerful"
-    icon="lightbulb"
->
-  A lightweight set of extensions designed to remove boilerplate and keep your code readable.
-</Card>
-
-<Card
-    title="Clean Syntax"
-    icon="bolt-lightning"
->
-  Write code that communicates intention clearly, without utility clutter or helper classes.
-</Card>
-
-<Card
-    title="Grows With You"
-    icon="chart-line"
->
-  Designed to be extended — add your own patterns or mix in community ideas.
-</Card>
-</Columns>
 

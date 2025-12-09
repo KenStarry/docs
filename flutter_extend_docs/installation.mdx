@@ -3,70 +3,72 @@ title: "Installation Guide"
 description: "Fetch the Power!"
 ---
 
-## 1. The pubspec.yaml Dance 👯‍♀️
+<Steps titleSize="h3">
+    <Step title="The pubspec.yaml Dance">
+        Summon Flutter Extend into your project by adding this to your `pubspec.yaml`:
 
-Pop open your project's `pubspec.yaml` file and introduce flutter_extend to the dependencies block.
+        ```yaml lines wrap
+        dependencies:
+          flutter:
+            sdk: flutter
+          flutter_extend: ^0.2.0 # Check pub.dev for the latest version
+        ```
+    </Step>
 
-```yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_extend: ^0.2.0 # Check pub.dev for the latest version
-```
+    <Step title="Get Packages">
+        Run this spell in your terminal:
 
-## 2. Get Packages
+        ```bash lines wrap
+        flutter pub get
+        ```
+    </Step>
 
-After saving `pubspec.yaml`, run the following command in your terminal:
+    <Step title="Import the Package">
+        Import the package and start your journey to developer enlightenment:
 
-```bash
-flutter pub get
-```
+        ```dart lines wrap
+        import 'package:flutter_extend/flutter_extend.dart';
+        ```
+    </Step>
 
-## 3. Import the Package
+    <Step title="Start Using the Extensions">
+        You can now start chaining methods directly onto core Flutter classes!
 
-To enable all extensions, import the core library in any file where you plan to use them (e.g., in your main `widget.dart` files, utility files, or specific pages):
+        ```dart lines wrap expandable
+        import 'package:flutter/material.dart';
+        import 'package:flutter_extend/flutter_extend.dart';
 
-```dart
-import 'package:flutter_extend/flutter_extend.dart';
-```
+        class HomePage extends StatelessWidget {
+          const HomePage({super.key});
 
-## 4. Start Using the Extensions
+          @override
+          Widget build(BuildContext context) {
+            // 1. Context Extension for screen size
+            final screenWidth = context.screenWidth;
 
-You can now start chaining methods directly onto core Flutter classes!
+            // 2. Widget Extension for chaining layout
+            final title = const Text('Welcome to Flutter Extend')
+                .padding(const EdgeInsets.all(16.0))
+                .center();
 
-```dart
-import 'package:flutter/material.dart';
-import 'package:flutter_extend/flutter_extend.dart';
+            // 3. Animation Extension (Requires flutter_animate)
+            final animatedIcon = const Icon(Icons.star, size: 50)
+                .fadeInMoveInBottom(duration: 800);
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // 1. Context Extension for screen size
-    final screenWidth = context.screenWidth;
-
-    // 2. Widget Extension for chaining layout
-    final title = const Text('Welcome to Flutter Extend')
-        .padding(const EdgeInsets.all(16.0))
-        .center();
-
-    // 3. Animation Extension (Requires flutter_animate)
-    final animatedIcon = const Icon(Icons.star, size: 50)
-        .fadeInMoveInBottom(duration: 800);
-
-    return Scaffold(
-      appBar: AppBar(
-        // 4. Context Extension for theme color
-        backgroundColor: context.colorScheme.primary,
-        title: title,
-      ),
-      body: Center(
-        child: animatedIcon,
-      ),
-    );
-  }
-}
-```
+            return Scaffold(
+              appBar: AppBar(
+                // 4. Context Extension for theme color
+                backgroundColor: context.colorScheme.primary,
+                title: title,
+              ),
+              body: Center(
+                child: animatedIcon,
+              ),
+            );
+          }
+        }
+        ```
+    </Step>
+</Steps>
 
 Congratulations! You are all set to eliminate boilerplate code and build beautiful, expressive Flutter apps.

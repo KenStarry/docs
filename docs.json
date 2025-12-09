@@ -1,14 +1,14 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Starry Codes",
-  "description": "Starry Codes is your go-to hub for Flutter development, featuring innovative Flutter Extend packages, practical coding tutorials, and productivity-boosting extensions. Explore comprehensive guides, clean code examples, and developer tools designed to accelerate your Flutter projects and master mobile app development.",
+  "name": "Starry Hub",
+  "description": "Starry Hub is your go-to hub for Flutter development, featuring innovative Flutter Extend packages, practical coding tutorials, and productivity-boosting extensions. Explore comprehensive guides, clean code examples, and developer tools designed to accelerate your Flutter projects and master mobile app development.",
   "colors": {
     "primary": "#1F9ABC",
     "light": "#1F9ABC",
     "dark": "#1F9ABC"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/logo.png",
   "thumbnails": {
     "appearance": "dark",
     "background": "https://github.com/user-attachments/assets/b3a4d7ae-e1b6-4f3d-b485-857567a2cc2b"
