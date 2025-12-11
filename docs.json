@@ -3,6 +3,10 @@
   "theme": "mint",
   "name": "Starry Hub",
   "description": "Starry Hub is your go-to hub for Flutter development, featuring innovative Flutter Extend packages, practical coding tutorials, and productivity-boosting extensions. Explore comprehensive guides, clean code examples, and developer tools designed to accelerate your Flutter projects and master mobile app development.",
+  "banner": {
+    "content": "🚀 Flutter_Extend Version **0.2.1** is now live! See our [changelog](/flutter_extend_docs/changelog/changelog) for details.",
+    "dismissible": true
+  },
   "colors": {
     "primary": "#1F9ABC",
     "light": "#1F9ABC",
