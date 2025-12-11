@@ -5,130 +5,110 @@ icon: "text-height"
 description: "Advanced string manipulation using built-in regular expressions for extracting digits, filtering words, removing whitespace, and checking content types."
 keywords: ['Flutter String', 'String', "String Format", 'Flutter']
 ---
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
 
-```dart Strings icon="text-height" lines wrap
-final messy = 'Price: $12.99 USD';
+<Steps titleSize="h3">
+    <Step title="🗑️ Removal & Extraction">
+        {/*  ------------------ */}
+        <ResponseField name="extractDigits()" type="String">
 
-// Extraction
-print(messy.extractDigits()); // "1299"
+        Extracts all numerical digits from the string and returns them as a new string. All non-digit characters are removed.
 
-// Validation
-print('12345'.isDigitsOnly()); // true
+        ```dart lines wrap
+        final messy = 'Price: $12.99 USD';
+        print(messy.extractDigits()); // "1299"
+        ```
+        </ResponseField>
 
-// Removal
-print(long.removeAllWhiteSpaces()); // "onetwothree"
-```
-</Card>
+        {/*  ------------------ */}
+        <ResponseField name="removeAllDigits()" type="String">
+
+        Removes all numerical digits (`0-9`) from the string.
+
+        ```dart lines wrap
+        final mixed = 'Address line 123 Street 4';
+        print(mixed.removeAllDigits()); // "Address line  Street "
+        ```
+        </ResponseField>
+
+        {/*  ------------------ */}
+        <ResponseField name="removeAllWhiteSpaces()" type="String">
+
+        Removes all whitespace characters (spaces, tabs, newlines) from the string.
+
+        ```dart lines wrap
+        final long = 'one two\nthree';
+        print(long.removeAllWhiteSpaces()); // "onetwothree"
+        ```
+        </ResponseField>
+
+        {/*  ------------------ */}
+        <ResponseField name="removeAllWordsStartingWithNumber()" type="String">
+
+        Removes words that begin with a number (e.g., '3rd', '10users') and cleans up extra spaces.
+
+        ```dart lines wrap
+        final input = '10users 3rd place is here 54.';
+        print(input.removeAllWordsStartingWithNumber()); // "place is here 54."
+        ```
+        </ResponseField>
+
+        {/*  ------------------ */}
+        <ResponseField name="getWords()" type="String">
+
+        Extracts all individual words from the string based on word boundaries. Useful for keyword extraction.
+
+        ```dart lines wrap
+        final sentence = 'The Flutter app is amazing!';
+        print(sentence.getWords()); // ["The", "Flutter", "app", "is", "amazing"]
+        ```
+        </ResponseField>
+    </Step>
+
+    <Step title="🛡️ Validation">
+        {/*  ------------------ */}
+        <ResponseField name="isDigitsOnly()" type="bool">
+
+        Checks if the entire string consists only of numerical digits (`0-9`).
+
+        ```dart lines wrap
+        print('12345'.isDigitsOnly());   // true
+        print('123 a'.isDigitsOnly());   // false
+        ```
+        </ResponseField>
+
+        {/*  ------------------ */}
+        <ResponseField name="isTextOnly()" type="bool">
+
+        Checks if the entire string consists only of alphabet letters (`a-z`, `A-Z`).
+
+        ```dart lines wrap
+        print('Flutter'.isTextOnly());    // true
+        print('Flutter Dev'.isTextOnly()); // false (contains space)
+        ```
+        </ResponseField>
+    </Step>
+
+    <Step title="✂️ Splitting">
+        {/*  ------------------ */}
+        <ResponseField name="splitByUpperCase()" type="List<String>">
+
+        Splits a string into a list of substrings whenever an uppercase letter is encountered. Ideal for converting `PascalCase` to readable words.
+
+        ```dart lines wrap
+        final camel = 'UserProfileData';
+        print(camel.splitByUpperCase()); // ["User", "Profile", "Data"]
+        ```
+        </ResponseField>
+    </Step>
+</Steps>
 
 ### 🗑️ Removal & Extraction
-{/*  ------------------ */}
-<ResponseField name="extractDigits()" type="String">
 
-Extracts all numerical digits from the string and returns them as a new string. All non-digit characters are removed.
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final messy = 'Price: $12.99 USD';
-    print(messy.extractDigits()); // "1299"
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="removeAllDigits()" type="String">
-
-Removes all numerical digits (`0-9`) from the string.
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final mixed = 'Address line 123 Street 4';
-    print(mixed.removeAllDigits()); // "Address line  Street "
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="removeAllWhiteSpaces()" type="String">
-
-Removes all whitespace characters (spaces, tabs, newlines) from the string.
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final long = 'one two\nthree';
-    print(long.removeAllWhiteSpaces()); // "onetwothree"
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="removeAllWordsStartingWithNumber()" type="String">
-
-Removes words that begin with a number (e.g., '3rd', '10users') and cleans up extra spaces.
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final input = '10users 3rd place is here 54.';
-    print(input.removeAllWordsStartingWithNumber()); // "place is here 54."
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="getWords()" type="String">
-
-Extracts all individual words from the string based on word boundaries. Useful for keyword extraction.
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final sentence = 'The Flutter app is amazing!';
-    print(sentence.getWords()); // ["The", "Flutter", "app", "is", "amazing"]
-    ```
-</CodeGroup>
-</ResponseField>
 
 ### 🛡️ Validation
-{/*  ------------------ */}
-<ResponseField name="isDigitsOnly()" type="bool">
 
-Checks if the entire string consists only of numerical digits (`0-9`).
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    print('12345'.isDigitsOnly());   // true
-    print('123 a'.isDigitsOnly());   // false
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="isTextOnly()" type="bool">
-
-Checks if the entire string consists only of alphabet letters (`a-z`, `A-Z`).
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    print('Flutter'.isTextOnly());    // true
-    print('Flutter Dev'.isTextOnly()); // false (contains space)
-    ```
-</CodeGroup>
-</ResponseField>
 
 ### ✂️ Splitting
-{/*  ------------------ */}
-<ResponseField name="splitByUpperCase()" type="List<String>">
 
-Splits a string into a list of substrings whenever an uppercase letter is encountered. Ideal for converting `PascalCase` to readable words.
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final camel = 'UserProfileData';
-    print(camel.splitByUpperCase()); // ["User", "Profile", "Data"]
-    ```
-</CodeGroup>
-</ResponseField>
 
 

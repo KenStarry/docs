@@ -5,82 +5,57 @@ icon: "hashtag"
 description: "Convert any integer instantly into a Duration object (e.g., 5.seconds, 250.milliSeconds), making time-based code clean and expressive."
 keywords: ['Flutter int', 'int', "Duration", "Duration Format", 'Flutter']
 ---
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
 
-Stop creating verbose Duration objects! These simple getters allow you to write time-based code in a highly readable, expressive way, speeding up everything from animation delays to timeout settings.
+<Steps titleSize="h3">
+    <Step title="⏳ Time Conversions">
+        {/*  ------------------ */}
+        <ResponseField name="days" type="Duration" post={["getter"]}>
 
-```dart num icon="hashtag" lines wrap
-// Readable Delay
-await Future.delayed(2.seconds);
+        Converts the integer value to a `Duration` object representing days
 
-// Clear Timeout
-myFuture.timeout(5.minutes);
+        ```dart lines wrap
+        final longWait = 3.days; // Duration(days: 3)
+        ```
+        </ResponseField>
 
-// Animation Speed
-Text('Animated').fadeIn(duration: 300.milliSeconds);
-```
-</Card>
+        {/*  ------------------ */}
+        <ResponseField name="minutes" type="Duration" post={["getter"]}>
 
-### ⏳ Time Conversions
-{/*  ------------------ */}
-<ResponseField name="days" type="Duration" post={["getter"]}>
+        Converts the integer value to a `Duration` object representing minutes.
 
-Converts the integer value to a `Duration` object representing days
+        ```dart lines wrap
+        final shortBreak = 15.minutes; // Duration(minutes: 15)
+        ```
+        </ResponseField>
 
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final longWait = 3.days; // Duration(days: 3)
-    ```
-</CodeGroup>
-</ResponseField>
+        {/*  ------------------ */}
+        <ResponseField name="seconds" type="Duration" post={["getter"]}>
 
-{/*  ------------------ */}
-<ResponseField name="minutes" type="Duration" post={["getter"]}>
+        Converts the integer value to a `Duration` object representing seconds.
 
-Converts the integer value to a `Duration` object representing minutes.
+        ```dart lines wrap
+        await Future.delayed(5.seconds);
+        ```
+        </ResponseField>
 
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final shortBreak = 15.minutes; // Duration(minutes: 15)
-    ```
-</CodeGroup>
-</ResponseField>
+        {/*  ------------------ */}
+        <ResponseField name="milliSeconds" type="Duration" post={["getter"]}>
 
-{/*  ------------------ */}
-<ResponseField name="seconds" type="Duration" post={["getter"]}>
+        Converts the integer value to a `Duration` object representing milliseconds.
 
-Converts the integer value to a `Duration` object representing seconds.
+        ```dart lines wrap
+        final flash = 250.milliSeconds;
+        ```
+        </ResponseField>
 
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    await Future.delayed(5.seconds);
-    ```
-</CodeGroup>
-</ResponseField>
+        {/*  ------------------ */}
+        <ResponseField name="microSeconds" type="Duration" post={["getter"]}>
 
-{/*  ------------------ */}
-<ResponseField name="milliSeconds" type="Duration" post={["getter"]}>
+        Converts the integer value to a `Duration` object representing microseconds.
 
-Converts the integer value to a `Duration` object representing milliseconds.
-
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final flash = 250.milliSeconds;
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="microSeconds" type="Duration" post={["getter"]}>
-
-Converts the integer value to a `Duration` object representing microseconds.
-
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final tick = 50.microSeconds;
-    ```
-</CodeGroup>
-</ResponseField>
+        ```dart lines wrap
+        final tick = 50.microSeconds;
+        ```
+        </ResponseField>
+    </Step>
+</Steps>

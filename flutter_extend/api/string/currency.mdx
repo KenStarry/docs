@@ -5,45 +5,32 @@ icon: "text-height"
 description: "Format raw numeric strings into locale-aware, human-readable numbers with thousand separators, leveraging the intl package."
 keywords: ['Flutter String', 'String', "String Format", 'Flutter']
 ---
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
+<Steps titleSize="h3">
+    <Step title="🛠️ Formatting">
+        {/*  ------------------ */}
+        <ResponseField name="thousandNumberFormat" type="String">
 
-```dart Strings icon="text-height" lines wrap
-// Standard Formatting
-final amountString = '10000000';
-print(amountString.thousandNumberFormat); // "10,000,000"
+        Applies thousand separators to a numeric string based on the default system locale (`intl` required). Handles non-numeric input safely by returning "0".
 
-// Cleaning input before parsing
-final clean = '10,000.50'.cleanNumbers; // "10000.50"
-```
-</Card>
+        ```dart lines wrap
+        final amountString = '10000000';
+        print(amountString.thousandNumberFormat); // "10,000,000"
+        ```
+        </ResponseField>
+
+        {/*  ------------------ */}
+        <ResponseField name="cleanNumbers" type="String">
+
+        Removes all commas (,) from the string. Essential for sanitizing user input before parsing it as a number.
+
+        ```dart lines wrap
+        final messyString = '10,000,000.50';
+        print(messyString.cleanNumbers); // "10000000.50"
+        ```
+        </ResponseField>
+    </Step>
+</Steps>
 
 ### 🛠️ Formatting
-{/*  ------------------ */}
-<ResponseField name="thousandNumberFormat" type="String">
 
-Applies thousand separators to a numeric string based on the default system locale (`intl` required). Handles non-numeric input safely by returning "0".
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final amountString = '10000000';
-    print(amountString.thousandNumberFormat); // "10,000,000"
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="cleanNumbers" type="String">
-
-Removes all commas (,) from the string. Essential for sanitizing user input before parsing it as a number.
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final messyString = '10,000,000.50';
-    print(messyString.cleanNumbers); // "10000000.50"
-    ```
-</CodeGroup>
-</ResponseField>
 

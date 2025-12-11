@@ -5,115 +5,94 @@ icon: "list"
 description: "Your collections deserve protection. Use null-aware extensions to access list ends and indices without ever crashing your app with a RangeError or StateError."
 keywords: ['Flutter Lists', 'List', 'Iterable', "Null", "Collection", "RangeError", "StateError", 'Flutter']
 ---
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
 
-```dart Lists icon="list" lines wrap
-final empty = <int>[];
+<Steps titleSize="h3">
+    <Step title="🔝 Ends of the List">
+        {/*  ------------------ */}
+        <ResponseField name="firstOrNull" type="T?">
 
-final first = empty.firstOrNull;  // null
-final item = list.elementAtOrNull(100); // null
+        Gets the first element of the list, or returns `null` if the list is empty. Prevents `StateError`.
 
-final index = list.indexOfOrNull(50); // null
-```
-</Card>
+        ```dart lines wrap
+        final numbers = [1, 2, 3];
+        final result = numbers.firstOrNull;  // 1
 
-### 🔝 Ends of the List
-{/*  ------------------ */}
-<ResponseField name="firstOrNull" type="T?">
+        final alphabets = [];
+        final last = alphabets.firstOrNull; // null
+        ```
+        </ResponseField>
 
-Gets the first element of the list, or returns `null` if the list is empty. Prevents `StateError`.
+        {/*  ------------------ */}
+        <ResponseField name="lastOrNull" type="T?">
 
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final numbers = [1, 2, 3];
-    final result = numbers.firstOrNull;  // 1
+        Gets the last element of the list, or returns `null` if the list is empty. Prevents `StateError`.
 
-    final alphabets = [];
-    final last = alphabets.firstOrNull; // null
-    ```
-</CodeGroup>
-</ResponseField>
+        ```dart lines wrap
+        final names = ['Alice', 'Bob'];
+        final last = names.lastOrNull; // 'Bob'
 
-{/*  ------------------ */}
-<ResponseField name="lastOrNull" type="T?">
+        final ids = [];
+        final last = ids.lastOrNull; // null
+        ```
+        </ResponseField>
+    </Step>
 
-Gets the last element of the list, or returns `null` if the list is empty. Prevents `StateError`.
+    <Step title="🔍 Index & Element Access">
+        {/*  ------------------ */}
+        <ResponseField name="elementAtOrNull(int index)" type="T?">
 
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final names = ['Alice', 'Bob'];
-    final last = names.lastOrNull; // 'Bob'
+        <Expandable title="Parameters">
 
-    final ids = [];
-    final last = ids.lastOrNull; // null
-    ```
-</CodeGroup>
-</ResponseField>
+            <ParamField body="index" type="int" required>
+                The zero-based index of the element to retrieve.
+            </ParamField>
 
-### 🔍 Index & Element Access
+        </Expandable>
 
-{/*  ------------------ */}
-<ResponseField name="elementAtOrNull(int index)" type="T?">
+        Safely retrieves an element at a given `index`, returning `null` if the `index` is out of bounds. Prevents `RangeError`.
 
-<Card>
+        ```dart lines wrap
+        final data = ['a', 'b', 'c'];
+        final safe = data.elementAtOrNull(10); // null
+        ```
+        </ResponseField>
 
-    <ParamField body="index" type="int" required>
-        The zero-based index of the element to retrieve.
-    </ParamField>
+        {/*  ------------------ */}
+        <ResponseField name="indexOfOrNull(T element)" type="int?">
 
-</Card>
+        <Expandable title="Parameters">
 
-Safely retrieves an element at a given `index`, returning `null` if the `index` is out of bounds. Prevents `RangeError`.
+            <ParamField body="element" type="T" required>
+                The element to locate in the list.
+            </ParamField>
 
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final data = ['a', 'b', 'c'];
-    final safe = data.elementAtOrNull(10); // null
-    ```
-</CodeGroup>
-</ResponseField>
+        </Expandable>
 
-{/*  ------------------ */}
-<ResponseField name="indexOfOrNull(T element)" type="int?">
+        Gets the `index` of the element, or returns `null` if the element doesn't exist in the list.
 
-<Card>
+        ```dart lines wrap
+        final ids = [10, 20, 30];
+        final notFound = ids.indexOfOrNull(50); // null
+        ```
+        </ResponseField>
 
-    <ParamField body="element" type="T" required>
-        The element to locate in the list.
-    </ParamField>
+        {/*  ------------------ */}
+        <ResponseField name="firstWhereOrNull(bool Function(T) test)" type="T?">
 
-</Card>
+        <Expandable title="Parameters">
 
-Gets the `index` of the element, or returns `null` if the element doesn't exist in the list.
+            <ParamField body="test" type="bool Function(T)" required>
+                A function that returns `true` for the element you are looking for.
+            </ParamField>
 
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final ids = [10, 20, 30];
-    final notFound = ids.indexOfOrNull(50); // null
-    ```
-</CodeGroup>
-</ResponseField>
+        </Expandable>
 
-{/*  ------------------ */}
-<ResponseField name="firstWhereOrNull(bool Function(T) test)" type="T?">
+        Gets the first element that satisfies the `test`, or returns `null` if none is found. Prevents `StateError` without needing an `orElse` callback.
 
-<Card>
-
-    <ParamField body="test" type="bool Function(T)" required>
-        A function that returns `true` for the element you are looking for.
-    </ParamField>
-
-</Card>
-
-Gets the first element that satisfies the `test`, or returns `null` if none is found. Prevents `StateError` without needing an `orElse` callback.
-
-<CodeGroup>
-    ```dart Lists icon="list" lines wrap
-    final users = [{'id': 1}, {'id': 2}];
-    final missing = users.firstWhereOrNull((u) => u['id'] == 99); // null
-    ```
-</CodeGroup>
-</ResponseField>
+        ```dart lines wrap
+        final users = [{'id': 1}, {'id': 2}];
+        final missing = users.firstWhereOrNull((u) => u['id'] == 99); // null
+        ```
+        </ResponseField>
+    </Step>
+</Steps>

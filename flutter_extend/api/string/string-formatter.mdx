@@ -5,94 +5,69 @@ icon: "text-height"
 description: "Essential utilities for managing string case (TitleCase, capitalizing), converting to URL slugs, and handling Base64 encoding/decoding."
 keywords: ['Flutter String', 'String', "String Format", 'Flutter']
 ---
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
 
-```dart Strings icon="text-height" lines wrap
-// Case
-print('hello world'.toTitleCase()); // "Hello World"
+<Steps titleSize="h3">
+    <Step title="🔡 Case & Slugs">
+        {/*  ------------------ */}
+        <ResponseField name="capitalizeFirstLetter()" type="String">
 
-// Conversion
-print('user_profile_data'.toCamelCase()); // "userProfileData"
+        Capitalizes only the first letter of the string. Returns the string as is if empty.
 
-// URL/SEO
-print('My Awesome Post!'.toSlug()); // "my-awesome-post"
-```
-</Card>
+        ```dart lines wrap
+        print('hello world'.capitalizeFirstLetter()); // "Hello world"
+        ```
+        </ResponseField>
 
-### 🔡 Case & Slugs
-{/*  ------------------ */}
-<ResponseField name="capitalizeFirstLetter()" type="String">
+        {/*  ------------------ */}
+        <ResponseField name="toTitleCase()" type="String">
 
-Capitalizes only the first letter of the string. Returns the string as is if empty.
+        Capitalizes the first letter of every word in the string. Ideal for titles and proper nouns.
 
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    print('hello world'.capitalizeFirstLetter()); // "Hello world"
-    ```
-</CodeGroup>
-</ResponseField>
+        ```dart lines wrap
+        print('the quick brown fox'.toTitleCase()); // "The Quick Brown Fox"
+        ```
+        </ResponseField>
 
-{/*  ------------------ */}
-<ResponseField name="toTitleCase()" type="String">
+        {/*  ------------------ */}
+        <ResponseField name="toCamelCase()" type="String">
 
-Capitalizes the first letter of every word in the string. Ideal for titles and proper nouns.
+        Converts a `snake_case` string (e.g., `user_data`) into `camelCase` (e.g., `userData`).
 
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    print('the quick brown fox'.toTitleCase()); // "The Quick Brown Fox"
-    ```
-</CodeGroup>
-</ResponseField>
+        ```dart lines wrap
+        print('user_profile_data'.toCamelCase()); // "userProfileData"
+        ```
+        </ResponseField>
 
-{/*  ------------------ */}
-<ResponseField name="toCamelCase()" type="String">
+        {/*  ------------------ */}
+        <ResponseField name="toSlug()" type="String">
 
-Converts a `snake_case` string (e.g., `user_data`) into `camelCase` (e.g., `userData`).
+        Converts the string into a clean, URL-friendly `slug` format, replacing non-alphanumeric
 
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    print('user_profile_data'.toCamelCase()); // "userProfileData"
-    ```
-</CodeGroup>
-</ResponseField>
+        ```dart lines wrap
+        print('Best Post Ever! (2025)'.toSlug()); // "best-post-ever-2025"
+        ```
+        </ResponseField>
+    </Step>
 
-{/*  ------------------ */}
-<ResponseField name="toSlug()" type="String">
+    <Step title="🔐 Encoding">
+        {/*  ------------------ */}
+        <ResponseField name="toBase64()" type="String">
 
-Converts the string into a clean, URL-friendly `slug` format, replacing non-alphanumeric
+        Encodes the string into a Base64 string representation using `UTF-8` encoding.
 
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    print('Best Post Ever! (2025)'.toSlug()); // "best-post-ever-2025"
-    ```
-</CodeGroup>
-</ResponseField>
+        ```dart lines wrap
+        final encoded = 'secret'.toBase64(); // "c2VjcmV0"
+        ```
+        </ResponseField>
 
-### 🔐 Encoding
-{/*  ------------------ */}
-<ResponseField name="toBase64()" type="String">
+        {/*  ------------------ */}
+        <ResponseField name="fromBase64()" type="String">
 
-Encodes the string into a Base64 string representation using `UTF-8` encoding.
+        Decodes a Base64 encoded string back to its original `UTF-8` string format.
 
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final encoded = 'secret'.toBase64(); // "c2VjcmV0"
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="fromBase64()" type="String">
-
-Decodes a Base64 encoded string back to its original `UTF-8` string format.
-
-<CodeGroup>
-    ```dart Strings icon="text-height" lines wrap
-    final original = 'c2VjcmV0'.fromBase64(); // "secret"
-    ```
-</CodeGroup>
-</ResponseField>
-
+        ```dart lines wrap
+        final original = 'c2VjcmV0'.fromBase64(); // "secret"
+        ```
+        </ResponseField>
+    </Step>
+</Steps>

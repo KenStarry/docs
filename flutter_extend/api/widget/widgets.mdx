@@ -5,239 +5,203 @@ icon: "grip"
 description: "Essential chaining extensions to flatten your widget tree. Instantly add padding, centering, alignment, flexible sizing, and mouse/tap interactivity to any widget."
 keywords: ['Flutter Widgets', 'Widgets', "Text", 'Flutter']
 ---
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
 
-```dart Widgets icon="grip" lines wrap
-// Chainable layout and styling
-const Text('Title')
-    .padding(EdgeInsets.all(16))
-    .center()
-    .clip(borderRadius: BorderRadius.circular(8));
+<Steps titleSize="h3">
+    <Step title="🖱️ Interaction & Input">
+        {/*  ------------------ */}
+        <ResponseField name="clickableMouse({VoidCallback? onTap, Function(PointerHoverEvent)? onHover, ...})" type="Widget">
 
-// Interactive
-Card().clickableMouse(onTap: () => print('Tapped!'));
-```
-</Card>
+        <Expandable title="Parameters">
+            <ParamField body="onTap" type="VoidCallback?" default="null">
+                The callback `function` to execute when the `widget` is tapped.
+            </ParamField>
 
-### 🖱️ Interaction & Input
-{/*  ------------------ */}
-<ResponseField name="clickableMouse({VoidCallback? onTap, Function(PointerHoverEvent)? onHover, ...})" type="Widget">
+            <ParamField body="onHover" type="Function(PointerHoverEvent)?" default="null">
+                The callback `function` when a pointer `hovers` over the `widget`.
+            </ParamField>
 
-<Expandable title="Parameters">
-    <ParamField body="onTap" type="VoidCallback?" default="null">
-        The callback `function` to execute when the `widget` is tapped.
-    </ParamField>
+            <ParamField body="onEnter" type="Function(PointerEnterEvent)?" default="null">
+                The callback `function` when a pointer `enters` the region.
+            </ParamField>
 
-    <ParamField body="onHover" type="Function(PointerHoverEvent)?" default="null">
-        The callback `function` when a pointer `hovers` over the `widget`.
-    </ParamField>
+            <ParamField body="onExit" type="Function(PointerExitEvent)?" default="null">
+                The callback `function` when a pointer `exits` the region.
+            </ParamField>
+        </Expandable>
 
-    <ParamField body="onEnter" type="Function(PointerEnterEvent)?" default="null">
-        The callback `function` when a pointer `enters` the region.
-    </ParamField>
+        Makes the widget clickable, ensures the mouse cursor changes to a pointer (hand icon), and provides callbacks for hover events.
 
-    <ParamField body="onExit" type="Function(PointerExitEvent)?" default="null">
-        The callback `function` when a pointer `exits` the region.
-    </ParamField>
-</Expandable>
+        ```dart lines wrap
+        Card(child: Text('Click Me'))
+            .clickableMouse(
+              onTap: () => print('Tapped!'),
+               onHover: (event) => print('Mouse is over!'),
+            );
+        ```
+        </ResponseField>
 
-Makes the widget clickable, ensures the mouse cursor changes to a pointer (hand icon), and provides callbacks for hover events.
+        {/*  ------------------ */}
+        <ResponseField name="addSelectionArea()" type="Widget">
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    Card(child: Text('Click Me'))
-        .clickableMouse(
-          onTap: () => print('Tapped!'),
-          onHover: (event) => print('Mouse is over!'),
-        );
-    ```
-</CodeGroup>
-</ResponseField>
+        Wraps the widget in a `SelectionArea`, allowing the user to select and copy text within it. Useful for desktop/web.
 
-{/*  ------------------ */}
-<ResponseField name="addSelectionArea()" type="Widget">
+        ```dart lines wrap
+        const Text('Copy Me').addSelectionArea();
+        ```
+        </ResponseField>
+    </Step>
 
-Wraps the widget in a `SelectionArea`, allowing the user to select and copy text within it. Useful for desktop/web.
+    <Step title="📏 Sizing & Positioning">
+        {/*  ------------------ */}
+        <ResponseField name="expanded({int flex})" type="Widget">
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    const Text('Copy Me').addSelectionArea();
-    ```
-</CodeGroup>
-</ResponseField>
+        <Expandable title="Parameters">
+            <ParamField body="flex" type="int" default="1">
+                The flex factor to control how much space the widget occupies.
+            </ParamField>
+        </Expandable>
 
-### 📏 Sizing & Positioning
-{/*  ------------------ */}
-<ResponseField name="expanded({int flex})" type="Widget">
+        Wraps the widget in an `Expanded` widget, forcing it to fill the available space along the main axis of a `Row` or `Column`.
 
-<Expandable title="Parameters">
-    <ParamField body="flex" type="int" default="1">
-        The flex factor to control how much space the widget occupies.
-    </ParamField>
-</Expandable>
+        ```dart lines wrap
+        Row(children: [
+          Container(width: 50).expanded(), // Takes remaining space
+          const Text('Fixed')
+        ]);
+        ```
+        </ResponseField>
 
-Wraps the widget in an `Expanded` widget, forcing it to fill the available space along the main axis of a `Row` or `Column`.
+        {/*  ------------------ */}
+        <ResponseField name="flexible({int flex, FlexFit fit})" type="Widget">
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    Row(children: [
-      Container(width: 50).expanded(), // Takes remaining space
-      const Text('Fixed')
-    ]);
-    ```
-</CodeGroup>
-</ResponseField>
+        <Expandable title="Parameters">
+            <ParamField body="flex" type="int" default="1">
+                The flex factor.
+            </ParamField>
 
-{/*  ------------------ */}
-<ResponseField name="flexible({int flex, FlexFit fit})" type="Widget">
+            <ParamField body="fit" type="FlexFit" default="FlexFit.loose">
+                 The fit of the flexible child (`FlexFit.loose` or `FlexFit.tight`).
+            </ParamField>
+        </Expandable>
 
-<Expandable title="Parameters">
-    <ParamField body="flex" type="int" default="1">
-        The flex factor.
-    </ParamField>
+        Wraps the widget in a `Flexible` widget, allowing it to grow or shrink, `constrained` by available space.
 
-    <ParamField body="fit" type="FlexFit" default="FlexFit.loose">
-         The fit of the flexible child (`FlexFit.loose` or `FlexFit.tight`).
-    </ParamField>
-</Expandable>
+        ```dart lines wrap
+        Row(children: [
+          Container(width: 200).flexible(fit: FlexFit.tight),
+          const Text('Hello')
+        ]);
+        ```
+        </ResponseField>
 
-Wraps the widget in a `Flexible` widget, allowing it to grow or shrink, `constrained` by available space.
+        {/*  ------------------ */}
+        <ResponseField name="align({AlignmentGeometry alignment})" type="Widget">
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    Row(children: [
-      Container(width: 200).flexible(fit: FlexFit.tight),
-      const Text('Hello')
-    ]);
-    ```
-</CodeGroup>
-</ResponseField>
+        <Expandable title="Parameters">
+            <ParamField body="alignment" type="AlignmentGeometry" default="Alignment.center">
+                The alignment to use.
+            </ParamField>
+        </Expandable>
 
-{/*  ------------------ */}
-<ResponseField name="align({AlignmentGeometry alignment})" type="Widget">
+        Wraps the widget in an `Align` widget, positioning the child within its own bounds.
 
-<Expandable title="Parameters">
-    <ParamField body="alignment" type="AlignmentGeometry" default="Alignment.center">
-        The alignment to use.
-    </ParamField>
-</Expandable>
+        ```dart lines wrap
+        Container(height: 100).align(alignment: Alignment.topCenter);
+        ```
+        </ResponseField>
+    </Step>
 
-Wraps the widget in an `Align` widget, positioning the child within its own bounds.
+    <Step title="🎨 Styling & Wrappers">
+        {/*  ------------------ */}
+        <ResponseField name="padding({EdgeInsetsGeometry padding})" type="Widget">
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    Container(height: 100).align(alignment: Alignment.topCenter);
-    ```
-</CodeGroup>
-</ResponseField>
+        <Expandable title="Parameters">
+            <ParamField body="padding" type="EdgeInsetsGeometry" default="EdgeInsets.all(8)">
+                The alignment to use.
+            </ParamField>
+        </Expandable>
 
-### 🎨 Styling & Wrappers
+        Wraps the widget in a `Padding` widget.
 
-{/*  ------------------ */}
-<ResponseField name="padding({EdgeInsetsGeometry padding})" type="Widget">
+        ```dart lines wrap
+        Text('Title').padding() // Adds 8.0 padding all around
+        ```
+        </ResponseField>
 
-<Expandable title="Parameters">
-    <ParamField body="padding" type="EdgeInsetsGeometry" default="EdgeInsets.all(8)">
-        The alignment to use.
-    </ParamField>
-</Expandable>
+        {/*  ------------------ */}
+        <ResponseField name="clip({BorderRadiusGeometry borderRadius})" type="Widget">
 
-Wraps the widget in a `Padding` widget.
+        <Expandable title="Parameters">
+            <ParamField body="borderRadius" type="BorderRadiusGeometry" default="BorderRadius.zero">
+                The border radius to use for clipping.
+            </ParamField>
+        </Expandable>
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    Text('Title').padding() // Adds 8.0 padding all around
-    ```
-</CodeGroup>
-</ResponseField>
+        Wraps the widget in a `ClipRRect` widget to apply rounded corners.
 
-{/*  ------------------ */}
-<ResponseField name="clip({BorderRadiusGeometry borderRadius})" type="Widget">
+        ```dart lines wrap
+        Image.network('url').clip(borderRadius: BorderRadius.circular(12.0));
+        ```
+        </ResponseField>
 
-<Expandable title="Parameters">
-    <ParamField body="borderRadius" type="BorderRadiusGeometry" default="BorderRadius.zero">
-        The border radius to use for clipping.
-    </ParamField>
-</Expandable>
+        {/*  ------------------ */}
+        <ResponseField name="visibility({bool visible})" type="Widget">
 
-Wraps the widget in a `ClipRRect` widget to apply rounded corners.
+        <Expandable title="Parameters">
+            <ParamField body="visible" type="bool" default="true">
+                If `true`, the widget is rendered; otherwise, it is hidden.
+            </ParamField>
+        </Expandable>
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    Image.network('url').clip(borderRadius: BorderRadius.circular(12.0));
-    ```
-</CodeGroup>
-</ResponseField>
+        Controls the visibility of the widget without removing it from the tree.
 
-{/*  ------------------ */}
-<ResponseField name="visibility({bool visible})" type="Widget">
+        ```dart lines wrap
+        const Icon(Icons.star).visibility(visible: userIsLoggedIn);
+        ```
+        </ResponseField>
 
-<Expandable title="Parameters">
-    <ParamField body="visible" type="bool" default="true">
-        If `true`, the widget is rendered; otherwise, it is hidden.
-    </ParamField>
-</Expandable>
+        {/*  ------------------ */}
+        <ResponseField name="visible()" type="Widget">
 
-Controls the visibility of the widget without removing it from the tree.
+        Ensures the widget is visible (convenience method).
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    const Icon(Icons.star).visibility(visible: userIsLoggedIn);
-    ```
-</CodeGroup>
-</ResponseField>
+        ```dart lines wrap
+        if (!isLoaded) Container().visible();
+        ```
+        </ResponseField>
+    </Step>
 
-{/*  ------------------ */}
-<ResponseField name="visible()" type="Widget">
+    <Step title="⚙️ Scrollbar Control">
+        {/*  ------------------ */}
+        <ResponseField name="removeScrollbar(BuildContext context)" type="Widget">
 
-Ensures the widget is visible (convenience method).
+        <Expandable title="Parameters">
+            <ParamField body="context" type="BuildContext" required>
+                The `BuildContext` is required to obtain the current `ScrollConfiguration`.
+            </ParamField>
+        </Expandable>
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    if (!isLoaded) Container().visible();
-    ```
-</CodeGroup>
-</ResponseField>
+        Removes the system `scrollbar` from a scrollable widget. Useful for clean desktop/web interfaces.
 
-### ⚙️ Scrollbar Control
+        ```dart lines wrap
+        ListView.builder(...).removeScrollbar(context);
+        ```
+        </ResponseField>
 
-{/*  ------------------ */}
-<ResponseField name="removeScrollbar(BuildContext context)" type="Widget">
+        {/*  ------------------ */}
+        <ResponseField name="addScrollbar(BuildContext context)" type="Widget">
 
-<Card>
-    <ParamField body="context" type="BuildContext" required>
-        The `BuildContext` is required to obtain the current `ScrollConfiguration`.
-    </ParamField>
-</Card>
+        <Expandable title="Parameters">
+            <ParamField body="context" type="BuildContext" required>
+                The `BuildContext` is required to obtain the current `ScrollConfiguration`.
+            </ParamField>
+        </Expandable>
 
-Removes the system `scrollbar` from a scrollable widget. Useful for clean desktop/web interfaces.
+        Ensures a scrollbar is visible for a scrollable widget, overriding any parent scroll configuration settings.
 
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    ListView.builder(...).removeScrollbar(context);
-    ```
-</CodeGroup>
-</ResponseField>
-
-{/*  ------------------ */}
-<ResponseField name="addScrollbar(BuildContext context)" type="Widget">
-
-<Card>
-    <ParamField body="context" type="BuildContext" required>
-        The `BuildContext` is required to obtain the current `ScrollConfiguration`.
-    </ParamField>
-</Card>
-
-Ensures a scrollbar is visible for a scrollable widget, overriding any parent scroll configuration settings.
-
-<CodeGroup>
-    ```dart Widgets icon="grip" lines wrap
-    GridView.builder(...).addScrollbar(context);
-    ```
-</CodeGroup>
-</ResponseField>
-
-
+        ```dart lines wrap
+        GridView.builder(...).addScrollbar(context);
+        ```
+        </ResponseField>
+    </Step>
+</Steps>
