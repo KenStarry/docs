@@ -6,92 +6,95 @@ description: "Add continuous scaling and click-response bounce effects to your w
 keywords: ['context', 'BuildContext', 'Theme', 'Animations', 'Flutter Animations', 'Flutter']
 ---
 
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
+{/* <Card */}
+{/*     title="⚡ Quick Usage" */}
+{/*     icon="bolt-lightning" */}
+{/* > */}
 
-```dart Animations icon="water" lines wrap
-// Continuous Subtle Pulse
-Icon(Icons.favorite).pulseSimple(duration: 1500, scaleFactor: 1.05);
+{/* ```dart Animations icon="water" lines wrap */}
+{/* // Continuous Subtle Pulse */}
+{/* Icon(Icons.favorite).pulseSimple(duration: 1500, scaleFactor: 1.05); */}
 
-// One-off Bouncing Landing
-Text('Success!').pulseAlt(repeat: false);
-```
-</Card>
+{/* // One-off Bouncing Landing */}
+{/* Text('Success!').pulseAlt(repeat: false); */}
+{/* ``` */}
+{/* </Card> */}
 
-### 🔁 Continuous Pulse
-{/*  FadeIn */}
-<ResponseField name="pulseSimple" type="Widget">
+<Steps titleSize="h3">
+    <Step title="🔁 Continuous Pulse">
+        {/*  FadeIn */}
+        <ResponseField name="pulseSimple" type="Widget">
 
-<Expandable title="Parameters">
+        <Expandable title="Parameters">
 
-    <ParamField body="scaleFactor" type="double" default="1.2">
-        The maximum `scale` factor the widget will reach (e.g., 1.2 is 20% larger).
-    </ParamField>
+            <ParamField body="scaleFactor" type="double" default="1.2">
+                The maximum `scale` factor the widget will reach (e.g., 1.2 is 20% larger).
+            </ParamField>
 
-    <ParamField body="delay" type="int" default="0">
-        The delay before the animation starts (in `milliseconds`).
-    </ParamField>
+            <ParamField body="delay" type="int" default="0">
+                The delay before the animation starts (in `milliseconds`).
+            </ParamField>
 
-    <ParamField body="duration" type="int" default="500">
-        The `duration` of a single pulse cycle (in `milliseconds`).
-    </ParamField>
+            <ParamField body="duration" type="int" default="500">
+                The `duration` of a single pulse cycle (in `milliseconds`).
+            </ParamField>
 
-    <ParamField body="repeat" type="bool" default="true">
-        If `true`, the animation loops indefinitely.
-    </ParamField>
+            <ParamField body="repeat" type="bool" default="true">
+                If `true`, the animation loops indefinitely.
+            </ParamField>
 
-    <ParamField body="reverse" type="bool" default="true">
-        If `true`, the animation cycles back and forth (scale up, then scale down).
-    </ParamField>
+            <ParamField body="reverse" type="bool" default="true">
+                If `true`, the animation cycles back and forth (scale up, then scale down).
+            </ParamField>
 
-    <ParamField body="autoPlay" type="bool" default="true">
-        If `true`, the animation starts automatically.
-    </ParamField>
+            <ParamField body="autoPlay" type="bool" default="true">
+                If `true`, the animation starts automatically.
+            </ParamField>
 
-    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
-        A callback fired when the `AnimationController` is initialized.
-    </ParamField>
+            <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+                A callback fired when the `AnimationController` is initialized.
+            </ParamField>
 
-</Expandable>
+        </Expandable>
 
-Applies a continuous, simple scale-in/scale-out pulsing effect, ideal for drawing subtle attention.
+        Applies a continuous, simple scale-in/scale-out pulsing effect, ideal for drawing subtle attention.
 
-```dart Animations icon="water" lines wrap
-Icon(Icons.favorite).pulseSimple(scaleFactor: 1.2);
-```
-</ResponseField>
+        ```dart lines wrap
+        Icon(Icons.favorite).pulseSimple(scaleFactor: 1.2);
+        ```
+        </ResponseField>
+    </Step>
 
-### 💥 Impact & Bounce
+    <Step title="💥 Impact & Bounce">
+        {/*  fade Out */}
+        <ResponseField name="pulseAlt" type="Widget">
 
-{/*  fade Out */}
-<ResponseField name="pulseAlt" type="Widget">
+        <Expandable title="Parameters">
+            <ParamField body="delay" type="int" default="0">
+                The `delay` before the animation starts (in `milliseconds`).
+            </ParamField>
 
-<Expandable title="Parameters">
-    <ParamField body="delay" type="int" default="0">
-        The `delay` before the animation starts (in `milliseconds`).
-    </ParamField>
+            <ParamField body="duration" type="int" default="500">
+                The `duration` of the initial scale-up phase (in `milliseconds`).
+            </ParamField>
 
-    <ParamField body="duration" type="int" default="500">
-        The `duration` of the initial scale-up phase (in `milliseconds`).
-    </ParamField>
+            <ParamField body="repeat" type="bool" default="true">
+                If `true`, the entire two-stage animation sequence loops indefinitely.
+            </ParamField>
 
-    <ParamField body="repeat" type="bool" default="true">
-        If `true`, the entire two-stage animation sequence loops indefinitely.
-    </ParamField>
+            <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
+                A callback fired when the `AnimationController` is initialized.
+            </ParamField>
 
-    <ParamField body="onInit" type="void Function(AnimationController)?" default="null">
-        A callback fired when the `AnimationController` is initialized.
-    </ParamField>
+        </Expandable>
 
-</Expandable>
+        Applies a distinct two-stage bouncing scale animation (scale down -> scale up -> settle) simulating a click or impact.
 
-Applies a distinct two-stage bouncing scale animation (scale down -> scale up -> settle) simulating a click or impact.
+        ```dart lines wrap
+        // One-off Bouncing Entrance
+        Text('Success!').pulseAlt(repeat: false);
+        ```
 
-```dart Animations icon="water" lines wrap
-// One-off Bouncing Entrance
-Text('Success!').pulseAlt(repeat: false);
-```
-
-</ResponseField>
+        </ResponseField>
+    </Step>
+</Steps>
