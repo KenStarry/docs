@@ -6,84 +6,86 @@ description: "Master routing with one-line push and pop methods, eliminating ver
 keywords: ['context', 'Build Context', 'BuildContext', 'Build', 'Navigation']
 ---
 
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
+{/* <Card */}
+{/*     title="⚡ Quick Usage" */}
+{/*     icon="bolt-lightning" */}
+{/* > */}
 
-```dart context icon="water" lines
-// Launching
-context.push(const DetailScreen());
+{/* ```dart context icon="water" lines */}
+{/* // Launching */}
+{/* context.push(const DetailScreen()); */}
 
-// Named Routes
-context.pushNamed('/settings');
+{/* // Named Routes */}
+{/* context.pushNamed('/settings'); */}
 
-// Returning
-context.pop();
-context.popUntilRoot();
-```
-</Card>
+{/* // Returning */}
+{/* context.pop(); */}
+{/* context.popUntilRoot(); */}
+{/* ``` */}
+{/* </Card> */}
 
-### 🚀 Pushes & Launches
+<Steps titleSize="h3">
+    <Step title="🚀 Pushes & Launches">
+        {/*  Push and Launches */}
+        <ResponseField name="push(Widget page)" type="Future<T?>">
 
-{/*  Push and Launches */}
-<ResponseField name="push(Widget page)" type="Future<T?>">
+        The preferred way to navigate. Pushes a new page and returns a Future that completes on pop.
 
-The preferred way to navigate. Pushes a new page and returns a Future that completes on pop.
+        ```dart lines wrap
+        await context.push(const ProfileScreen());
+        ```
+        </ResponseField>
 
-```dart context icon="water" lines wrap
-await context.push(const ProfileScreen());
-```
-</ResponseField>
+        {/*  Push and Replace */}
+        <ResponseField name="pushReplacement<T, TO>(Widget page)" type="Future<T?>">
 
-{/*  Push and Replace */}
-<ResponseField name="pushReplacement<T, TO>(Widget page)" type="Future<T?>">
+        Replaces the current route with a new page. Ideal for post-login or checkout success screens.
 
-Replaces the current route with a new page. Ideal for post-login or checkout success screens.
+        ```dart lines wrap
+        context.pushReplacement(const HomeScreen());
+        ```
+        </ResponseField>
 
-```dart context icon="water" lines wrap
-context.pushReplacement(const HomeScreen());
-```
-</ResponseField>
+        {/*  Push Named */}
+        <ResponseField name="pushNamed<T>(String routeName, {Object? arguments})" type="Future<T?>">
 
-{/*  Push Named */}
-<ResponseField name="pushNamed<T>(String routeName, {Object? arguments})" type="Future<T?>">
+        Pushes a route defined by its string name onto the stack.
 
-Pushes a route defined by its string name onto the stack.
+        ```dart lines wrap
+        context.pushNamed('/settings', arguments: {'id': 123});
+        ```
+        </ResponseField>
+    </Step>
 
-```dart context icon="water" lines wrap
-context.pushNamed('/settings', arguments: {'id': 123});
-```
-</ResponseField>
+    <Step title="↩️ Pops & Returns">
+        {/* Pop */}
+        <ResponseField name="pop()" type="void">
 
-### ↩️ Pops & Returns
+        Pops the current route off the stack. (Aliased to `popScreen` for consistency).
 
-{/* Pop */}
-<ResponseField name="pop()" type="void">
+        ```dart lines wrap
+        IconButton(onPressed: context.pop, icon: Icon(Icons.close));
+        ```
+        </ResponseField>
 
-Pops the current route off the stack. (Aliased to `popScreen` for consistency).
+        {/* Pop Screen */}
+        <ResponseField name="popScreen()" type="void">
 
-```dart context icon="water" lines wrap
-IconButton(onPressed: context.pop, icon: Icon(Icons.close));
-```
-</ResponseField>
+        Pops the current route off the navigator stack (wrapper for `Navigator.pop`).
 
-{/* Pop Screen */}
-<ResponseField name="popScreen()" type="void">
+        ```dart lines wrap
+        context.popScreen();
+        ```
+        </ResponseField>
 
-Pops the current route off the navigator stack (wrapper for `Navigator.pop`).
+        {/* Pop Until */}
+        <ResponseField name="popUntilRoot()" type="void">
 
-```dart context icon="water" lines wrap
-context.popScreen();
-```
-</ResponseField>
+        Pops all routes until the very first (root) screen is reached. Great for clearing the stack after a successful flow.
 
-{/* Pop Until */}
-<ResponseField name="popUntilRoot()" type="void">
-
-Pops all routes until the very first (root) screen is reached. Great for clearing the stack after a successful flow.
-
-```dart context icon="water" lines wrap
-context.popUntilRoot();
-```
-</ResponseField>
+        ```dart lines wrap
+        context.popUntilRoot();
+        ```
+        </ResponseField>
+    </Step>
+</Steps>

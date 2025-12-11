@@ -12,104 +12,106 @@ Since these getters rely on dart:io.Platform, they will throw an error when comp
 
 <br/>
 
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
+{/* <Card */}
+{/*     title="⚡ Quick Usage" */}
+{/*     icon="bolt-lightning" */}
+{/* > */}
 
-```dart context icon="water" lines
-// Mobile vs. Desktop
-final iconSize = context.isMobile ? 24.0 : 32.0;
+{/* ```dart context icon="water" lines */}
+{/* // Mobile vs. Desktop */}
+{/* final iconSize = context.isMobile ? 24.0 : 32.0; */}
 
-// OS-specific UI
-if (context.isIOS) {
-  // Use Cupertino widgets
-}
-```
-</Card>
+{/* // OS-specific UI */}
+{/* if (context.isIOS) { */}
+{/*   // Use Cupertino widgets */}
+{/* } */}
+{/* ``` */}
+{/* </Card> */}
 
-### 📱 Platform Type
+<Steps titleSize="h3">
+    <Step title="📱 Platform Type">
+        {/*  isMobile */}
+        <ResponseField name="isMobile" type="bool">
 
-{/*  isMobile */}
-<ResponseField name="isMobile" type="bool">
+        Checks if the application is running on a mobile OS (Android or iOS).
 
-Checks if the application is running on a mobile OS (Android or iOS).
+        ```dart lines wrap
+        if (context.isMobile) { ... }
+        ```
+        </ResponseField>
 
-```dart context icon="water" lines wrap
-if (context.isMobile) { ... }
-```
-</ResponseField>
+        {/*  Desktop */}
+        <ResponseField name="isDesktop" type="bool">
 
-{/*  Desktop */}
-<ResponseField name="isDesktop" type="bool">
+        Checks if the application is running on a desktop OS (Windows, Linux, or macOS).
 
-Checks if the application is running on a desktop OS (Windows, Linux, or macOS).
+        ```dart lines wrap
+        if (context.isDesktop) {
+          // Use a wider, more complex sidebar layout
+        }
+        ```
+        </ResponseField>
+    </Step>
 
-```dart context icon="water" lines wrap
-if (context.isDesktop) {
-  // Use a wider, more complex sidebar layout
-}
-```
-</ResponseField>
+    <Step title="🍎 Specific Operating System">
+        {/* IOS */}
+        <ResponseField name="isIOS" type="bool">
 
-### 🍎 Specific Operating System
+        Checks if the application is running on an iOS device.
 
-{/* IOS */}
-<ResponseField name="isIOS" type="bool">
+        ```dart lines wrap
+        if (context.isIOS) { ... }
+        ```
+        </ResponseField>
 
-Checks if the application is running on an iOS device.
+        {/* Android */}
+        <ResponseField name="isAndroid" type="bool">
 
-```dart context icon="water" lines wrap
-if (context.isIOS) { ... }
-```
-</ResponseField>
+        Checks if the application is running on an Android device.
 
-{/* Android */}
-<ResponseField name="isAndroid" type="bool">
+        ```dart lines wrap
+        if (context.isAndroid) { ... }
+        ```
+        </ResponseField>
 
-Checks if the application is running on an Android device.
+        {/* MacOS */}
+        <ResponseField name="isMacOS" type="bool">
 
-```dart context icon="water" lines wrap
-if (context.isAndroid) { ... }
-```
-</ResponseField>
+        Checks if the application is running on a macOS desktop environment.
 
-{/* MacOS */}
-<ResponseField name="isMacOS" type="bool">
+        ```dart lines wrap
+        if (context.isMacOS) { ... }
+        ```
+        </ResponseField>
 
-Checks if the application is running on a macOS desktop environment.
+        {/* Widnows */}
+        <ResponseField name="isWindows" type="bool">
 
-```dart context icon="water" lines wrap
-if (context.isMacOS) { ... }
-```
-</ResponseField>
+        Checks if the application is running on a Windows desktop environment.
 
-{/* Widnows */}
-<ResponseField name="isWindows" type="bool">
+        ```dart lines wrap
+        if (context.isWindows) { ... }
+        ```
+        </ResponseField>
 
-Checks if the application is running on a Windows desktop environment.
+        {/* Linux */}
+        <ResponseField name="isLinux" type="bool">
 
-```dart context icon="water" lines wrap
-if (context.isWindows) { ... }
-```
-</ResponseField>
+        Checks if the application is running on a Linux desktop environment.
 
-{/* Linux */}
-<ResponseField name="isLinux" type="bool">
+        ```dart lines wrap
+        if (context.isLinux) { ... }
+        ```
+        </ResponseField>
 
-Checks if the application is running on a Linux desktop environment.
+        {/* isFuchsia */}
+        <ResponseField name="isFuchsia" type="bool">
 
-```dart context icon="water" lines wrap
-if (context.isLinux) { ... }
-```
-</ResponseField>
+        Checks if the application is running on the experimental Fuchsia OS.
 
-{/* isFuchsia */}
-<ResponseField name="isFuchsia" type="bool">
-
-Checks if the application is running on the experimental Fuchsia OS.
-
-```dart context icon="water" lines wrap
-if (context.isFuchsia) { ... }
-```
-</ResponseField>
+        ```dart lines wrap
+        if (context.isFuchsia) { ... }
+        ```
+        </ResponseField>
+    </Step>
+</Steps>

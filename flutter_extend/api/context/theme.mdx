@@ -6,71 +6,73 @@ description: "Instantly retrieve your application's ThemeData, ColorScheme, and 
 keywords: ['context', 'Build Context', 'BuildContext', 'Theme', 'ColorScheme', 'TextTheme', 'ThemeData']
 ---
 
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
+{/* <Card */}
+{/*     title="⚡ Quick Usage" */}
+{/*     icon="bolt-lightning" */}
+{/* > */}
 
-```dart context icon="water" lines
-// Colors
-final primaryColor = context.colorScheme.primary;
+{/* ```dart context icon="water" lines */}
+{/* // Colors */}
+{/* final primaryColor = context.colorScheme.primary; */}
 
-// Text Style
-Text('Title', style: context.textTheme.headlineMedium);
+{/* // Text Style */}
+{/* Text('Title', style: context.textTheme.headlineMedium); */}
 
-// Full Theme
-final scaffoldColor = context.theme.scaffoldBackgroundColor;
-```
-</Card>
+{/* // Full Theme */}
+{/* final scaffoldColor = context.theme.scaffoldBackgroundColor; */}
+{/* ``` */}
+{/* </Card> */}
 
-### 🖼️ Primary Access
+<Steps titleSize="h3">
+    <Step title="🖼️ Primary Access">
+        {/*  ThemeData */}
+        <ResponseField name="theme" type="ThemeData">
 
-{/*  ThemeData */}
-<ResponseField name="theme" type="ThemeData">
+        Retrieves the entire application's `ThemeData`. The top-level shortcut for any theme property.
 
-Retrieves the entire application's `ThemeData`. The top-level shortcut for any theme property.
+        ```dart lines wrap
+        final background = context.theme.scaffoldBackgroundColor;
+        ```
+        </ResponseField>
 
-```dart context icon="water" lines wrap
-final background = context.theme.scaffoldBackgroundColor;
-```
-</ResponseField>
+        {/*  ColorScheme */}
+        <ResponseField name="colorScheme" type="ColorScheme">
 
-{/*  ColorScheme */}
-<ResponseField name="colorScheme" type="ColorScheme">
+        Retrieves the application's primary `ColorScheme`. Recommended for accessing semantic colors like `primary`, `error`, and `surface`.
 
-Retrieves the application's primary `ColorScheme`. Recommended for accessing semantic colors like `primary`, `error`, and `surface`.
+        ```dart lines wrap
+        Container(
+          color: context.colorScheme.primary,
+        );
+        ```
+        </ResponseField>
+    </Step>
 
-```dart context icon="water" lines wrap
-Container(
-  color: context.colorScheme.primary,
-);
-```
-</ResponseField>
+    <Step title="✒️ Typography & Icons">
+        {/* TextTheme */}
+        <ResponseField name="textTheme" type="TextTheme">
 
-### ✒️ Typography & Icons
+        Retrieves the application's primary `TextTheme`. Provides quick access to standard styles (e.g., `headline`, `title`, `body`).
 
-{/* TextTheme */}
-<ResponseField name="textTheme" type="TextTheme">
+        ```dart lines wrap
+        Text(
+          "Welcome",
+          style: context.textTheme.headlineLarge,
+        );
+        ```
+        </ResponseField>
 
-Retrieves the application's primary `TextTheme`. Provides quick access to standard styles (e.g., `headline`, `title`, `body`).
+        {/* IconThemeData */}
+        <ResponseField name="iconTheme" type="IconThemeData">
 
-```dart context icon="water" lines wrap
-Text(
-  "Welcome",
-  style: context.textTheme.headlineLarge,
-);
-```
-</ResponseField>
+        Retrieves the application's primary `IconThemeData`. Use this to find the default color and size for your icons.
 
-{/* IconThemeData */}
-<ResponseField name="iconTheme" type="IconThemeData">
-
-Retrieves the application's primary `IconThemeData`. Use this to find the default color and size for your icons.
-
-```dart context icon="water" lines wrap
-Icon(
-  Icons.star,
-  color: context.iconTheme.color,
-);
-```
-</ResponseField>
+        ```dart lines wrap
+        Icon(
+          Icons.star,
+          color: context.iconTheme.color,
+        );
+        ```
+        </ResponseField>
+    </Step>
+</Steps>

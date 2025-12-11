@@ -6,121 +6,91 @@ description: "Tame the keyboard and control widget focus order directly from Bui
 keywords: ['context', 'Build Context', 'BuildContext', 'Build']
 ---
 
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
+{/* <Card */}
+{/*     title="⚡ Quick Usage" */}
+{/*     icon="bolt-lightning" */}
+{/* > */}
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    // Navigation
-    context.nextFocus();
+{/* <CodeBlock */}
+{/*     filename="context" */}
+{/*     language="dart" */}
+{/*     icon="water" */}
+{/*     wrap="true" */}
+{/*     lines="true" */}
+{/*     expandable="false" */}
+{/* > */}
+{/*     // Navigation */}
+{/*     context.nextFocus(); */}
 
-    // Dismissal
-    context.unFocus();
+{/*     // Dismissal */}
+{/*     context.unFocus(); */}
 
-    // Specific Focus
-    context.requestFocus(myFocusNode);
-</CodeBlock>
+{/*     // Specific Focus */}
+{/*     context.requestFocus(myFocusNode); */}
+{/* </CodeBlock> */}
 
-</Card>
+{/* </Card> */}
 
-### 🔍 Focus Scope Access
+<Steps titleSize="h3">
+    <Step title="🔍 Focus Scope Access">
+        {/*  Focus Scope Access */}
+        <ResponseField name="focusScope" type="FocusScopeNode">
 
-{/*  Focus Scope Access */}
-<ResponseField name="focusScope" type="FocusScopeNode">
+        The underlying node that manages the focus for the current widget tree. Use it for advanced focus inspection.
 
-The underlying node that manages the focus for the current widget tree. Use it for advanced focus inspection.
+        ```dart lines wrap
+        final scope = context.focusScope;
+        ```
+        </ResponseField>
+    </Step>
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    final scope = context.focusScope;
-</CodeBlock>
-</ResponseField>
+    <Step title="🚀 Navigation & Control">
+        {/* Navigation */}
+        <ResponseField name="nextFocus()" type="void">
 
-### 🚀 Navigation & Control
+        Moves the focus to the next focusable widget in the traversal order. Essential for smooth form submission flow.
 
-{/* Navigation */}
-<ResponseField name="nextFocus()" type="void">
+        ```dart lines wrap
+        TextField(onSubmitted: (_) => context.nextFocus());
+        ```
+        </ResponseField>
 
-Moves the focus to the next focusable widget in the traversal order. Essential for smooth form submission flow.
+        {/* Prev */}
+        <ResponseField name="prevFocus()" type="void">
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    TextField(onSubmitted: (_) => context.nextFocus());
-</CodeBlock>
-</ResponseField>
+        Moves the focus to the *previous* focusable widget in the traversal order. Useful for implementing "back" logic in forms.
 
-{/* Prev */}
-<ResponseField name="prevFocus()" type="void">
+        ```dart lines wrap
+        ElevatedButton(
+            onPressed: () => context.prevFocus(),
+            child: Text('Previous')
+        );
+        ```
+        </ResponseField>
 
-Moves the focus to the *previous* focusable widget in the traversal order. Useful for implementing "back" logic in forms.
+        {/* Request */}
+        <ResponseField name="requestFocus(FocusNode focusNode)" type="void">
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    ElevatedButton(onPressed: () => context.prevFocus(), child: Text('Previous'));
-</CodeBlock>
-</ResponseField>
+        Instantly transfers focus to a specific, non-sequential `FocusNode`.
 
-{/* Request */}
-<ResponseField name="requestFocus(FocusNode focusNode)" type="void">
+        ```dart lines wrap
+        final specificNode = FocusNode();
+        `{...}`
+        context.requestFocus(specificNode);
+        ```
+        </ResponseField>
 
-Instantly transfers focus to a specific, non-sequential `FocusNode`.
+        {/* Unfocus */}
+        <ResponseField name="unFocus()" type="void">
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    final specificNode = FocusNode();
-    `{...}`
-    context.requestFocus(specificNode);
-</CodeBlock>
-</ResponseField>
+        The Keyboard Slayer. Dismisses the software keyboard and removes focus from any active field.
 
-{/* Unfocus */}
-<ResponseField name="unFocus()" type="void">
-
-The Keyboard Slayer. Dismisses the software keyboard and removes focus from any active field.
-
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    ElevatedButton(
-      onPressed: () => context.unFocus(),
-      child: Text('Done'),
-    );
-</CodeBlock>
-</ResponseField>
+        ```dart lines wrap
+        ElevatedButton(
+            onPressed: () => context.unFocus(),
+            child: Text('Done'),
+        );
+        ```
+        </ResponseField>
+    </Step>
+</Steps>

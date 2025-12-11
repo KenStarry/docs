@@ -6,178 +6,105 @@ description: "Eliminate boilerplate and access screen metrics, orientation, and 
 keywords: ['context', 'Build Context', 'BuildContext', 'Build']
 ---
 
-### 📐 Screen Dimensions
-Utilities to get screen size without strict `MediaQuery` boilerplate.
+<Steps titleSize="h3">
+    <Step title="📐 Screen Dimensions">
+        {/*  Screen Size */}
+        <ResponseField name="screenSize" type="double">
+        The total size of the screen. Equivalent to `MediaQuery.sizeOf(context).`
 
-{/*  Screen Size */}
-<ResponseField name="screenSize" type="double">
-The total size of the screen. Equivalent to `MediaQuery.sizeOf(context).`
+        ```dart lines wrap
+        final width = context.screenSize;
+        ```
+        </ResponseField>
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    final width = context.screenSize;
-</CodeBlock>
-</ResponseField>
+        {/*  Screen Width */}
+        <ResponseField name="screenWidth" type="double">
+        The width of the screen in logical pixels.
 
-{/*  Screen Width */}
-<ResponseField name="screenWidth" type="double">
-The width of the screen in logical pixels.
+        ```dart lines wrap
+        final width = context.screenWidth;
+        ```
+        </ResponseField>
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    final width = context.screenWidth;
-</CodeBlock>
+        {/*  Screen Height */}
+        <ResponseField name="screenHeight" type="double">
+        The height of the screen in logical pixels.
 
-</ResponseField>
+        ```dart lines wrap
+        // Dynamically size a container to half the screen height
+        Container(height: context.screenHeight * 0.5);
+        ```
+        </ResponseField>
+    </Step>
 
-{/*  Screen Height */}
-<ResponseField name="screenHeight" type="double">
-The height of the screen in logical pixels.
+    <Step title="🧭 Orientation">
+        {/*  Screen Orientation */}
+        <ResponseField name="orientation" type="Orientation">
+        Current device orientation (`portrait` or `landscape`)
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    // Dynamically size a container to half the screen height
-    Container(height: context.screenHeight * 0.5);
-</CodeBlock>
-</ResponseField>
+        ```dart lines wrap
+        Orientation currentOrientation = context.orientation;
+        ```
+        </ResponseField>
 
-### 🧭 Orientation
+        {/*  Screen Orientation */}
+        <ResponseField name="isLandscape" type="bool">
+        Returns `true` if the device is in landscape mode.
 
-{/*  Screen Orientation */}
-<ResponseField name="orientation" type="Orientation">
-Current device orientation (`portrait` or `landscape`)
+        ```dart lines wrap
+        bool wideMode = context.isLandscape;
+        ```
+        </ResponseField>
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    Orientation currentOrientation = context.orientation;
-</CodeBlock>
-</ResponseField>
+        {/*  Screen Orientation */}
+        <ResponseField name="isPortrait" type="bool">
+        Returns `true` if the device is in portrait mode.
 
-{/*  Screen Orientation */}
-<ResponseField name="isLandscape" type="bool">
-Returns `true` if the device is in landscape mode.
+        ```dart lines wrap
+        bool tallMode = context.isPortrait;
+        ```
+        </ResponseField>
+    </Step>
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    bool wideMode = context.isLandscape;
-</CodeBlock>
-</ResponseField>
+    <Step title="🎨 Theme & System">
+        {/*  Dark Mode */}
+        <ResponseField name="isDarkMode" type="bool">
 
-{/*  Screen Orientation */}
-<ResponseField name="isPortrait" type="bool">
-Returns `true` if the device is in portrait mode.
+        Returns `true` if the system theme is dark.
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    bool tallMode = context.isPortrait;
-</CodeBlock>
-</ResponseField>
+        ```dart lines wrap
+         final color = context.isDarkMode ? Colors.white : Colors.black;
+        ```
+        </ResponseField>
 
-### 🎨 Theme & System
+        {/*  Brightness */}
+        <ResponseField name="brightness" type="Brightness">
 
-{/*  Dark Mode */}
-<ResponseField name="isDarkMode" type="bool">
+        The current platform brightness (light or dark).
 
-Returns `true` if the system theme is dark.
+        ```dart lines wrap
+         Brightness current = context.brightness;
+        ```
+        </ResponseField>
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    final color = context.isDarkMode ? Colors.white : Colors.black;
-</CodeBlock>
-</ResponseField>
+        {/*  Safe Padding */}
+        <ResponseField name="safePadding" type="EdgeInsets">
 
-{/*  Brightness */}
-<ResponseField name="brightness" type="Brightness">
+        Safe area padding (e.g., for notches or Dynamic Island).
 
-The current platform brightness (light or dark).
+        ```dart lines wrap
+        Padding(padding: context.safePadding, child: ...);
+        ```
+        </ResponseField>
 
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    Brightness current = context.brightness;
-</CodeBlock>
-</ResponseField>
+        {/*  Keyboard Visibility */}
+        <ResponseField name="isKeyboardVisible" type="bool">
 
-{/*  Safe Padding */}
-<ResponseField name="safePadding" type="EdgeInsets">
+        Returns `true` if the software keyboard is currently visible (bottom view insets > 0).
 
-Safe area padding (e.g., for notches or Dynamic Island).
-
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    Padding(padding: context.safePadding, child: ...);
-</CodeBlock>
-
-</ResponseField>
-
-{/*  Keyboard Visibility */}
-<ResponseField name="isKeyboardVisible" type="bool">
-
-Returns `true` if the software keyboard is currently visible (bottom view insets > 0).
-
-<CodeBlock
-    filename="context"
-    language="dart"
-    icon="water"
-    wrap="true"
-    lines="true"
-    expandable="false"
->
-    if (context.isKeyboardVisible) FocusScope.of(context).unfocus();
-</CodeBlock>
-
-</ResponseField>
-
+        ```dart lines wrap
+        if (context.isKeyboardVisible) FocusScope.of(context).unfocus();
+        ```
+        </ResponseField>
+    </Step>
+</Steps>
