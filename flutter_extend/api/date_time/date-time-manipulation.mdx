@@ -6,139 +6,130 @@ description: "Simplified methods for adding/subtracting days, months, and years,
 keywords: ['Flutter Date', 'Time', 'Date', 'DateTime', 'Flutter', "Format", "Calendar"]
 ---
 
-<Warning>
-Be cautious with `addMonths` and `addYears`. Dart's `DateTime` constructor handles invalid days (like Feb 30th) by overflowing to the next month/year. Always test edge cases (e.g., Jan 31st + 1 month = Mar 3rd).
-</Warning>
+<Steps titleSize="h3">
+    <Step title="🗓️ Simple Duration">
+        {/*  ------------------ */}
+        <ResponseField name="addDays(int days)" type="DateTime">
 
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
+        <Card>
+            <ParamField body="days" type="int" required>
+                The number of days to add to the current `date`.
+            </ParamField>
+        </Card>
 
-```dart DateTime icon="calendar" lines wrap
-// Simple
-final futureDate = DateTime.now().addDays(5);
+        Adds a number of days to the current `DateTime` object.
 
-// Business Days (Skips Weekends!)
-final nextWorkDay = DateTime(2025, 11, 28).addBusinessDays(1);
-```
-</Card>
+        ```dart lines wrap
+        final futureDate = DateTime.now().addDays(5);
+        ```
+        </ResponseField>
 
-### 🗓️ Simple Duration
-{/*  ------------------ */}
-<ResponseField name="addDays(int days)" type="DateTime">
+        {/*  ------------------ */}
+        <ResponseField name="subtractDays(int days)" type="DateTime">
 
-<Card>
-    <ParamField body="days" type="int" required>
-        The number of days to add to the current `date`.
-    </ParamField>
-</Card>
+        <Card>
+            <ParamField body="days" type="int" required>
+                The number of days to subtract from the current `date`.
+            </ParamField>
+        </Card>
 
-Adds a number of days to the current `DateTime` object.
+        Subtracts a number of days from the current `DateTime` object.
 
-```dart DateTime icon="calendar" lines wrap
-final futureDate = DateTime.now().addDays(5);
-```
-</ResponseField>
+        ```dart lines wrap
+        final pastDate = DateTime.now().subtractDays(10);
+        ```
+        </ResponseField>
+    </Step>
 
-{/*  ------------------ */}
-<ResponseField name="subtractDays(int days)" type="DateTime">
+    <Step title="📅 Calendar Components (Use with Caution)">
 
-<Card>
-    <ParamField body="days" type="int" required>
-        The number of days to subtract from the current `date`.
-    </ParamField>
-</Card>
+        <Warning>
+        Be cautious with `addMonths` and `addYears`. Dart's `DateTime` constructor handles invalid days (like Feb 30th) by overflowing to the next month/year. Always test edge cases (e.g., Jan 31st + 1 month = Mar 3rd).
+        </Warning>
 
-Subtracts a number of days from the current `DateTime` object.
+        {/*  ------------------ */}
+        <ResponseField name="addMonths(int months)" type="DateTime">
 
-```dart DateTime icon="calendar" lines wrap
-final pastDate = DateTime.now().subtractDays(10);
-```
-</ResponseField>
+        <Card>
+            <ParamField body="months" type="int" required>
+                The number of months to add to the current `date`.
+            </ParamField>
+        </Card>
 
-### 📅 Calendar Components (Use with Caution)
-{/*  ------------------ */}
-<ResponseField name="addMonths(int months)" type="DateTime">
+        Adds a number of months. (_Warning: Susceptible to date overflow errors._)
 
-<Card>
-    <ParamField body="months" type="int" required>
-        The number of months to add to the current `date`.
-    </ParamField>
-</Card>
+        ```dart lines wrap
+        // Goes from March 15th to June 15th
+        final newDate = DateTime(2025, 3, 15).addMonths(3);
+        ```
+        </ResponseField>
 
-Adds a number of months. (_Warning: Susceptible to date overflow errors._)
+        {/*  ------------------ */}
+        <ResponseField name="subtractMonths(int months)" type="DateTime">
 
-```dart DateTime icon="calendar" lines wrap
-// Goes from March 15th to June 15th
-final newDate = DateTime(2025, 3, 15).addMonths(3);
-```
-</ResponseField>
+        <Card>
+            <ParamField body="months" type="int" required>
+                The number of months to subtract from the current `date`.
+            </ParamField>
+        </Card>
 
-{/*  ------------------ */}
-<ResponseField name="subtractMonths(int months)" type="DateTime">
+        Subtracts a number of months. (_Warning: Susceptible to date overflow errors._)
 
-<Card>
-    <ParamField body="months" type="int" required>
-        The number of months to subtract from the current `date`.
-    </ParamField>
-</Card>
+        ```dart lines wrap
+        // Goes from May 20th to February 20th
+        final pastDate = DateTime(2025, 5, 20).subtractMonths(3);
+        ```
+        </ResponseField>
 
-Subtracts a number of months. (_Warning: Susceptible to date overflow errors._)
+        {/*  ------------------ */}
+        <ResponseField name="addYears(int years)" type="DateTime">
 
-```dart DateTime icon="calendar" lines wrap
-// Goes from May 20th to February 20th
-final pastDate = DateTime(2025, 5, 20).subtractMonths(3);
-```
-</ResponseField>
+        <Card>
+            <ParamField body="years" type="int" required>
+                The number of years to add to the current `date`.
+            </ParamField>
+        </Card>
 
-{/*  ------------------ */}
-<ResponseField name="addYears(int years)" type="DateTime">
+        Adds a number of years. (_Warning: Be mindful of leap years._)
 
-<Card>
-    <ParamField body="years" type="int" required>
-        The number of years to add to the current `date`.
-    </ParamField>
-</Card>
+        ```dart lines wrap
+        final futureYear = DateTime.now().addYears(5);
+        ```
+        </ResponseField>
 
-Adds a number of years. (_Warning: Be mindful of leap years._)
+        {/*  ------------------ */}
+        <ResponseField name="subtractYears(int years)" type="DateTime">
 
-```dart DateTime icon="calendar" lines wrap
-final futureYear = DateTime.now().addYears(5);
-```
-</ResponseField>
+        <Card>
+            <ParamField body="years" type="int" required>
+                The number of years to subtract from the current `date`.
+            </ParamField>
+        </Card>
 
-{/*  ------------------ */}
-<ResponseField name="subtractYears(int years)" type="DateTime">
+        Subtracts a number of years. (_Warning: Be mindful of leap years._)
 
-<Card>
-    <ParamField body="years" type="int" required>
-        The number of years to subtract from the current `date`.
-    </ParamField>
-</Card>
+        ```dart lines wrap
+        final pastYear = DateTime.now().subtractYears(2);
+        ```
+        </ResponseField>
+    </Step>
 
-Subtracts a number of years. (_Warning: Be mindful of leap years._)
+    <Step title="💼 Business Days">
+        {/*  ------------------ */}
+        <ResponseField name="addBusinessDays(int days)" type="DateTime">
 
-```dart DateTime icon="calendar" lines wrap
-final pastYear = DateTime.now().subtractYears(2);
-```
-</ResponseField>
+        <Card>
+            <ParamField body="days" type="int" required>
+               The number of business days to add.
+            </ParamField>
+        </Card>
 
-### 💼 Business Days
+        Adds a number of business days (Monday to Friday) to the current `date`, automatically skipping weekends.
 
-{/*  ------------------ */}
-<ResponseField name="addBusinessDays(int days)" type="DateTime">
-
-<Card>
-    <ParamField body="days" type="int" required>
-       The number of business days to add.
-    </ParamField>
-</Card>
-
-Adds a number of business days (Monday to Friday) to the current `date`, automatically skipping weekends.
-
-```dart DateTime icon="calendar" lines wrap
-// If today is Friday, adding 1 business day results in Monday.
-final nextWorkDay = DateTime(2025, 11, 28).addBusinessDays(1);
-```
-</ResponseField>
+        ```dart lines wrap
+        // If today is Friday, adding 1 business day results in Monday.
+        final nextWorkDay = DateTime(2025, 11, 28).addBusinessDays(1);
+        ```
+        </ResponseField>
+    </Step>
+</Steps>

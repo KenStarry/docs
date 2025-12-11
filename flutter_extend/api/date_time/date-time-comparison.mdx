@@ -6,75 +6,78 @@ description: "Instantly check if a DateTime falls on today, yesterday, tomorrow,
 keywords: ['Flutter Date', 'Time', 'Date', 'DateTime', 'Flutter', "Format", "Calendar"]
 ---
 
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
+{/* <Card */}
+{/*     title="⚡ Quick Usage" */}
+{/*     icon="bolt-lightning" */}
+{/* > */}
 
-```dart DateTime icon="calendar" lines wrap
-// Check relative to today
-final isYesterday = myDate.isYesterday();
+{/* ```dart DateTime icon="calendar" lines wrap */}
+{/* // Check relative to today */}
+{/* final isYesterday = myDate.isYesterday(); */}
 
-// Check relative to the current moment
-if (myDate.isFuture()) {
-  // Show a reminder
-}
-```
-</Card>
+{/* // Check relative to the current moment */}
+{/* if (myDate.isFuture()) { */}
+{/*   // Show a reminder */}
+{/* } */}
+{/* ``` */}
+{/* </Card> */}
 
-### 📅 Relative to Today
-{/*  ------------------ */}
-<ResponseField name="isToday()" type="bool">
+<Steps titleSize="h3">
+    <Step title="📅 Relative to Today">
+        {/*  ------------------ */}
+        <ResponseField name="isToday()" type="bool">
 
-Checks if the date falls on the exact same calendar day as today (time ignored).
+        Checks if the date falls on the exact same calendar day as today (time ignored).
 
-```dart DateTime icon="calendar" lines wrap
-final today = DateTime.now();
-print(today.isToday()); // true
-```
-</ResponseField>
+        ```dart lines wrap
+        final today = DateTime.now();
+        print(today.isToday()); // true
+        ```
+        </ResponseField>
 
-{/*  ------------------ */}
-<ResponseField name="isYesterday()" type="bool">
+        {/*  ------------------ */}
+        <ResponseField name="isYesterday()" type="bool">
 
-Checks if the date was exactly one calendar day before today (time ignored).
+        Checks if the date was exactly one calendar day before today (time ignored).
 
-```dart DateTime icon="calendar" lines wrap
-final yesterday = myDate.subtract(const Duration(days: 1));
-print(yesterday.isYesterday()); // true
-```
-</ResponseField>
+        ```dart lines wrap
+        final yesterday = myDate.subtract(const Duration(days: 1));
+        print(yesterday.isYesterday()); // true
+        ```
+        </ResponseField>
 
-{/*  ------------------ */}
-<ResponseField name="isTomorrow()" type="bool">
+        {/*  ------------------ */}
+        <ResponseField name="isTomorrow()" type="bool">
 
-Checks if the date is exactly one calendar day after today (time ignored).
+        Checks if the date is exactly one calendar day after today (time ignored).
 
-```dart DateTime icon="calendar" lines wrap
-final tomorrow = myDate.add(const Duration(days: 1));
-print(tomorrow.isTomorrow()); // true
-```
-</ResponseField>
+        ```dart lines wrap
+        final tomorrow = myDate.add(const Duration(days: 1));
+        print(tomorrow.isTomorrow()); // true
+        ```
+        </ResponseField>
+    </Step>
 
-### ⏳ Relative to Now
+    <Step title="⏳ Relative to Now">
+        {/*  ------------------ */}
+        <ResponseField name="isPast()" type="bool">
 
-{/*  ------------------ */}
-<ResponseField name="isPast()" type="bool">
+        Checks if the moment is in the past relative to the current system time (`DateTime.now()`).
 
-Checks if the moment is in the past relative to the current system time (`DateTime.now()`).
+        ```dart DateTime icon="calendar" lines wrap
+        print(DateTime(2000, 1, 1).isPast()); // true
+        ```
+        </ResponseField>
 
-```dart DateTime icon="calendar" lines wrap
-print(DateTime(2000, 1, 1).isPast()); // true
-```
-</ResponseField>
+        {/*  ------------------ */}
+        <ResponseField name="isFuture()" type="bool">
 
-{/*  ------------------ */}
-<ResponseField name="isFuture()" type="bool">
+        Checks if the moment is in the future relative to the current system time (`DateTime.now()`).
 
-Checks if the moment is in the future relative to the current system time (`DateTime.now()`).
-
-```dart DateTime icon="calendar" lines wrap
-final reminder = DateTime.now().add(const Duration(hours: 1));
-print(reminder.isFuture()); // true
-```
-</ResponseField>
+        ```dart DateTime icon="calendar" lines wrap
+        final reminder = DateTime.now().add(const Duration(hours: 1));
+        print(reminder.isFuture()); // true
+        ```
+        </ResponseField>
+    </Step>
+</Steps>
