@@ -5,67 +5,50 @@ icon: "forward"
 description: "Execute multiple Futures simultaneously with a concurrency limit. Choose between prioritizing speed (unordered results) or index preservation (ordered results)."
 keywords: ['Flutter Futures', 'Futures', 'Async', 'Await', 'Flutter']
 ---
-<Card
-    title="⚡ Quick Usage"
-    icon="bolt-lightning"
->
 
-```dart Futures icon="forward" lines wrap
-final futures = [fetch1(), fetch2(), fetch3(), fetch4()];
+<Steps titleSize="h3">
+    <Step title="🏎️ Throughput Priority (Unordered)">
+        {/*  ------------------ */}
+        <ResponseField name="runWithLimit(int limit)" type="Future<List<T>>" post={["async"]}>
 
-// Prioritizes speed (results may be out of order)
-final results = await futures.runWithLimit(2);
+        <Card>
+            <ParamField body="limit" type="int" required>
+                The maximum number of `Futures` to run simultaneously.
+            </ParamField>
+        </Card>
 
-// Prioritizes order (slower, but results[0] matches fetch1's result)
-final orderedResults = await futures.runWithLimitOrdered(2);
-```
-</Card>
+        Executes multiple Futures concurrently with a maximum limit. When one finishes, the next is immediately launched.
 
-### 🏎️ Throughput Priority (Unordered)
-{/*  ------------------ */}
-<ResponseField name="runWithLimit(int limit)" type="Future<List<T>>" post={["async"]}>
+        ```dart lines wrap
+        // Runs 2 at a time. If fetch2 finishes before fetch1,
+        // results will be [result2, result1, ...].
+        final results = await futures.runWithLimit(2);
+        ```
+        <Note>
+            The results are ordered by completion time and are not guaranteed to match the input iterable's order. Prioritize this for maximum speed.
+        </Note>
+        </ResponseField>
+    </Step>
 
-<Card>
-    <ParamField body="limit" type="int" required>
-        The maximum number of `Futures` to run simultaneously.
-    </ParamField>
-</Card>
+    <Step title="✍️ Order Preservation">
+        {/*  ------------------ */}
+        <ResponseField name="runWithLimitOrdered(int limit)" type="Future<List<T>>" post={["async"]}>
 
-Executes multiple Futures concurrently with a maximum limit. When one finishes, the next is immediately launched.
+        <Card>
+            <ParamField body="limit" type="int" required>
+                The maximum number of `Futures` to run simultaneously.
+            </ParamField>
+        </Card>
 
-<CodeGroup>
-    ```dart Futures icon="forward" lines wrap
-    // Runs 2 at a time. If fetch2 finishes before fetch1,
-    // results will be [result2, result1, ...].
-    final results = await futures.runWithLimit(2);
-    ```
-</CodeGroup>
-<Note>
-    The results are ordered by completion time and are not guaranteed to match the input iterable's order. Prioritize this for maximum speed.
-</Note>
-</ResponseField>
+        Executes multiple Futures concurrently while guaranteeing the final list order matches the original input iterable's index.
 
-### ✍️ Order Preservation
-
-{/*  ------------------ */}
-<ResponseField name="runWithLimitOrdered(int limit)" type="Future<List<T>>" post={["async"]}>
-
-<Card>
-    <ParamField body="limit" type="int" required>
-        The maximum number of `Futures` to run simultaneously.
-    </ParamField>
-</Card>
-
-Executes multiple Futures concurrently while guaranteeing the final list order matches the original input iterable's index.
-
-<CodeGroup>
-    ```dart Futures icon="forward" lines wrap
-    // Final result order is always [result1, result2, result3].
-    final orderedResults = await futures.runWithLimitOrdered(2);
-    ```
-</CodeGroup>
-<Note>
-     This requires slightly more internal complexity to manage the results, making it marginally slower but ensuring index reliability.
-</Note>
-</ResponseField>
-
+        ```dart lines wrap
+        // Final result order is always [result1, result2, result3].
+        final orderedResults = await futures.runWithLimitOrdered(2);
+        ```
+        <Note>
+             This requires slightly more internal complexity to manage the results, making it marginally slower but ensuring index reliability.
+        </Note>
+        </ResponseField>
+    </Step>
+</Steps>
