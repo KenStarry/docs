@@ -4,7 +4,7 @@
   "name": "Starry Hub",
   "description": "Starry Hub is your go-to hub for Flutter development, featuring innovative Flutter Extend packages, practical coding tutorials, and productivity-boosting extensions. Explore comprehensive guides, clean code examples, and developer tools designed to accelerate your Flutter projects and master mobile app development.",
   "banner": {
-    "content": "🚀 Flutter_Extend Version **0.2.1** is now live! See our [changelog](/flutter_extend_docs/changelog/changelog) for details.",
+    "content": "🚀 Flutter_Extend Version **0.2.1** is now live! See our [changelog](/flutter_extend/changelog/changelog) for details.",
     "dismissible": true
   },
   "colors": {
@@ -53,65 +53,65 @@
           {
             "item": "Flutter_Extend",
             "pages": [
-              "flutter_extend_docs/introduction",
+              "flutter_extend/introduction",
               {
                 "group": "Get Started",
                 "pages": [
-                  "flutter_extend_docs/installation"
+                  "flutter_extend/installation"
                 ]
               },
               {
                 "group": "Animations",
                 "pages": [
-                  "flutter_extend_docs/api/animations/fade",
-                  "flutter_extend_docs/api/animations/pulse",
-                  "flutter_extend_docs/api/animations/shake"
+                  "flutter_extend/api/animations/fade",
+                  "flutter_extend/api/animations/pulse",
+                  "flutter_extend/api/animations/shake"
                 ]
               },
               {
                 "group": "Build Context",
                 "pages": [
-                  "flutter_extend_docs/api/context/focus",
-                  "flutter_extend_docs/api/context/media-query",
-                  "flutter_extend_docs/api/context/navigator",
-                  "flutter_extend_docs/api/context/platform",
-                  "flutter_extend_docs/api/context/theme"
+                  "flutter_extend/api/context/focus",
+                  "flutter_extend/api/context/media-query",
+                  "flutter_extend/api/context/navigator",
+                  "flutter_extend/api/context/platform",
+                  "flutter_extend/api/context/theme"
                 ]
               },
               {
                 "group": "Colors",
                 "pages": [
-                  "flutter_extend_docs/api/colors/colors"
+                  "flutter_extend/api/colors/colors"
                 ]
               },
               {
                 "group": "Date & Time",
                 "pages": [
-                  "flutter_extend_docs/api/date_time/date-time-comparison",
-                  "flutter_extend_docs/api/date_time/date-time-formatting",
-                  "flutter_extend_docs/api/date_time/date-time-manipulation"
+                  "flutter_extend/api/date_time/date-time-comparison",
+                  "flutter_extend/api/date_time/date-time-formatting",
+                  "flutter_extend/api/date_time/date-time-manipulation"
                 ]
               },
               {
                 "group": "Extend Generators",
                 "pages": [
-                  "flutter_extend_docs/api/generators/extend-generator",
-                  "flutter_extend_docs/api/generators/int-generator",
-                  "flutter_extend_docs/api/generators/string-generator"
+                  "flutter_extend/api/generators/extend-generator",
+                  "flutter_extend/api/generators/int-generator",
+                  "flutter_extend/api/generators/string-generator"
                 ]
               },
               {
                 "group": "Files",
                 "pages": [
-                  "flutter_extend_docs/api/files/files"
+                  "flutter_extend/api/files/files"
                 ]
               },
               {
                 "group": "Futures",
                 "pages": [
-                  "flutter_extend_docs/api/futures/general-futures",
-                  "flutter_extend_docs/api/futures/iterable-futures",
-                  "flutter_extend_docs/api/futures/string-futures"
+                  "flutter_extend/api/futures/general-futures",
+                  "flutter_extend/api/futures/iterable-futures",
+                  "flutter_extend/api/futures/string-futures"
                 ]
               },
               {
@@ -123,38 +123,38 @@
               {
                 "group": "Lists",
                 "pages": [
-                  "flutter_extend_docs/api/lists/list-access",
-                  "flutter_extend_docs/api/lists/list-transform"
+                  "flutter_extend/api/lists/list-access",
+                  "flutter_extend/api/lists/list-transform"
                 ]
               },
               {
                 "group": "Number",
                 "pages": [
-                  "flutter_extend_docs/api/number/currency",
-                  "flutter_extend_docs/api/number/duration"
+                  "flutter_extend/api/number/currency",
+                  "flutter_extend/api/number/duration"
                 ]
               },
               {
                 "group": "String",
                 "pages": [
-                  "flutter_extend_docs/api/string/currency",
-                  "flutter_extend_docs/api/string/regex",
-                  "flutter_extend_docs/api/string/string-formatter",
-                  "flutter_extend_docs/api/string/string-transformer",
-                  "flutter_extend_docs/api/string/string-validation"
+                  "flutter_extend/api/string/currency",
+                  "flutter_extend/api/string/regex",
+                  "flutter_extend/api/string/string-formatter",
+                  "flutter_extend/api/string/string-transformer",
+                  "flutter_extend/api/string/string-validation"
                 ]
               },
               {
                 "group": "Widgets",
                 "pages": [
-                  "flutter_extend_docs/api/widget/scaffold",
-                  "flutter_extend_docs/api/widget/text",
-                  "flutter_extend_docs/api/widget/widgets"
+                  "flutter_extend/api/widget/scaffold",
+                  "flutter_extend/api/widget/text",
+                  "flutter_extend/api/widget/widgets"
                 ]
               },
-              "flutter_extend_docs/changelog/changelog",
-              "flutter_extend_docs/contributors/contributors",
-              "flutter_extend_docs/license"
+              "flutter_extend/changelog/changelog",
+              "flutter_extend/contributors/contributors",
+              "flutter_extend/license"
             ]
           }
         ]
