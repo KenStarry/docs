@@ -39,8 +39,8 @@
 
   "redirects": [
     {
-      "source": "https://starrycodes.mintlify.app/flutter_extend_docs/",
-      "destination": "https://starrycodes.mintlify.app/flutter_extend/"
+      "source": "https://starrycodes.mintlify.app/flutter_extend_docs/introduction",
+      "destination": "https://starrycodes.mintlify.app/flutter_extend/introduction"
     }
   ],
 
