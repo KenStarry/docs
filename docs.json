@@ -50,7 +50,16 @@
         "tab": "Home",
         "icon": "home",
         "pages": [
-          "index"
+          "index",
+
+          "home/about"
+        ]
+      },
+      {
+        "tab": "Projects",
+        "icon": "layer-group",
+        "pages": [
+          "projects/projects"
         ]
       },
       {
@@ -119,12 +128,6 @@
                   "flutter_extend/api/futures/general-futures",
                   "flutter_extend/api/futures/iterable-futures",
                   "flutter_extend/api/futures/string-futures"
-                ]
-              },
-              {
-                "group": "Generators",
-                "pages": [
-
                 ]
               },
               {
