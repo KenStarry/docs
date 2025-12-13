@@ -37,6 +37,13 @@
     }
   },
 
+  "redirects": [
+    {
+      "source": "https://starrycodes.mintlify.app/flutter_extend_docs/",
+      "destination": "https://starrycodes.mintlify.app/flutter_extend/"
+    }
+  ],
+
   "navigation": {
     "tabs": [
       {
